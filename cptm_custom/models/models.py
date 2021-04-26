@@ -2,7 +2,6 @@
 
 from odoo import models, fields, api
 
-
 class cptm_custom(models.Model):
     _name = 'cptm_custom.cptm_custom'
     _description = 'cptm_custom.cptm_custom'

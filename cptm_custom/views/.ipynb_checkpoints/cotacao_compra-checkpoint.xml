@@ -1,0 +1,81 @@
+<odoo>
+  <data>
+      <!-- <menuitem name="cptm_custom"
+            id="menu_cotacao_root"
+            groups="group_cotacao_manager,group_cotacao_user"
+            sequence="25"/>
+        -->
+      
+    <!--   <menuitem id="menu_cotacao_management" name="cotação compra"
+            parent="menu_cotacao_root" sequence="1" />
+      
+       <record id="view_cotacao_list" model="ir.ui.view">
+            <field name="name">cptm_custom.cotacao_compra</field>
+            <field name="model">cptm_custom.cotacao_compra</field>
+            <field name="arch" type="xml">
+                <tree editable="top" create="1" delete="1"  string="meu amigo">
+                    <field name="name"/>
+                    <field name="dt_emissao"/>
+                </tree>
+            </field>
+        </record> 
+ -->
+       <record id="view_account_list" model="ir.ui.view">
+            <field name="name">cptm_custom.cotacao_compra</field>
+            <field name="model">cptm_custom.cotacao_compra</field>
+            <field name="arch" type="xml">
+                <tree editable="top" create="1" delete="1" multi_edit="1" string="Chart of accounts">
+                    <field name="quantidade"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+     <record id="view_cotacao_compra_form" model="ir.ui.view">
+         <field name="name">cptm_custom.cotacao_compra</field>
+         <field name="model">cptm_custom.cotacao_compra</field>
+         <field name="arch" type="xml">
+             <form string="Cotacao_Compra">
+                  <header>
+                    <button name="btn_enviar" string="ENVIAR EMAIL" />
+                    <button name="btn_Por_Email" string="POR EMAIL" />
+                    <button name="btn_Confirmar" string="CONFIRMAR"/>
+                    <button name="btn_trancar" string="TRANCAR"/>
+                    <button name="btn_cancelar" string="CANCELAR"/>
+                    <field name="state" widget="statusbar" statusbar_visible="SDC,SDCENVIADA,PEDIDODECOMPRA"/>
+                 </header>
+                   <sheet>
+                       <div class="cotacao_title">
+                           <span class="o_form_label">Cotação de Compras</span>
+                           <h1> 
+                               <field name="priority" widget="priority" class="mr-3"/>
+                             <field name="codigo_compras_title"  placeholder="Cotação de Compras..."/> 
+                           </h1>
+                          </div>
+                        <group>
+                          <group name="right_main_group">
+                             <field name="cd_solitacao_cotacao" placeholder="cd_solitacao_cotacao"/>
+                             <field name="quantidade" placeholder="quantidade"/>   
+                             <field name="valor_imposto" placeholder="valor_imposto"/> 
+                             <field name="situacao" placeholder="situacao"/>  
+                              </group> 
+                            <group name="left_main_group">
+                                 <field name="data_esperada" placeholder="data esperada"/> 
+                                 <field name="data_emissao" placeholder="data de emissão"/> 
+                               </group>
+                         </group>
+                         <notebook>
+                            <page string="Produto" name="produto">
+                            </page>
+                            <page string="Fornecedores" name="Fornecedores">
+                            </page>
+                            <page string="Nota" name="Nota">
+                            </page>
+                             <page string="Orçamento" name="Orçamento">
+                            </page>
+                        </notebook>
+                       </sheet>
+                    </form>
+                </field>
+          </record>          
+   </data>
+</odoo>

@@ -8,7 +8,7 @@ class Baixa_Estoque(models.Model):
     _description = 'stock.baixa_estoque'
 
     # numero_requisicao = fields.Text(string = "Número da Requisição")
-    numero_requisicao = fields.Char('My Sequence')
+    numero_requisicao = fields.Char('My Sequence', readonly=True)
 
     tipo_requisicao = fields.Selection([('Consumo', 'Consumo'),('Ativo', 'Ativo'),('Insumo', 'Insumo')], string = "Tipo da Requisição")
     dt_emissao = fields.Date(string = 'Data de Emissão')

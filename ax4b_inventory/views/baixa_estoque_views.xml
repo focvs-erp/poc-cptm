@@ -26,7 +26,7 @@
                        <group>
                            <group name="left_main_group">
                              <field name="tabela_requisicao" />
-                             <field name="nome_da_requisicao_related" />
+                             <!-- <field name="nome_da_requisicao_related" /> -->
                              <field name="tipo_requisicao" />
                            </group>
                            <group name="right_main_group">
@@ -39,7 +39,7 @@
                        </group>
                        <notebook>
                             <page string="Produto" name="produto">
-                             <field name="produtos_da_requisicao_related"/>
+                             <!-- <field name="produtos_da_requisicao_related"/> -->
                             </page>
                         </notebook>             
                        </sheet>

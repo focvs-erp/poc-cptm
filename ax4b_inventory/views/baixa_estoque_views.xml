@@ -18,7 +18,6 @@
 						<div class="oe_title">
 							<span class="o_form_label">Baixa Estoque</span>
 							<h1>
-								<field name="context">{'create': True}</field>
 								<field name="priority" widget="priority" class="mr-3"/>
 								<field name="numero_requisicao" />
 							</h1>

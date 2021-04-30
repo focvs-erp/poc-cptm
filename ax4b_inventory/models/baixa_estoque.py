@@ -8,7 +8,18 @@ class Baixa_Estoque(models.Model):
     _description = 'stock.baixa_estoque'
 
     # numero_requisicao = fields.Text(string = "Número da Requisição")
-    numero_requisicao = fields.Char('My Sequence', readonly=True)
+    # numero_requisicao = fields.Char('My Sequence', readonly=True)
+
+    numero_requisicao = fields.Char('Número da Requisição', default='/')
+
+    # on create method
+    @api.model
+    def create(self, vals):
+        obj = super(Baixa_Estoque, self).create(vals)
+        if obj.numero_requisicao == '/':
+            number = self.env['ir.sequence'].get('x_baixa_estoque') or '/'
+            obj.write({'numero_requisicao': number})
+        return obj
 
     tipo_requisicao = fields.Selection([('Consumo', 'Consumo'),('Ativo', 'Ativo'),('Insumo', 'Insumo')], string = "Tipo da Requisição")
     dt_emissao = fields.Date(string = 'Data de Emissão')
@@ -39,7 +50,7 @@ class Baixa_Estoque(models.Model):
 #             for record in self:
 #                 record.valor_total = float(record.quantidade * record.valor_unitario)
 
-    @api.model
-    def create(self, vals): 
-        vals['numero_requisicao'] = self.env['ir.sequence'].next_by_code('x_baixa_estoque')
-        return super(Baixa_Estoque, self).create(vals)
+    # @api.model
+    # def create(self, vals): 
+    #     vals['numero_requisicao'] = self.env['ir.sequence'].next_by_code('x_baixa_estoque')
+    #     return super(Baixa_Estoque, self).create(vals)

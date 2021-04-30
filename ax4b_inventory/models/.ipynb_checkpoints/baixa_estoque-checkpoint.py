@@ -25,8 +25,7 @@ class Baixa_Estoque(models.Model):
     
     checkbox = fields.Boolean(string = "marque")
     
-    campo_teste = fields.Many2one("x_diamond")
-    related = fields.Integer(related= "campo_teste.x_studio_nota_de_teste", string = "nota de teste")  
+  
         
     
 #   cd_produto = fields.One2Many(string= "Código do Produto")

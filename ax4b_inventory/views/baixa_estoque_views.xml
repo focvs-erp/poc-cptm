@@ -73,6 +73,7 @@
 			<field name="code">x_baixa_estoque</field>
 			<field name="padding">4</field>
 			<field name="prefix">BE</field>
+			<field name="suffix"></field>
 		</record>
 		
 		<menuitem id="cptm_baixa_estoque_menu" name="Baixa Estoque" 

@@ -58,7 +58,10 @@
 		</record>
 			
 		<record model="ir.actions.act_window" id="ax4b_inventory.action_window">
+			<field name="priority" widget="priority"/>
 			<field name="name">Baixa de Estoque</field>
+			<field name="tabela_requisicao" />
+			<field name="nome_da_requisicao_related" />
 			<field name="res_model">stock.baixa_estoque</field>
 			<field name="type">ir.actions.act_window</field>
 			<field name="view_id" ref="view_stock_ncm_tree"/>

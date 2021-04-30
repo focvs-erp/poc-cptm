@@ -69,11 +69,10 @@
 		</record>
 
 		<record id="sequence_id" model="ir.sequence">
-			<field name="name">Name</field>
-			<field name="code">code</field>
-			<field name="padding">3</field>
-			<field name="prefix">prefix</field>
-			<field name="suffix">suffix</field>
+			<field name="name">Baixa Estoque</field>
+			<field name="code">x_baixa_estoque</field>
+			<field name="padding">4</field>
+			<field name="prefix">BE</field>
 		</record>
 		
 		<menuitem id="cptm_baixa_estoque_menu" name="Baixa Estoque" 

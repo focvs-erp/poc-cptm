@@ -10,7 +10,7 @@ class Baixa_Estoque(models.Model):
     # numero_requisicao = fields.Text(string = "Número da Requisição")
     # numero_requisicao = fields.Char('My Sequence', readonly=True)
 
-    numero_requisicao = fields.Char('Número da Requisição')
+    numero_requisicao = fields.Char(compute='create')
 
     # on create method
     @api.model

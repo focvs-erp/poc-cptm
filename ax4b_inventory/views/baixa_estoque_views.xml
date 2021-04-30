@@ -1,73 +1,71 @@
 <odoo>
-  <data>
-     <record id="view_baixa_estoque_form" model="ir.ui.view">
-         <field name="name">Baixa de Estoque</field>
-         <field name="model">stock.baixa_estoque</field>
-         <field name="arch" type="xml">
-             <form string="Baixa Estoque">
-                 <header>
-                    <button name="btn_verificar-disponibilidade" string="VERIFICAR DISPONIBILIDADE" class="oe_highlight"/>
-                    <button name="btn_validar" string="VALIDAR" class="oe_highlight"/>
-                    <button name="btn_sinal" string="SINAL"/>
-                    <button name="btn_sucata" string="SUCATA"/>
-                    <button name="btn_desbloquear" string="DESBLOQUEAR"/>
-                    <button name="btn_cancelar" string="CANCELAR"/>
-                     
-                    <field name="state" widget="statusbar" statusbar_visible="PROVISÓRIO,AGUARDANDO,PRONTO,CONCLUIDO"/>
-                 </header>
-                   <sheet>
-                       <div class="oe_title">
-		           <span class="o_form_label">Baixa Estoque</span>
-                           <h1>
-                             <field name="priority" widget="priority" class="mr-3"/>
-                             <field name="numero_requisicao"  placeholder="Número da Requisição..."/>
-                           </h1>
-                       </div>
-                       <group>
-                           <group name="left_main_group">
-                             <field name="tabela_requisicao" />
-                             <!-- <field name="nome_da_requisicao_related" /> -->
-                             <field name="tipo_requisicao" />
-                           </group>
-                           <group name="right_main_group">
-                             <field name="dt_emissao"/>
-                             <field name="dt_lancamento"/>
-                             <field name="create_uid" string="Preparador"/>
-                             <field name="justificativa" />
-                             <field name="reservado" />  
-                           </group>
-                       </group>
-                       <notebook>
-                            <page string="Produto" name="produto">
-                             <!-- <field name="produtos_da_requisicao_related"/> -->
-                            </page>
-                        </notebook>             
-                       </sheet>
-                    </form>
-                </field>
-          </record>
-      <record id="view_stock_ncm_tree" model="ir.ui.view">
-        <field name="model">stock.baixa_estoque</field>
-        <field name="arch" type="xml">
-            <tree string="Baixa estoque">
-                <field name="numero_requisicao"/>
-                <field name="tipo_requisicao"/>
-                <field name="dt_emissao"/>
-                <field name="create_uid" string="Preparador"/>
-            </tree>
-        </field>
-    </record>
-          
-    <record model="ir.actions.act_window" id="ax4b_inventory.action_window">
-      <field name="name">Baixa de Estoque</field>
-      <field name="res_model">stock.baixa_estoque</field>
-        <field name="type">ir.actions.act_window</field>
-     <field name="view_id" ref="view_stock_ncm_tree"/>
-    </record>
-      
-      <menuitem id="cptm_baixa_estoque_menu" name="Baixa Estoque" 
-             parent="stock.menu_stock_warehouse_mgmt"                 
-             action="ax4b_inventory.action_window"  /> 
-    
-  </data>  
+	<data>
+		<record id="view_baixa_estoque_form" model="ir.ui.view">
+			<field name="name">Baixa de Estoque</field>
+			<field name="model">stock.baixa_estoque</field>
+			<field name="arch" type="xml">
+				<form string="Baixa Estoque">
+					<header>
+						<button name="btn_verificar-disponibilidade" string="VERIFICAR DISPONIBILIDADE" class="oe_highlight"/>
+						<button name="btn_validar" string="VALIDAR" class="oe_highlight"/>
+						<button name="btn_sinal" string="SINAL"/>
+						<button name="btn_sucata" string="SUCATA"/>
+						<button name="btn_desbloquear" string="DESBLOQUEAR"/>
+						<button name="btn_cancelar" string="CANCELAR"/>
+						<field name="state" widget="statusbar" statusbar_visible="PROVISÓRIO,AGUARDANDO,PRONTO,CONCLUIDO"/>
+						<field name="tabela_requisicao" />
+					</header>
+					<sheet>
+						<div class="oe_title">
+							<span class="o_form_label">Baixa Estoque</span>
+							<h1>
+								<field name="priority" widget="priority" class="mr-3"/>
+								<field name="numero_requisicao"  placeholder="Número da Requisição..."/>
+							</h1>
+						</div>
+						<group>
+							<group name="left_main_group">
+								<!-- <field name="nome_da_requisicao_related" /> -->
+								<field name="tipo_requisicao" />
+							</group>
+							<group name="right_main_group">
+								<field name="dt_emissao"/>
+								<field name="dt_lancamento"/>
+								<field name="create_uid" string="Preparador"/>
+								<field name="justificativa" />
+								<field name="reservado" />  
+							</group>
+						</group>
+						<notebook>
+							<page string="Produto" name="produto">
+								<!-- <field name="produtos_da_requisicao_related"/> -->
+							</page>
+						</notebook>             
+					</sheet>
+				</form>
+			</field>
+		</record>
+		<record id="view_stock_ncm_tree" model="ir.ui.view">
+			<field name="model">stock.baixa_estoque</field>
+			<field name="arch" type="xml">
+				<tree string="Baixa estoque">
+					<field name="numero_requisicao"/>
+					<field name="tipo_requisicao"/>
+					<field name="dt_emissao"/>
+					<field name="create_uid" string="Preparador"/>
+				</tree>
+			</field>
+		</record>
+			
+		<record model="ir.actions.act_window" id="ax4b_inventory.action_window">
+			<field name="name">Baixa de Estoque</field>
+			<field name="res_model">stock.baixa_estoque</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="view_id" ref="view_stock_ncm_tree"/>
+		</record>
+		
+		<menuitem id="cptm_baixa_estoque_menu" name="Baixa Estoque" 
+				parent="stock.menu_stock_warehouse_mgmt"                 
+				action="ax4b_inventory.action_window"  /> 
+	</data>  
 </odoo>

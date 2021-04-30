@@ -9,8 +9,7 @@ class Baixa_Estoque(models.Model):
 
     numero_requisicao = fields.Text(string = "Número da Requisição")
     
-    # tabela_requisicao = fields.Many2one('x_requisicoes_de_compr', string='Tabela de Requisição')
-    tabela_requisicao = fields.Char(string = "Justificativa")
+    tabela_requisicao = fields.Many2one('x_requisicoes_de_compr', string='Tabela de Requisição')
     tipo_requisicao = fields.Selection([('Consumo', 'Consumo'),('Ativo', 'Ativo'),('Insumo', 'Insumo')], string = "Tipo Requisição")
     dt_emissao = fields.Date(string = 'Data de Emissão')
     dt_lancamento = fields.Date(string = 'Data de Lançamento')

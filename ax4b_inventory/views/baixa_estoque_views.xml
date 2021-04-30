@@ -46,7 +46,6 @@
 			</field>
 		</record>
 		<record id="view_stock_ncm_tree" model="ir.ui.view">
-			<field name="name">New</field>
 			<field name="model">stock.baixa_estoque</field>
 			<field name="arch" type="xml">
 				<tree string="Baixa estoque">

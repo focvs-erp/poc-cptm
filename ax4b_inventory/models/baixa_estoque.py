@@ -9,7 +9,7 @@ class Baixa_Estoque(models.Model):
 
     numero_requisicao = fields.Text(string = "Número da Requisição")
     
-    tipo_requisicao = fields.Selection([('Consumo', 'Consumo'),('Ativo', 'Ativo'),('Insumo', 'Insumo')], string = "Tipo Requisição")
+    tipo_requisicao = fields.Selection([('Consumo', 'Consumo'),('Ativo', 'Ativo'),('Insumo', 'Insumo')])
     dt_emissao = fields.Date(string = 'Data de Emissão')
     dt_lancamento = fields.Date(string = 'Data de Lançamento')
     justificativa = fields.Char(string = "Justificativa")

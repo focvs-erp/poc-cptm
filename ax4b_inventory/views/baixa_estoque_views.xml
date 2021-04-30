@@ -13,7 +13,6 @@
 						<button name="btn_desbloquear" string="DESBLOQUEAR"/>
 						<button name="btn_cancelar" string="CANCELAR"/>
 						<field name="state" widget="statusbar" statusbar_visible="PROVISÓRIO,AGUARDANDO,PRONTO,CONCLUIDO"/>
-						<field name="tabela_requisicao" />
 					</header>
 					<sheet>
 						<div class="oe_title">
@@ -25,7 +24,8 @@
 						</div>
 						<group>
 							<group name="left_main_group">
-								<!-- <field name="nome_da_requisicao_related" /> -->
+								<field name="tabela_requisicao" />
+								<field name="nome_da_requisicao_related" />
 								<field name="tipo_requisicao" />
 							</group>
 							<group name="right_main_group">
@@ -38,7 +38,7 @@
 						</group>
 						<notebook>
 							<page string="Produto" name="produto">
-								<!-- <field name="produtos_da_requisicao_related"/> -->
+								<field name="produtos_da_requisicao_related"/>
 							</page>
 						</notebook>             
 					</sheet>

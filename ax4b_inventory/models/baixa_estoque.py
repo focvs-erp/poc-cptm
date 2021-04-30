@@ -25,7 +25,7 @@ class Baixa_Estoque(models.Model):
     
 
     tabela_requisicao = fields.Many2one('x_requisicoes_de_compr', string = "Tabela Requisição")
-    # nome_da_requisicao_related = fields.Char(related='tabela_requisicao.x_studio_nome_da_requisio', string="Nome da requisição")
+    nome_da_requisicao_related = fields.Char(related='tabela_requisicao.x_studio_nome_da_requisio', string="Nome da requisição")
     # produtos_da_requisicao_related = fields.One2many(related='tabela_requisicao.x_studio_one2many_field_jwTT5', string="Produto da requisição")  
         
 #   cd_produto = fields.One2Many(string= "Código do Produto")

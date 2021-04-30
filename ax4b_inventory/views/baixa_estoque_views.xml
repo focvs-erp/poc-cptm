@@ -25,7 +25,7 @@
 						<group>
 							<group name="left_main_group">
 								<field name="tabela_requisicao" />
-								<!-- <field name="nome_da_requisicao_related" /> -->
+								<field name="nome_da_requisicao_related" />
 								<field name="tipo_requisicao" />
 							</group>
 							<group name="right_main_group">

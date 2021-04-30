@@ -3,19 +3,19 @@
 from odoo import models, fields, api
 
 
-class Baixa_Estoque(models.Model):
+class BaixaEstoque(models.Model):
     _name = 'stock.baixa_estoque'
     _description = 'stock.baixa_estoque'
 
     # numero_requisicao = fields.Text(string = "Número da Requisição")
     # numero_requisicao = fields.Char('My Sequence', readonly=True)
 
-    numero_requisicao = fields.Char(compute='create')
+    numero_requisicao = fields.Char('Número da Requisição')
 
     # on create method
     @api.model
     def create(self, vals):
-        obj = super(Baixa_Estoque, self).create(vals)
+        obj = super(BaixaEstoque, self).create(vals)
         number = self.env['ir.sequence'].get('x_baixa_estoque')
         obj.write({'numero_requisicao': number})
         return obj

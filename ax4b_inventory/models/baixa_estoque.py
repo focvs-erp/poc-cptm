@@ -7,8 +7,9 @@ class Baixa_Estoque(models.Model):
     _name = 'stock.baixa_estoque'
     _description = 'stock.baixa_estoque'
 
-    numero_requisicao = fields.Text(string = "Número da Requisição")
-    
+    # numero_requisicao = fields.Text(string = "Número da Requisição")
+    numero_requisicao = fields.Char('My Sequence')
+
     tipo_requisicao = fields.Selection([('Consumo', 'Consumo'),('Ativo', 'Ativo'),('Insumo', 'Insumo')], string = "Tipo da Requisição")
     dt_emissao = fields.Date(string = 'Data de Emissão')
     dt_lancamento = fields.Date(string = 'Data de Lançamento')
@@ -37,3 +38,8 @@ class Baixa_Estoque(models.Model):
 #         def _valor_total(self):
 #             for record in self:
 #                 record.valor_total = float(record.quantidade * record.valor_unitario)
+
+    @api.model
+    def create(self, vals): 
+        vals['numero_requisicao'] = self.env['ir.sequence'].next_by_code('x_baixa_estoque')
+        return super(stock.baixa_estoque, self).create(vals)

@@ -42,4 +42,4 @@ class Baixa_Estoque(models.Model):
     @api.model
     def create(self, vals): 
         vals['numero_requisicao'] = self.env['ir.sequence'].next_by_code('x_baixa_estoque')
-        return super(stock.baixa_estoque, self).create(vals)
+        return super(baixa_estoque, self).create(vals)

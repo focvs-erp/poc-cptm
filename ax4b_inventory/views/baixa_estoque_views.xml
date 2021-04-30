@@ -67,6 +67,14 @@
 			<field name="type">ir.actions.act_window</field>
 			<field name="view_id" ref="view_stock_ncm_tree"/>
 		</record>
+
+		<record id="sequence_id" model="ir.sequence">
+			<field name="name">Name</field>
+			<field name="code">code</field>
+			<field name="padding">3</field>
+			<field name="prefix">prefix</field>
+			<field name="suffix">suffix</field>
+		</record>
 		
 		<menuitem id="cptm_baixa_estoque_menu" name="Baixa Estoque" 
 				parent="stock.menu_stock_warehouse_mgmt"                 

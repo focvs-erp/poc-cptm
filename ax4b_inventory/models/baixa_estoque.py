@@ -24,7 +24,7 @@ class Baixa_Estoque(models.Model):
     ], default = "PROVISÓRIO")
     
 
-    tipo_requisicao = fields.Selection([('Consumo', 'Consumo'),('Ativo', 'Ativo'),('Insumo', 'Insumo')], string = "Tipo Requisição")
+    tabela_requisicao = fields.Many2one('x_requisicoes_de_compr', string = "Tabela Requisição")
     # nome_da_requisicao_related = fields.Char(related='tabela_requisicao.x_studio_nome_da_requisio', string="Nome da requisição")
     # produtos_da_requisicao_related = fields.One2many(related='tabela_requisicao.x_studio_one2many_field_jwTT5', string="Produto da requisição")  
         

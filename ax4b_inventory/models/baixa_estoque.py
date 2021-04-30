@@ -16,7 +16,7 @@ class Baixa_Estoque(models.Model):
     @api.model
     def create(self, vals):
         obj = super(Baixa_Estoque, self).create(vals)
-        number = self.env['ir.sequence'].get('Name')
+        number = self.env['ir.sequence'].get('code')
         obj.write({'numero_requisicao': number})
         return obj
 

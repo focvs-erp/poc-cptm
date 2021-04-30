@@ -38,7 +38,7 @@
 						</group>
 						<notebook>
 							<page string="Produto" name="produto">
-								<!-- <field name="produtos_da_requisicao_related"/> -->
+								<field name="produtos_da_requisicao_related"/>
 							</page>
 						</notebook>             
 					</sheet>

@@ -25,6 +25,8 @@
                        </div>
                        <group>
                            <group name="left_main_group">
+                             <field name="tabela_requisicao" />
+                             <field name="nome_da_requisicao_related" />
                              <field name="tipo_requisicao" />
                            </group>
                            <group name="right_main_group">
@@ -33,11 +35,11 @@
                              <field name="create_uid" string="Preparador"/>
                              <field name="justificativa" />
                              <field name="reservado" />  
-                             <field name="checkbox" />   
                            </group>
                        </group>
                        <notebook>
                             <page string="Produto" name="produto">
+                             <field name="produtos_da_requisicao_related"/>
                             </page>
                         </notebook>             
                        </sheet>

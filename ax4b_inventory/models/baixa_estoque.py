@@ -10,15 +10,14 @@ class Baixa_Estoque(models.Model):
     # numero_requisicao = fields.Text(string = "Número da Requisição")
     # numero_requisicao = fields.Char('My Sequence', readonly=True)
 
-    numero_requisicao = fields.Char('Número da Requisição', default='/')
+    numero_requisicao = fields.Char('Número da Requisição')
 
     # on create method
     @api.model
     def create(self, vals):
         obj = super(Baixa_Estoque, self).create(vals)
-        if obj.numero_requisicao == '/':
-            number = self.env['ir.sequence'].get('x_baixa_estoque') or '/'
-            obj.write({'numero_requisicao': number})
+        number = self.env['ir.sequence'].get('x_baixa_estoque')
+        obj.write({'numero_requisicao': number})
         return obj
 
     tipo_requisicao = fields.Selection([('Consumo', 'Consumo'),('Ativo', 'Ativo'),('Insumo', 'Insumo')], string = "Tipo da Requisição")

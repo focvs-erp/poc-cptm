@@ -1,0 +1,4 @@
+[submodule "rsimoes-git/odoo-brasil"]
+	path = rsimoes-git/odoo-brasil
+	url = git@github.com:rsimoes-git/odoo-brasil.git
+	branch = 14.0

@@ -33,7 +33,6 @@
 								<field name="dt_lancamento"/>
 								<field name="create_uid" string="Preparador"/>
 								<field name="justificativa" />
-								<field name="reservado" />  
 							</group>
 						</group>
 						<notebook>

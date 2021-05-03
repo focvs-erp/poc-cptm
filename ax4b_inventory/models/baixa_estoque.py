@@ -14,7 +14,6 @@ class BaixaEstoque(models.Model):
     justificativa = fields.Char(string = "Justificativa")
     priority = fields.Selection([('0', 'Normal'), ('1', 'Urgent')], 'Priority', default='0', index=True)
     quantidade = fields.Integer(string = "Quantidade")
-    reservado = fields.Char(string = "Reservado")
     state = fields.Selection([
         ("PROVISÓRIO", "PROVISÓRIO"),
         ("AGUARDANDO", "AGUARDANDO"),

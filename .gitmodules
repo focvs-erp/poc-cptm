@@ -2,3 +2,8 @@
 	path = rsimoes-git/odoo-brasil
 	url = git@github.com:rsimoes-git/odoo-brasil.git
 	branch = 14.0
+
+[submodule "rsimoes-git/contract"]
+	path = rsimoes-git/contract
+	url = git@github.com:rsimoes-git/contract.git
+	branch = 14.0

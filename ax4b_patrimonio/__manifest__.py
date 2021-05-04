@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "AX4B Inventory",
+    'name': "ax4b_patrimonio",
 
     'summary': """
         Short (1 phrase/line) summary of the module's purpose, used as
@@ -20,12 +20,12 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','stock'],
+    'depends': ['base'],
 
     # always loaded
     'data': [
-        'security/ir.model.access.csv',
-        'views/baixa_estoque_views.xml',
+        # 'security/ir.model.access.csv',
+        'views/views.xml',
         'views/templates.xml',
     ],
     # only loaded in demonstration mode

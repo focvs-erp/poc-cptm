@@ -1,2 +1,0 @@
-"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
-"access_stock_baixa_estoque","stock.baixa_estoque","model_stock_baixa_estoque","base.group_user","1","1","1","1"

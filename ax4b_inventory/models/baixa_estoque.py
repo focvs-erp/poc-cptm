@@ -2,7 +2,6 @@
 
 from odoo import models, fields, api
 
-
 class BaixaEstoque(models.Model):
     _name = 'stock.baixa_estoque'
     _description = 'stock.baixa_estoque'

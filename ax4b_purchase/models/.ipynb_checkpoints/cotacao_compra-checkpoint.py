@@ -1,24 +1,23 @@
 # -*- coding: utf-8 -*-
 
-from odoo import  models, fields, api
+from odoo import models, fields, api
 
 
 class CotacaoDeCompras(models.Model):
     _name = 'purchase.cotacao_compra'
     _description = 'Cotação de Compras'
 
-    
     name = fields.Char()
     empresa = fields.Many2one("res.company")
     cd_empresa = fields.Many2one(related='empresa.partner_id', string="Empresa") 
-#     inconterm = fields.Many2one("account.move")
-#     cd_inconterm = fields.Many2one(related='inconterm.invoice_inconterm_id', string="Inconterm")
+    inconterm = fields.Many2one("account.incoterms")
+    cd_inconterm = fields.Char(related='inconterm.name', string="Inconterm")
     codigo_compras_title = fields.Text()
-    cd_solitacao_cotacao = fields.Text(string= "Número de Cotação")
-    data_emissao = fields.Date()
-    data_esperada = fields.Date()
+    cd_solitacao_cotacao = fields.Char(string= "Número de Cotação",readonly=True)
+    data_emissao = fields.Datetime()
+    data_esperada = fields.Datetime()
     quantidade = fields.Integer()
-    valor_imposto = fields.Integer()
+    moeda = fields.Many2one('res.currency')
     solicitar_cofirmacao=fields.Boolean(string="Socilitar confirmação 1 dia(s) antes")
     situacao = fields.Selection([('Sdc', 'Sdc')])
     priority = fields.Selection([('0', 'Normal'), ('1', 'Urgent')], 'Priority', default='0', index=True)
@@ -27,32 +26,19 @@ class CotacaoDeCompras(models.Model):
         ("SDCENVIADA", "SDCENVIADA"),
         ("PEDIDODECOMPRA", "PEDIDO DE COMPRA"),
     ], default = "SDC")
-    
-#     vendors = fields.Many2one("res.partner")
-#     fone = fields.Char(related = "Vendors.Phone", string="Fone")
-#     email = fields.Char (related = "Vendors.email",string="E-mail")
-#     mobile = fields.char(related = "Vendors.mobile", string="Mobile")                              
-   # valor_total = fields.Float(compute= "_value")
-   # cd_moeda = fields.Monetary()
-   # ds_empresa = fields.One2Many()
-   # cd_modalidade_compras = fields.One2Many()
-   #produtos_abas = fields.Related()
-   # fornecedores_abas = fields.Related()
-    #cd_requisicao = fields.Related()
-    #cd_produto = fields.Related()
-    #unidade_medida= fields.Related()
-    #valor_unitario = fields.Related()
-    # inconterm = fields.Related()
-  
-    
-     #@api.depends('quantidade')
-     #def _value(self):
-      #   for record in self:
-       #      record.valor_total = float(record.quantidade * record.valor_unitario)
+
+    fornecedores_da_cotacao = fields.One2many("purchase.fornecedores_cotacao","cotacao_de_compra",string="Fornecedores da Cotação")
 
     
 
-#     @api.depends('value')
-#     def _value_pc(self):
-#         for record in self:
-#             record.value2 = float(record.value) / 100
+    @api.constrains('fornecedores_da_cotacao')
+    def _constrains_fornecedores_da_cotacao(self):
+        if not self.fornecedores_da_cotacao or len(self.fornecedores_da_cotacao)==0:
+            raise ValidationError("Erro ao configura fornecedor da cotação.") 
+    
+    @api.model
+    def create(self, vals):
+        obj = super(CotacaoDeCompras, self).create(vals)
+        number = self.env['ir.sequence'].get('x_cotacao_compra')
+        obj.write({'cd_solitacao_cotacao': number})
+        return obj

@@ -26,20 +26,24 @@
             <group>
               <group name="right_main_group">
                 <field name="empresa" placeholder="Empresa"/>
-                <field name="valor_imposto" placeholder="valor_imposto"/>
+                <field name="inconterm" placeholder="inconterm"/>
+                <!--                 <field name="cd_inconterm" placeholder="inconterm"/>   -->
                 <field name="situacao" placeholder="situacao"/>
+                <field name="moeda"/>
               </group>
               <group name="left_main_group">
                 <field name="data_esperada" placeholder="data esperada"/>
                 <field name="data_emissao" placeholder="data de emissão"/>
-                <field name="solicitar_cofirmacao"/>
-                <field name="valor_imposto" placeholder="Modalidade de Compras"/>
+                <field name="create_uid" string="Preparador"/>
+                <!--                 <field name="solicitar_cofirmacao"/> -->
+                <!--                 <field name="valor_imposto" placeholder="Modalidade de Compras"/> -->
               </group>
             </group>
             <notebook>
               <page string="Produto" name="produto">
               </page>
               <page string="Fornecedores" name="Fornecedores">
+                <field name="fornecedores_da_cotacao"/>
               </page>
               <page string="Nota" name="Nota">
               </page>
@@ -55,10 +59,10 @@
     <record id="view_cotacao_compra_tree" model="ir.ui.view">
       <field name="model">purchase.cotacao_compra</field>
       <field name="arch" type="xml">
-        <tree string="Cotação de Compra"  class="o_purchase_order">
+        <tree string="Cotação de Compra" class="o_purchase_order">
           <field name="name"/>
           <field name="quantidade"/>
-          <field name="valor_imposto"/>
+          <!--           <field name="valor_imposto"/> -->
           <field name="data_emissao"/>
           <field name="situacao"/>
         </tree>
@@ -71,6 +75,14 @@
       <field name="type">ir.actions.act_window</field>
       <field name="view_id" ref="view_cotacao_compra_tree"/>
     </record>
+
+    <record id="sequence_id" model="ir.sequence">
+            <field name="name">Cotação de Compras </field>
+            <field name="code">x_cotacao_compras</field>
+            <field name="padding">10</field>
+            <field name="prefix"></field>
+            <field name="suffix"></field>
+        </record>
 
     <menuitem id="purchase_cotacao_compra_menu" name="Cotação de Compra" parent="purchase.menu_procurement_management" action="purchase_contacao_compra_window"/>
 

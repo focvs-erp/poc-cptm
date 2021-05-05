@@ -26,6 +26,7 @@
     'data': [
         'security/ir.model.access.csv',
         'views/cotacao_compra.xml',
+        'views/fornecedores_cotacao.xml',
         
     ],
    

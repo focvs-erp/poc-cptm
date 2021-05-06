@@ -26,7 +26,9 @@ class CotacaoDeCompras(models.Model):
         ("SDCENVIADA", "SDCENVIADA"),
         ("PEDIDODECOMPRA", "PEDIDO DE COMPRA"),
     ], default = "SDC")
-
+    modalidade_de_compra = fields.Many2one("x_modalidade_de_compra")
+    nota_de_reserva = fields.Many2one("x_nota_de_reserva")
+    cronograma = fields.One2many(related="nota_de_reserva.x_studio_cronograma_reserva")
     fornecedores_da_cotacao = fields.One2many("purchase.fornecedores_cotacao","cotacao_de_compra",string="Fornecedores da Cotação")
 
     

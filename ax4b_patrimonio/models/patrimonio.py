@@ -60,10 +60,10 @@ class Patrimonio(models.Model):
 
     #Orçamento
     Tabela_Dotacao_orcamento = fields.Many2one('x_dotacao', string = "Dotação Orçamentária")
-    nome_poder_orcamento = fields.Char(related='Tabela_Dotacao_orcamento.x_studio_many2one_field_4XDnU', string="Poder")
-    cod_poder_orcamento = fields.Char(related='Tabela_Dotacao_orcamento.x_studio_cdigo_do_poder', string="Poder")
-    nome_orgao_orcamento = fields.Char(related='Tabela_Dotacao_orcamento.x_studio_many2one_field_TbDWz', string="Poder")
-    cod_orgao_orcamento = fields.Char(related='Tabela_Dotacao_orcamento.x_studio_cd_orgao', string="Poder")
+    nome_poder_orcamento = fields.Many2one(related='Tabela_Dotacao_orcamento.x_studio_many2one_field_4XDnU', string="Poder")
+    # cod_poder_orcamento = fields.Char(related='Tabela_Dotacao_orcamento.x_studio_cdigo_do_poder', string="Poder")
+    # nome_orgao_orcamento = fields.Char(related='Tabela_Dotacao_orcamento.x_studio_many2one_field_TbDWz', string="Poder")
+    # cod_orgao_orcamento = fields.Char(related='Tabela_Dotacao_orcamento.x_studio_cd_orgao', string="Poder")
    
     
     # Campos já existentes dentro do asset, apenas usados para edição de nomes

@@ -95,11 +95,11 @@
                         <group name='orcamento'>
                             <field name="Tabela_Dotacao_orcamento"/>
                             <field name="nome_poder_orcamento"/>
-                            <field name="nome_orgao_orcamento"/>
+                            <!-- <field name="nome_orgao_orcamento"/> -->
                         </group>
                         <group name='orcamento'>
-                            <field name="cod_poder_orcamento"/>
-                            <field name="cod_orgao_orcamento"/>
+                            <!-- <field name="cod_poder_orcamento"/>
+                            <field name="cod_orgao_orcamento"/> -->
                         </group>
                     </group>     
                 </page>

@@ -13,10 +13,8 @@ class Patrimonio(models.Model):
     num_nf = fields.Char(string='Nota Fiscal')
     data_docto = fields.Date(string = 'Data do Documento')
     cod_forn = fields.Char(string='Fornecedor')
-    
-#     Estão comentados devido as relações de models criadas pelo studio, com isso elas ficam salvas no BD e não são acessíveis por D
-#     centro_custo_related = fields.Many2one('x_centro_de_custo', string='Centro de Custo')
-#     desc_centro_custo_related = fields.Char(related='centro_custo_related.x_studio_descrio', string='Descrição')
+    centro_custo_related = fields.Many2one('x_centro_de_custo', string='Centro de Custo')
+    desc_centro_custo_related = fields.Char(related='centro_custo_related.x_studio_descrio', string='Descrição')
     
     # Localização
     desc_loc_localizacao = fields.Char(string='Localização')
@@ -60,12 +58,12 @@ class Patrimonio(models.Model):
 
     #Orçamento
     Tabela_Dotacao_orcamento = fields.Many2one('x_dotacao', string = "Dotação Orçamentária")
-    nome_poder_orcamento = fields.Many2one(related='Tabela_Dotacao_orcamento.x_studio_many2one_field_4XDnU', string="Poder")
-    cod_poder_orcamento = fields.Char(related='Tabela_Dotacao_orcamento.x_studio_cdigo_do_poder', string="Código do Poder")
-    nome_orgao_orcamento = fields.Many2one(related='Tabela_Dotacao_orcamento.x_studio_many2one_field_TbDWz', string="Órgão")
-    cod_orgao_orcamento = fields.Char(related='Tabela_Dotacao_orcamento.x_studio_cd_orgao', string="Código do Órgão")
-    nome_unidade_orcamento = fields.Many2one(related='Tabela_Dotacao_orcamento.x_studio_ds_uo', string="Unidade Orçamentária")
-    cod_unidade_orcamento = fields.Char(related='Tabela_Dotacao_orcamento.x_studio_ds_uo.x_studio_cdigo', string="Código da Unidade Orçamentária")
+    # nome_poder_orcamento = fields.Many2one(related='Tabela_Dotacao_orcamento.x_studio_many2one_field_4XDnU', string="Poder")
+    # cod_poder_orcamento = fields.Char(related='Tabela_Dotacao_orcamento.x_studio_cdigo_do_poder', string="Código do Poder")
+    # nome_orgao_orcamento = fields.Many2one(related='Tabela_Dotacao_orcamento.x_studio_many2one_field_TbDWz', string="Órgão")
+    # cod_orgao_orcamento = fields.Char(related='Tabela_Dotacao_orcamento.x_studio_cd_orgao', string="Código do Órgão")
+    # nome_unidade_orcamento = fields.Many2one(related='Tabela_Dotacao_orcamento.x_studio_ds_uo', string="Unidade Orçamentária")
+    # cod_unidade_orcamento = fields.Char(related='Tabela_Dotacao_orcamento.x_studio_ds_uo.x_studio_cdigo', string="Código da Unidade Orçamentária")
     
     
     # Campos já existentes dentro do asset, apenas usados para edição de nomes

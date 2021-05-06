@@ -56,7 +56,15 @@ class Patrimonio(models.Model):
 #     duracao_info_add = fields.Float(string='Duração')
     tipo_tempo_info_add = fields.Char(string='Tempo')
     cod_forn_info_add = fields.Boolean(string='Pro Rata Temporis')
-    cod_ccus_info_add = fields.Date(string='Início da Depreciação')    
+    cod_ccus_info_add = fields.Date(string='Início da Depreciação')
+
+    #Orçamento
+    Tabela_Dotacao_orcamento = fields.Many2one('x_dotacao', string = "Dotação Orçamentária")
+    nome_poder_orcamento = fields.Char(related='Tabela_Dotacao_orcamento.x_studio_many2one_field_4XDnU', string="Poder")
+    cod_poder_orcamento = fields.Char(related='Tabela_Dotacao_orcamento.x_studio_cdigo_do_poder', string="Poder")
+    nome_orgao_orcamento = fields.Char(related='Tabela_Dotacao_orcamento.x_studio_many2one_field_TbDWz', string="Poder")
+    cod_orgao_orcamento = fields.Char(related='Tabela_Dotacao_orcamento.x_studio_cd_orgao', string="Poder")
+   
     
     # Campos já existentes dentro do asset, apenas usados para edição de nomes
     original_value = fields.Monetary(string = "Valor de Aquisição")
@@ -65,5 +73,7 @@ class Patrimonio(models.Model):
     book_value = fields.Monetary(string = "Valor Residual")
     account_asset_id = fields.Many2one(string = "Conta Aquisição do Ativo")
     first_depreciation_date = fields.Date(string = "Início da Depreciação")
+
+
     
 

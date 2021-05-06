@@ -97,15 +97,15 @@
                             <field name="nome_poder_orcamento"/>
                             <field name="nome_orgao_orcamento"/>
                             <field name="nome_unidade_orcamento"/>
-                            <!-- <field name="nome_grupo_orcamento"/>
-                            <field name="nome_funcao_orcamento"/> -->
+                            <field name="nome_grupo_orcamento"/>
+                            <field name="nome_funcao_orcamento"/>
                         </group>
                         <group name='orcamento'>
                             <field name="cod_poder_orcamento"/>
                             <field name="cod_orgao_orcamento"/>
                             <field name="cod_unidade_orcamento"/>
-                            <!-- <field name="cod_grupo_orcamento"/>
-                            <field name="cod_funcao_orcamento"/> -->
+                            <field name="cod_grupo_orcamento"/>
+                            <field name="cod_funcao_orcamento"/>
                         </group>
                     </group>     
                 </page>

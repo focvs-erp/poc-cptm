@@ -6,7 +6,7 @@ class Patrimonio(models.Model):
     _inherit = 'account.asset'
 
     # Cabeçalho
-    numero = fields.Char('Número', readonly=True) # Número sequencial
+    name = fields.Char('Número', default='PAT_00000000') # Número sequencial
     data_cri = fields.Date(string = 'Data de Criação')
     num_fis = fields.Char(string = 'Número Físico')
     num_cont = fields.Char(string='Contrato')
@@ -27,7 +27,8 @@ class Patrimonio(models.Model):
     desc_obs_localizacao = fields.Char(string='Observação')
 
     # Dados de seguro
-    cod_forn_dados_seguro = fields.Char(string='Fornecedor Seguro')
+#     cod_forn_dados_seguro = fields.Char(string='Fornecedor Seguro')
+    cod_forn_dados_seguro = fields.Many2one('res.partner', string='Fornecedor')
     nome_agt_dados_seguro = fields.Char(string='Agente')
     num_apol_dados_seguro = fields.Char(string='Número Apólice')
     data_vde_dados_seguro = fields.Date(string='Vigência de')
@@ -35,6 +36,7 @@ class Patrimonio(models.Model):
     vlr_seg_dados_seguro = fields.Char(string='Valor Segurado')
     vlr_frq_dados_seguro = fields.Char(string='Franquia')
     desc_obs_dados_seguro = fields.Char(string='Observação')
+    table_dados_seguro = fields.One2many('res.partner', 'name', string='Fornecedor')
     
     # Dados de garantia
     nome_marca_dados_garantia = fields.Char(string='Marca')
@@ -48,14 +50,15 @@ class Patrimonio(models.Model):
     vlr_unit_info_add = fields.Monetary(string='Valor Unitário')
     vlr_tot_info_add = fields.Monetary(string='Valor Total')
     num_atpai_info_add = fields.Char(string='Número Ativo Pai')
-    metodo_info_add = fields.Selection([ ('1', 'Straight Line'),('2', 'Declining'),('3', 'Declining then Straight Line')],'Type', default='1')
+    metodo_info_add = fields.Selection([('1', 'Straight Line'),('2', 'Declining'),('3', 'Declining then Straight Line')],'Método', default='1')
     metodo_depreciado_info_add = fields.Float(string='Fator de Declínio', default=0.30)
     method_number_info_add = fields.Integer(string='', default = 5)
     method_period_info_add = fields.Selection([('1', 'Month'),('2', 'Year')],'Type', default='1')
     
 #     duracao_info_add = fields.Float(string='Duração')
     tipo_tempo_info_add = fields.Char(string='Tempo')
-    cod_forn_info_add = fields.Boolean(string='Pro Rata Temporis')
+    cod_forn_info_add = fields.Boolean()
+    cod_forn_date_info_add = fields.Date(string='Prorata Date', default=lambda self: fields.Date.today())
     cod_ccus_info_add = fields.Date(string='Início da Depreciação')    
     
     # Campos já existentes dentro do asset, apenas usados para edição de nomes
@@ -65,5 +68,13 @@ class Patrimonio(models.Model):
     book_value = fields.Monetary(string = "Valor Residual")
     account_asset_id = fields.Many2one(string = "Conta Aquisição do Ativo")
     first_depreciation_date = fields.Date(string = "Início da Depreciação")
+    
+    # on create method
+    @api.model
+    def create(self, vals):
+        obj = super(Patrimonio, self).create(vals)
+        number = self.env['ir.sequence'].get('x_patimonio')
+        obj.write({'name': number})
+        return obj
     
 

@@ -6,19 +6,35 @@
         <field name="arch" type="xml">
             <xpath expr="/form/sheet/group[1]/group[1]" position="before">
                 <group string="Identificação">
-                    <field name="numero"/>
+                    <field name="name"/>
                     <field name="data_cri"/>
                     <field name="num_fis"/>                        
                 </group>
+                <group name='contrato' string='Contrato'>
+                    <field name="num_cont"/>
+                </group>
             </xpath>
-            <field name="first_depreciation_date" position="after">
-                <field name="num_cont"/>
-            </field>
             <field name="journal_id" position="after">
 <!--                 <field name="centro_custo_related"/> -->
 <!--                 <field name="desc_centro_custo_related"/> -->
             </field>
             <xpath expr="/form/sheet/group[1]/group[5]" position="after">
+                <group name='informacoes_adicionais' string='Método de Depreciação Societária'>
+                    <field name="metodo_info_add" widget="radio" options="{'horizontal': true}"/>
+                    <field name="metodo_depreciado_info_add" attrs="{'invisible':[('metodo_info_add','=','1')], 'required':[('metodo_info_add','in',('2', '3'))]}"/>
+                    <label for="method_number_info_add" string="Duração"/>
+                    <div class="o_row">
+                        <field name="method_number_info_add"/>
+                        <field name="method_period_info_add" nolabel="1"/>
+                    </div>
+                    <label for="prorata" attrs="{'invisible': [('state', 'not in', ('draft', 'model')), ('prorata', '=', False)]}"/>
+                    <div class="o_row" attrs="{'invisible': [('state', 'not in', ('draft', 'model')), ('prorata', '=', False)]}">
+                        <field name="cod_forn_info_add"/>
+                        <label for="cod_forn_date_info_add" attrs="{'invisible': ['|', ('cod_forn_info_add', '=', False), ('state', '=', 'model')]}"/>
+                        <field name="cod_forn_date_info_add" attrs="{'invisible': ['|', ('cod_forn_info_add', '=', False), ('state', '=', 'model')], 'required': [('cod_forn_info_add', '=', True), ('state', '!=', 'model')]}"/>
+                    </div>
+                    <field name="cod_ccus_info_add"/>
+                </group>
                 <group string="Dados Fiscais">
                     <field name="num_nf"/>
                     <field name="data_docto"/>
@@ -31,20 +47,10 @@
                         <group name='informacoes_adicionais'>
                             <field name="qtd_info_add" />
                             <field name="vlr_unit_info_add"/>
+                        </group>
+                        <group name='informacoes_adicionais'>
                             <field name="vlr_tot_info_add"/>
                             <field name="num_atpai_info_add"/>
-                        </group>
-                        <group name='informacoes_adicionais' string='Método de Depreciação Societária'>
-                            <field name="metodo_info_add" widget="radio" options="{'horizontal': true}"/>
-                            <field name="metodo_depreciado_info_add" attrs="{'invisible':[('metodo_info_add','=','1')], 'required':[('metodo_info_add','in',('2', '3'))]}"/>
-                            <label for="method_number_info_add" string="Duração"/>
-                            <div class="o_row">
-                                <field name="method_number_info_add"/>
-                                <field name="method_period_info_add" nolabel="1"/>
-                            </div>
-                            <field name="cod_forn_info_add"/>
-                            <field name="tipo_tempo_info_add"/>
-                            <field name="cod_ccus_info_add"/>
                         </group>
                     </group>
                 </page>
@@ -63,7 +69,9 @@
                     </group>
                 </page>
                 <page string="Dados de Seguro" name="dados_seguro">
-                     <group>
+                    
+                    <field name="table_dados_seguro"/>
+<!--                      <group>
                         <group name='dados_seguro'>
                             <field name="cod_forn_dados_seguro"/>
                             <field name="nome_agt_dados_seguro"/>
@@ -75,7 +83,7 @@
                             <field name="vlr_seg_dados_seguro"/>
                             <field name="desc_obs_dados_seguro"/>
                         </group>
-                    </group>     
+                    </group>      -->
                 </page>
                 <page string="Dados de Garantia" name="dados_garantia">
                      <group>

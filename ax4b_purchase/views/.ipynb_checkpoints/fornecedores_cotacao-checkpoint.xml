@@ -9,16 +9,16 @@
               <div class= "name" >
                    <span class="_form_label">Fornecedores da Cotação</span>
               <h1>
-                <field name="priority" widget="priority" class="mr-3"/>
+                <field name="prioridade" widget="priority" class="mr-3"/>
               </h1>
                </div>
               <group name="right_main_group">
                   <group>
-                 <field name="vendors" placeholder="Fornecedores"/>
-                <field name="contact" placeholder="Contato"/>
+                 <field name="fornecedores" placeholder="Fornecedores"/>
+                <field name="contato" placeholder="Contato"/>
                 <field name="email" placeholder="Email"/>
-                <field name="phone" placeholder="Fone"/>
-                <field name="mobile" placeholder="Mobile"/>  
+                <field name="telefone" placeholder="Telefone"/>
+                <field name="celular" placeholder="Celular"/>  
                   </group>
                 </group>
          </sheet>
@@ -30,11 +30,11 @@
       <field name="model">purchase.fornecedores_cotacao</field>
       <field name="arch" type="xml">
         <tree string="Fornecedores da cotação"  class="o_purchase_order" editable="top" create="1" delete="1" multi_edit="1">
-           <field name="vendors"/>
-          <field name="contact"/>
+           <field name="fornecedores"/>
+          <field name="contato"/>
           <field name="email"/>
-          <field name="phone"/>
-          <field name="mobile"/>  
+          <field name="telefone"/>
+          <field name="celular"/>  
         </tree>
       </field>
     </record>

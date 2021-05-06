@@ -12,16 +12,16 @@
             <button name="btn_Confirmar" string="CONFIRMAR"/>
             <button name="btn_trancar" string="TRANCAR"/>
             <button name="btn_cancelar" string="CANCELAR"/>
-            <field name="state" widget="statusbar" statusbar_visible="SDC,SDCENVIADA,PEDIDODECOMPRA"/>
+            <field name="status" widget="statusbar" statusbar_visible="SDC,SDCENVIADA,PEDIDODECOMPRA"/>
           </header>
           <sheet>
             <div class="cotacao_title">
               <span class="o_form_label">Cotação de Compras</span>
               <h1>
-                <field name="priority" widget="priority" class="mr-3"/>
-                <field name="codigo_compras_title"  placeholder="Cotação de Compras..."/>
+                <field name="prioridade" widget="priority" class="mr-3"/>
+<!--                 <field name="name"/> -->
+                <field name="cd_solitacao_cotacao"/> 
               </h1>
-              <field name="cd_solitacao_cotacao" placeholder="Número da Cotação"/>
             </div>
             <group>
               <group name="right_main_group">
@@ -80,10 +80,9 @@
             <field name="name">Cotação de Compras </field>
             <field name="code">x_cotacao_compras</field>
             <field name="padding">10</field>
-            <field name="prefix"></field>
+            <field name="prefix">COT_</field>
             <field name="suffix"></field>
         </record>
-
     <menuitem id="purchase_cotacao_compra_menu" name="Cotação de Compra" parent="purchase.menu_procurement_management" action="purchase_contacao_compra_window"/>
 
   </data>

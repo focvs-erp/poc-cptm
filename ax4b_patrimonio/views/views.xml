@@ -92,8 +92,8 @@
                 </page>
                 <page string="Orçamento" name="orcamento">
                      <group>
-                     <field name="Tabela_Dotacao_orcamento"/>
                         <group name='orcamento'>
+                            <field name="Tabela_Dotacao_orcamento"/>
                             <field name="nome_poder_orcamento"/>
                             <field name="nome_orgao_orcamento"/>
                         </group>

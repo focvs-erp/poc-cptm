@@ -68,8 +68,8 @@ class Patrimonio(models.Model):
     cod_unidade_orcamento = fields.Char(related='Tabela_Dotacao_orcamento.x_studio_ds_uo.x_studio_cdigo', string="Código da Unidade Orçamentária")
     nome_grupo_orcamento = fields.Many2one(related='Tabela_Dotacao_orcamento.x_studio_ds_grupo', string="Grupo")
     cod_grupo_orcamento = fields.Char(related='Tabela_Dotacao_orcamento.x_studio_ds_uo.x_studio_cd_grupo', string="Código do Grupo")
-    nome_funcao_orcamento = fields.Many2one(related='Tabela_Dotacao_orcamento.x_studio_ds_funcao', string="Função")
-    cod_funcao_orcamento = fields.Char(related='Tabela_Dotacao_orcamento.x_studio_ds_uo.x_studio_cd_funcao', string="Código da Função")
+    # nome_funcao_orcamento = fields.Many2one(related='Tabela_Dotacao_orcamento.x_studio_ds_funcao', string="Função")
+    # cod_funcao_orcamento = fields.Char(related='Tabela_Dotacao_orcamento.x_studio_ds_uo.x_studio_cd_funcao', string="Código da Função")
    
     
     # Campos já existentes dentro do asset, apenas usados para edição de nomes

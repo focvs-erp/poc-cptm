@@ -36,7 +36,7 @@
                 <field name="data_emissao" placeholder="data de emissão"/>
                 <field name="create_uid" string="Preparador"/>
                 <!--                 <field name="solicitar_cofirmacao"/> -->
-                <!-- <field name="modalidade_de_compra" placeholder="Modalidade de Compras"/>  -->
+                <field name="modalidade_de_compra" placeholder="Modalidade de Compras"/> 
               </group>
             </group>
             <notebook>
@@ -46,15 +46,15 @@
                 <field name="fornecedores_da_cotacao"/>
               </page>
               <page string="Nota" name="Nota">
-              <!-- <group> -->
-               <!-- <group name="right">
+              <group>
+                <group name="right">
                  <field name="nota_de_reserva"/>
                  <field name="nome_do_orgao"/>
                  <field name="nome_do_poder"/>
                  <field name="nome_da_unidade_orcamentaria"/>
                  <field name="nome_da_fonte"/> -->
                  <!-- <field name="valor_nota_de_reserva"/> -->
-               <!-- </group>
+                </group>
                 <group name="left">
                  <field name="ano"/>
                  <field name="orgao"/>
@@ -62,10 +62,10 @@
                  <field name="unidade_orcamentaria"/>
                  <field name="fonte"/>
                 </group>
-              </group> -->
+              </group> 
               </page>
               <page string="Cronograma" name="Cronograma">
-               <!-- <field name="cronograma"/> -->
+               <field name="cronograma"/>
                </group>
               </page>
             </notebook>

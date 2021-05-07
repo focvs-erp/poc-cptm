@@ -1,6 +1,6 @@
 <odoo> 
 	<data>
-		<record id="view_grupo_patrimonio_form" model="ir.ui.view">
+<!-- 		<record id="view_grupo_patrimonio_form" model="ir.ui.view">
 			<field name="name">Grupo de Patrimônio</field>
 			<field name="model">account.grupo_patrimonio</field>
 			<field name="arch" type="xml">
@@ -24,38 +24,27 @@
 				</form>
 			</field>
 		</record>
-		<record id="view_stock_ncm_tree" model="ir.ui.view">
-			<field name="model">stock.baixa_estoque</field>
+        
+		<record id="view_account_ncm_tree" model="ir.ui.view">
+			<field name="model">account.grupo_patrimonio</field>
 			<field name="arch" type="xml">
-				<tree string="Baixa estoque">
-					<field name="priority" widget="priority"/>
-					<field name="numero_requisicao"/>
-					<field name="tabela_requisicao" />
-					<field name="nome_da_requisicao_related" />
-					<field name="tipo_requisicao"/>
-					<field name="dt_emissao"/>
-					<field name="create_uid" string="Preparador"/>
+				<tree string="Grupo de Patrimônio">
+					<field name="codigo"/>
+					<field name="nome_grupo"/>
+					<field name="empresa"/>
 				</tree>
 			</field>
 		</record>
 			
-		<record model="ir.actions.act_window" id="ax4b_inventory.action_window">
-			<field name="name">Baixa de Estoque</field>
-			<field name="res_model">stock.baixa_estoque</field>
+		<record model="ir.actions.act_window" id="ax4b_patrimonio.action_window">
+			<field name="name">Grupo de Patrimônio</field>
+			<field name="res_model">account.grupo_patrimonio</field>
 			<field name="type">ir.actions.act_window</field>
-			<field name="view_id" ref="view_stock_ncm_tree"/>
-		</record>
-
-		<record id="sequence_id" model="ir.sequence">
-			<field name="name">Baixa Estoque</field>
-			<field name="code">x_baixa_estoque</field>
-			<field name="padding">4</field>
-			<field name="prefix">BE</field>
-			<field name="suffix"></field>
+			<field name="view_id" ref="view_account_ncm_tree"/>
 		</record>
 		
-		<menuitem id="cptm_baixa_estoque_menu" name="Baixa Estoque" 
-				parent="stock.menu_stock_warehouse_mgmt"                 
-				action="ax4b_inventory.action_window"  /> 
+		<menuitem id="account_grupo_patrimonio_menu" name="Grupo de Patrimônio" 
+				parent="menu_finance_configuration"                 
+				action="ax4b_patrimonio.action_window"  />  -->
 	</data>  
 </odoo>

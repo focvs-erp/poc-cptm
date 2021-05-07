@@ -4,6 +4,14 @@ from odoo import models, fields, api
 
 class Patrimonio(models.Model):
     _inherit = 'account.asset'
+    
+    @api.depends('qtd_info_add', 'vlr_unit_info_add')
+    def _total(self):
+        self.vlr_unit_info_add = float(self.vlr_unit_info_add)
+        if(self.qtd_info_add > 0.00):
+            self.vlr_tot_info_add = self.qtd_info_add * self.vlr_unit_info_add
+        else: 
+            self.vlr_tot_info_add = 0
 
     # Cabeçalho
     name = fields.Char('Número', default='PAT_00000000') # Número sequencial
@@ -28,7 +36,7 @@ class Patrimonio(models.Model):
 
     # Dados de seguro
 #     cod_forn_dados_seguro = fields.Char(string='Fornecedor Seguro')
-#     cod_forn_dados_seguro = fields.Many2one('ax4b_patrimonio.forncedores_patrimonio')
+#     cod_forn_dados_seguro = fields.Many2one('account.forncedores_patrimonio')
     nome_agt_dados_seguro = fields.Char(string='Agente')
     num_apol_dados_seguro = fields.Char(string='Número Apólice')
     data_vde_dados_seguro = fields.Date(string='Vigência de')
@@ -36,7 +44,7 @@ class Patrimonio(models.Model):
     vlr_seg_dados_seguro = fields.Char(string='Valor Segurado')
     vlr_frq_dados_seguro = fields.Char(string='Franquia')
     desc_obs_dados_seguro = fields.Char(string='Observação')
-    table_dados_seguro = fields.Many2one('account.forncedores_patrimonio', string='Fornecedor Seguro')
+    table_dados_seguro = fields.One2many('account.seguro_patrimonio', 'patrimonio',string='Fornecedor Seguro')
     
     # Dados de garantia
     nome_marca_dados_garantia = fields.Char(string='Marca')
@@ -46,9 +54,9 @@ class Patrimonio(models.Model):
     desc_obs_dados_garantia = fields.Char(string='Observações')
     
     # Informações adicionais
-    qtd_info_add = fields.Char(string='Quantidade')
+    qtd_info_add = fields.Integer(string='Quantidade')
     vlr_unit_info_add = fields.Monetary(string='Valor Unitário')
-    vlr_tot_info_add = fields.Monetary(string='Valor Total')
+    vlr_tot_info_add = fields.Monetary(string='Valor Total', compute='_total')
     num_atpai_info_add = fields.Char(string='Número Ativo Pai')
     metodo_info_add = fields.Selection([('1', 'Straight Line'),('2', 'Declining'),('3', 'Declining then Straight Line')],'Método', default='1')
     metodo_depreciado_info_add = fields.Float(string='Fator de Declínio', default=0.30)

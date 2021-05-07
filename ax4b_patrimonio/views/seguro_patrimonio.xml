@@ -11,7 +11,7 @@
                     <field name="data_vde_dados_seguro"/>
                     <field name="data_vate_dados_seguro"/>
                     <field name="vlr_seg_dados_seguro"/>
-                    <field name="vlr_frq_dados_seguro"/>
+                    <!-- <field name="vlr_frq_dados_seguro"/> -->
                     <field name="desc_obs_dados_seguro"/>
                 </tree>
             </field>

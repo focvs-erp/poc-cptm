@@ -25,6 +25,10 @@
                     <field name="cod_forn"/>                        
                 </group>
             </xpath>
+            <field name="analytic_tag_ids" position="after">
+                <field name="centro_custo_related"/>
+                <field name="desc_centro_custo_related"/>
+            </field>
             <xpath expr="/form/sheet/notebook[1]/page[1]" position="after">
                 <page string="Informações Adicionais" name="informacoes_adicionais">
                     <group>

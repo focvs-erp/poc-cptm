@@ -45,14 +45,14 @@
               <page string="Fornecedores" name="Fornecedores">
                 <field name="fornecedores_da_cotacao"/>
               </page>
-              <page string="Nota" name="Nota">
+              <page string="Orçamento" name="Orçamento">
               <group>
                 <group name="right">
                  <field name="nota_de_reserva"/>
                  <field name="nome_do_orgao"/>
                  <field name="nome_do_poder"/>
                  <field name="nome_da_unidade_orcamentaria"/>
-                 <field name="nome_da_fonte"/> -->
+                 <field name="nome_da_fonte"/> 
                  <!-- <field name="valor_nota_de_reserva"/> -->
                 </group>
                 <group name="left">

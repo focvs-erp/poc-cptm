@@ -33,7 +33,7 @@ class CotacaoDeCompras(models.Model):
     nome_do_orgao = fields.Char(related='nota_de_reserva.x_studio_nome_do_orgao_reserva')
     nome_da_unidade_orcamentaria = fields.Char(related='nota_de_reserva.x_studio_nome_da_unidade_oramentria_reserva')
     nome_da_fonte = fields.Char(related='nota_de_reserva.x_studio_nome_da_fonte')
-    valor_nota_de_reserva = fields.float(related="nota_de_reserva.x_studio_monetary_field_PcOB8")
+   # valor_nota_de_reserva = fields.float(related='nota_de_reserva.x_studio_monetary_field_PcOB8')
     ano = fields.Char(related='nota_de_reserva.x_studio_ano_reserva')
     orgao = fields.Char(related='nota_de_reserva.x_studio_cd_orgao_reserva')   
     poder = fields.Char(related='nota_de_reserva.x_studio_poder')
@@ -42,7 +42,7 @@ class CotacaoDeCompras(models.Model):
 
     modalidade_de_compra = fields.Many2one('x_modalidade_de_compra')
     nota_de_reserva = fields.Many2one('x_nota_de_reserva')
-    cronograma = fields.One2many(related="nota_de_reserva.x_studio_cronograma_reserva")
+    cronograma = fields.One2many(related='nota_de_reserva.x_studio_cronograma_reserva')
 
 
 #     @api.constrains('fornecedores_da_cotacao')

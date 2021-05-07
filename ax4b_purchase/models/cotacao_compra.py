@@ -28,6 +28,18 @@ class CotacaoDeCompras(models.Model):
     ], default = "SDC")
     modalidade_de_compra = fields.Many2one("x_modalidade_de_compra")
     nota_de_reserva = fields.Many2one("x_nota_de_reserva")
+     nome_do_poder = fields.Char(related="nota_de_reserva.x_studio_ds_poder_reserva")
+     nome_do_orgao = fields.Char(related="nota_de_reserva.x_studio_nome_do_orgao_reserva")
+     nome_da_unidade_orcamentaria = fields.Char(related="nota_de_reserva.x_studio_nome_da_unidade_orcamentaria_reserva")
+     nome_da_fonte = fields.Char(related="nota_de_reserva.x_studio_nome_da_fonte")
+     valor_nota_de_reserva = fields.Monetary(related="nota_de_reserva.x_studio_monetary_field_PcOB8")
+     ano = fields.Char(related="nota_de_reserva.x_studio_ano_reserva")
+     orgao = fields.Char(related="nota_de_reserva.x_studio_cd_orgao_reserva")   
+     poder = fields.Char(related="nota_de_reserva.x_studio_poder")
+     unidade_orcamentaria = fields.Char(related="nota_de_reserva.x_studio_unidade_oramentria_reserva")
+     fonte = fields.Char(related="nota_de_reserva.x_studio_fonte_reserva")
+
+
     cronograma = fields.One2many(related="nota_de_reserva.x_studio_cronograma_reserva")
     fornecedores_da_cotacao = fields.One2many("purchase.fornecedores_cotacao","cotacao_de_compra",string="Fornecedores da Cotação")
 

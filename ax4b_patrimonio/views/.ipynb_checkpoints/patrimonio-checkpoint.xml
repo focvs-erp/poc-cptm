@@ -68,8 +68,7 @@
                         </group>
                     </group>
                 </page>
-                <page string="Dados de Seguro" name="dados_seguro">
-                    
+                <page string="Seguro" name="dados_seguro">
                     <field name="table_dados_seguro"/>
 <!--                      <group>
                         <group name='dados_seguro'>

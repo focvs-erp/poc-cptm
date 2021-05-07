@@ -1,0 +1,61 @@
+<odoo> 
+	<data>
+		<record id="view_grupo_patrimonio_form" model="ir.ui.view">
+			<field name="name">Grupo de Patrimônio</field>
+			<field name="model">account.grupo_patrimonio</field>
+			<field name="arch" type="xml">
+				<form string="Grupo de Patrimônio">
+					<sheet>
+						<div class="oe_title">
+							<span class="o_form_label">Grupo de Patrimônio</span>
+							<h1>
+								<field name="codigo"/>
+							</h1>
+						</div>
+						<group>
+							<group name="left_main_group">
+								<feild name="empresa"/>
+							</group>
+							<group name="right_main_group">
+								<field name="nome_grupo"/>
+							</group>
+						</group>         
+					</sheet>
+				</form>
+			</field>
+		</record>
+		<record id="view_stock_ncm_tree" model="ir.ui.view">
+			<field name="model">stock.baixa_estoque</field>
+			<field name="arch" type="xml">
+				<tree string="Baixa estoque">
+					<field name="priority" widget="priority"/>
+					<field name="numero_requisicao"/>
+					<field name="tabela_requisicao" />
+					<field name="nome_da_requisicao_related" />
+					<field name="tipo_requisicao"/>
+					<field name="dt_emissao"/>
+					<field name="create_uid" string="Preparador"/>
+				</tree>
+			</field>
+		</record>
+			
+		<record model="ir.actions.act_window" id="ax4b_inventory.action_window">
+			<field name="name">Baixa de Estoque</field>
+			<field name="res_model">stock.baixa_estoque</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="view_id" ref="view_stock_ncm_tree"/>
+		</record>
+
+		<record id="sequence_id" model="ir.sequence">
+			<field name="name">Baixa Estoque</field>
+			<field name="code">x_baixa_estoque</field>
+			<field name="padding">4</field>
+			<field name="prefix">BE</field>
+			<field name="suffix"></field>
+		</record>
+		
+		<menuitem id="cptm_baixa_estoque_menu" name="Baixa Estoque" 
+				parent="stock.menu_stock_warehouse_mgmt"                 
+				action="ax4b_inventory.action_window"  /> 
+	</data>  
+</odoo>

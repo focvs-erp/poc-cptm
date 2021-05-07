@@ -28,7 +28,7 @@ class Patrimonio(models.Model):
 
     # Dados de seguro
 #     cod_forn_dados_seguro = fields.Char(string='Fornecedor Seguro')
-    cod_forn_dados_seguro = fields.Many2one('res.partner', string='Fornecedor')
+#     cod_forn_dados_seguro = fields.Many2one('ax4b_patrimonio.forncedores_patrimonio')
     nome_agt_dados_seguro = fields.Char(string='Agente')
     num_apol_dados_seguro = fields.Char(string='Número Apólice')
     data_vde_dados_seguro = fields.Date(string='Vigência de')
@@ -36,7 +36,7 @@ class Patrimonio(models.Model):
     vlr_seg_dados_seguro = fields.Char(string='Valor Segurado')
     vlr_frq_dados_seguro = fields.Char(string='Franquia')
     desc_obs_dados_seguro = fields.Char(string='Observação')
-    table_dados_seguro = fields.One2many('res.partner', 'name', string='Fornecedor')
+    table_dados_seguro = fields.Many2one('account.forncedores_patrimonio', string='Fornecedor Seguro')
     
     # Dados de garantia
     nome_marca_dados_garantia = fields.Char(string='Marca')

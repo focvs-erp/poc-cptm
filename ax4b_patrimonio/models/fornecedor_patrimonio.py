@@ -3,10 +3,11 @@
 from odoo import models, fields, api
 
 class FornecedorDoPatrimonio(models.Model):
-    _name = 'ax4b_patrimonio.fornecedor_patrimonio'
+    _name = 'account.fornecedor_patrimonio'
     _description = 'Tabela de Fornecedor'
 
     # Dados de seguro
+#     patrimonio = fields.Many2one('ax4b_patrimonio.patrimonio')
     cod_forn_dados_seguro = fields.Many2one('res.partner', string='Fornecedor')
     nome_agt_dados_seguro = fields.Char(string='Agente')
     num_apol_dados_seguro = fields.Char(string='Número Apólice')

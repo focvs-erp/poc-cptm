@@ -14,7 +14,7 @@ class Patrimonio(models.Model):
             self.vlr_tot_info_add = 0
 
     # Cabeçalho
-    name = fields.Char('Número', default='PAT_00000000') # Número sequencial
+    name = fields.Char(string='Número', default='PAT_00000000') # Número sequencial
     data_cri = fields.Date(string = 'Data de Criação')
     num_fis = fields.Char(string = 'Número Físico')
     num_cont = fields.Char(string='Contrato')

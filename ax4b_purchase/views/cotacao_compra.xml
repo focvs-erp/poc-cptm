@@ -42,8 +42,13 @@
             <notebook>
               <page string="Produto" name="produto">
               </page>
-              <page string="Fornecedores" name="Fornecedores">
-                <field name="fornecedores_da_cotacao"/>
+              <page string="Fornecedores" name="Fornecedores" >
+                   <field name="contato" mode="kanban">
+                    <kanban>
+                       <field name="email"/>
+                       <field name="celular"/>
+                       <field name="phone"/>
+                    </kanban>
               </page>
               <page string="Orçamento" name="Orçamento">
               <group>

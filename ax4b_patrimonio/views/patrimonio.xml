@@ -6,7 +6,7 @@
         <field name="arch" type="xml">
             <xpath expr="/form/sheet/group[1]/group[1]" position="before">
                 <group string="Identificação">
-                    <field name="name" attrs="{'readonly': '1'"/>
+                    <field name="name" attrs="{'readonly': 1"/>
                     <field name="data_cri"/>
                     <field name="num_fis"/>                        
                 </group>

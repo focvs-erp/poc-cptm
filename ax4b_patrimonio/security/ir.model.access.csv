@@ -1,2 +1,3 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_ax4b_patrimonio_ax4b_patrimonio,ax4b_patrimonio.ax4b_patrimonio,model_ax4b_patrimonio_ax4b_patrimonio,base.group_user,1,1,1,1
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"access_account_seguro_patrimonio","account.seguro_patrimonio","model_account_seguro_patrimonio","base.group_user","1","1","1","1"
+"access_account_grupo_patrimonio","account.grupo_patrimonio","model_account_grupo_patrimonio","base.group_user","1","1","1","1"

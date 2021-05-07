@@ -53,7 +53,7 @@
                 <field name="nome_do_poder"/>
                 <field name="nome_da_unidade_orcamentaria"/>
                 <field name="nome_da_fonte"/>
-                <field name="valor_nota_de_reserva"/>
+                <!-- <field name="valor_nota_de_reserva"/> -->
                 </group>
                 <group name="left">
                 <group>

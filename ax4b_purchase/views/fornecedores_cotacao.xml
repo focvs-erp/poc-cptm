@@ -36,6 +36,7 @@
           <field name="email"/>
           <field name="telefone"/>
           <field name="celular"/>  
+           <field name="teste"/>
         </tree>
       </field>
     </record>

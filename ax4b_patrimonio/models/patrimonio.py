@@ -6,7 +6,7 @@ class Patrimonio(models.Model):
     _inherit = 'account.asset'
 
     # Cabeçalho
-    name = fields.Char(string='Número', default='PAT_00000000', readonly=True) # Número sequencial
+    name = fields.Char(string='Número', default='PAT_00000000') # Número sequencial
     data_cri = fields.Date(string = 'Data de Criação')
     num_fis = fields.Char(string = 'Número Físico')
     num_cont = fields.Char(string='Contrato')

@@ -7,6 +7,9 @@
             <xpath expr="/form/sheet/div[3]/h1/field[@name='name']" position="attributes">
                 <attribute name="readonly">1</attribute>
             </xpath>
+            <xpath expr="/form/sheet/group[1]/group[1]" position="name">
+                <name>Valores de ativos</name>
+            </xpath>
             <xpath expr="/form/sheet/group[1]/group[1]" position="before">
                 <group string="Identificação">
                     <field name="name" readonly="1"/>

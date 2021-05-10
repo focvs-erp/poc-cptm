@@ -6,7 +6,7 @@ class FornecedoresDaCotacao(models.Model):
    _description = 'Fornecedores da Cotação'
     
    name = fields.Char() 
-   teste = fields.Char(compute='Fornecedores_Contato', store= True)
+   teste = fields.Char(compute='_contato_fornecedores', store= True)
    prioridade = fields.Selection([('0', 'Normal'), ('1', 'Urgent')], 'Priority', default='0', index=True)
    cotacao_de_compra = fields.Many2one("purchase.cotacao_compra", invisible=True, string="Cotação de Compra")
    fornecedores = fields.Many2one("res.partner", string="fornecedores")
@@ -26,13 +26,12 @@ class FornecedoresDaCotacao(models.Model):
    #       obj.write({'contato': lista })
    #       return obj
 
-         @api.onchange('fornecedores')
-         def Fornecedores_Contato(self):
-            for record in self:
-               record.teste = 'ola'
-                # for contato in record.contato:
-                #    record.teste = record.contato.name
-            
+   @api.depends('fornecedores')
+   def _contato_fornecedores(self):
+      for record in self:
+         record.teste = 'ola'
+         # for contato in record.contato:
+         #    record.teste = record.contato.name
 
 
    #    @api.model

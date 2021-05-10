@@ -35,7 +35,7 @@
                 <field name="create_uid" string="Preparador"/>
                 <!--                 <field name="solicitar_cofirmacao"/> -->
                 <field name="modalidade_de_compra" placeholder="Modalidade de Compra"/> 
-                <field name="modalidade_de_compra_name" placeholder="Modalidade de Compra" invisible=true/>
+                <field name="modalidade_de_compra_name" placeholder="Modalidade de Compra" attrs="{'invisible': 1}"/>
               </group>
             </group>
             <notebook>

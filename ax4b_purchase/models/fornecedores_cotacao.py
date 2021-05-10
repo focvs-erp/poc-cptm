@@ -29,8 +29,9 @@ class FornecedoresDaCotacao(models.Model):
          @api.depends('fornecedores')
          def Fornecedores_Contato(self)
             for record in self:
-                  for contato in record.contato:
-                     record.teste = record.contato.name
+               record.contato
+                  # for contato in record.contato:
+                  #    record.teste = record.contato.name
             
 
 

@@ -8,4 +8,8 @@ class GrupoPatrimonio(models.Model):
     
     codigo = fields.Char(string = "Código")
     nome_grupo = fields.Char(string = "Nome do Grupo")
-    empresa = fields.Many2one("res.company", string = "Empresa")
+    empresa = fields.Many2one('res.company', string = "Empresa")
+    
+    _sql_constraints = [   
+    ('codigo_uniq', 'unique(codigo)', 'Número de código já cadastrado'),   
+   ]  

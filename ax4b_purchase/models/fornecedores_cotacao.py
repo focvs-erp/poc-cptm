@@ -16,7 +16,7 @@ class FornecedoresDaCotacao(models.Model):
    telefone = fields.Char(related="fornecedores.phone", string="telefone") 
    celular = fields.Char(related="fornecedores.mobile", string="celular") 
    #nome_fornecedor = fields.Char(related="fornecedores.name")
-   
+  
    
    #   @api.model
    #   def Contato(self, vals):

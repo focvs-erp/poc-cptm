@@ -7,10 +7,8 @@
       <field name="arch" type="xml">
         <form string="Cotacao_Compra">
           <header>
-            <button name="btn_enviar" string="ENVIAR EMAIL" />
-            <button name="btn_Por_Email" string="POR EMAIL" />
+            <button name="btn_enviar" string="ENVIAR POR E-MAIL" />
             <button name="btn_Confirmar" string="CONFIRMAR"/>
-            <button name="btn_trancar" string="TRANCAR"/>
             <button name="btn_cancelar" string="CANCELAR"/>
             <field name="status" widget="statusbar" statusbar_visible="SDC,SDCENVIADA,PEDIDODECOMPRA"/>
           </header>
@@ -36,38 +34,33 @@
                 <field name="data_emissao" placeholder="data de emissão"/>
                 <field name="create_uid" string="Preparador"/>
                 <!--                 <field name="solicitar_cofirmacao"/> -->
-                <field name="modalidade_de_compra" placeholder="Modalidade de Compras"/> 
+                <field name="modalidade_de_compra" placeholder="Modalidade de Compra"/> 
               </group>
             </group>
-            <notebook>
+            <notebook attrs="{'invisible' : [('modalidade_de_compra', '=', 'Normal')]}" >
               <page string="Produto" name="produto">
               </page>
-              <page string="Fornecedores" name="Fornecedores" >
-                   <field name="contato" mode="kanban">
-                    <kanban>
-                       <field name="email"/>
-                       <field name="celular"/>
-                       <field name="phone"/>
-                    </kanban>
+              <page string="Fornecedores" name="Fornecedores">
+                <field name="fornecedores_da_cotacao"/>
               </page>
-              <page string="Orçamento" name="Orçamento">
-              <group>
-                <group name="right">
-                 <field name="nota_de_reserva"/>
-                 <field name="nome_do_orgao"/>
-                 <field name="nome_do_poder"/>
-                 <field name="nome_da_unidade_orcamentaria"/>
-                 <field name="nome_da_fonte"/> 
-                 <!-- <field name="valor_nota_de_reserva"/> -->
-                </group>
-                <group name="left">
-                 <field name="ano"/>
-                 <field name="orgao"/>
-                 <field name="poder"/>
-                 <field name="unidade_orcamentaria"/>
-                 <field name="fonte"/>
-                </group>
-              </group> 
+              <page string="Orçamento" name="Orçamento"  attrs="{'invisible' : [('modalidade_de_compra', '=', 'Normal')]}" >
+                <group>
+                  <group name="right" >
+                    <field name="nota_de_reserva"/>
+                    <field name="nome_do_orgao"/>
+                    <field name="nome_do_poder"/>
+                    <field name="nome_da_unidade_orcamentaria"/>
+                    <field name="nome_da_fonte"/> 
+                    <!-- <field name="valor_nota_de_reserva"/> -->
+                  </group>
+                  <group name="left">
+                    <field name="ano"/>
+                    <field name="orgao"/>
+                    <field name="poder"/>
+                    <field name="unidade_orcamentaria"/>
+                    <field name="fonte"/>
+                  </group>
+                </group> 
               </page>
               <page string="Cronograma" name="Cronograma">
                <field name="cronograma"/>
@@ -83,10 +76,11 @@
       <field name="model">purchase.cotacao_compra</field>
       <field name="arch" type="xml">
         <tree string="Cotação de Compra" class="o_purchase_order">
-          <field name="name"/>
-          <field name="quantidade"/>
-          <!--           <field name="valor_imposto"/> -->
-          <field name="data_emissao"/>
+          <field name="cd_solitacao_cotacao"/>
+          <!-- <field name="cd_solitacao_cotacao"/> -->
+          <field name="cd_empresa"/>
+          <field name="create_uid"/> 
+          <field name="modalidade_de_compra"/>
           <field name="situacao"/>
         </tree>
       </field>

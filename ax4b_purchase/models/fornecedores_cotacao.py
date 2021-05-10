@@ -26,10 +26,13 @@ class FornecedoresDaCotacao(models.Model):
    #       obj.write({'contato': lista })
    #       return obj
 
-   @api.model
+   @api.depends('fornecedores')
    def _contato_fornecedores(self):
       for record in self:
-         record.teste += 1
+         if record.teste:
+            record.teste += 1
+         else:
+            record.teste = 1 
          # if record.contato:
          #    for contato in record.contato:
          #       record.teste = record.contato.name

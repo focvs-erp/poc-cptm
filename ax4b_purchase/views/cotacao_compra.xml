@@ -34,7 +34,7 @@
                 <field name="data_emissao" placeholder="data de emissão"/>
                 <field name="create_uid" string="Preparador"/>
                 <!--                 <field name="solicitar_cofirmacao"/> -->
-                <field name="modalidade_de_compra" placeholder="Modalidade de Compras"/> 
+                <field name="modalidade_de_compra" placeholder="Modalidade de Compra"/> 
               </group>
             </group>
             <notebook attrs="{'invisible' : [('modalidade_de_compra', '=', 'Normal')]}" >

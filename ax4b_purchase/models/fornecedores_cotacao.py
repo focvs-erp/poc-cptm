@@ -14,3 +14,12 @@ class FornecedoresDaCotacao(models.Model):
    email = fields.Char(related="fornecedores.email", string="email")
    telefone = fields.Char(related="fornecedores.phone", string="telefone") 
    celular = fields.Char(related="fornecedores.mobile", string="celular") 
+   
+   
+    @api.model
+    def Contact(self, vals)
+        obj = super(FornecedoresDaCotacao, self).create(vals)
+        Lista = self.get('contato','email','telelefone','celular')
+        obj.write({'contato': Lista })
+        return obj
+        

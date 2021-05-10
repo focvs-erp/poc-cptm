@@ -19,6 +19,7 @@
                 <field name="email" placeholder="Email"/>
                 <field name="telefone" placeholder="Telefone"/>
                 <field name="celular" placeholder="Celular"/>  
+                <field name="teste"/>
                   </group>
                 </group>
          </sheet>

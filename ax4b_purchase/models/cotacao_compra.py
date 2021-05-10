@@ -41,6 +41,7 @@ class CotacaoDeCompras(models.Model):
     fonte = fields.Char(related='nota_de_reserva.x_studio_fonte_reserva')
 
     modalidade_de_compra = fields.Many2one('x_modalidade_de_compra')
+    modalidade_de_compra_name = fields.Char('modalidade_de_compra.x_name')
     nota_de_reserva = fields.Many2one('x_nota_de_reserva')
     cronograma = fields.One2many(related='nota_de_reserva.x_studio_cronograma_reserva')
 

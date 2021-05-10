@@ -35,15 +35,16 @@
                 <field name="create_uid" string="Preparador"/>
                 <!--                 <field name="solicitar_cofirmacao"/> -->
                 <field name="modalidade_de_compra" placeholder="Modalidade de Compra"/> 
+                <field name="modalidade_de_compra_name" placeholder="Modalidade de Compra" invisible=true/>
               </group>
             </group>
-            <notebook attrs="{'invisible': [('modalidade_de_compra','=','Normal')]}">
+            <notebook>
               <page string="Produto" name="produto">
               </page>
               <page string="Fornecedores" name="Fornecedores">
                 <field name="fornecedores_da_cotacao"/>
               </page>
-              <page string="Orçamento" name="Orçamento" attrs="{'invisible': [('modalidade_de_compra','=','Normal')]}">
+              <page string="Orçamento" name="Orçamento" attrs="{'invisible': [('modalidade_de_compra_name','=','Normal')]}">
                 <group>
                   <group name="right" >
                     <field name="nota_de_reserva"/>

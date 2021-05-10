@@ -47,7 +47,7 @@ class Patrimonio(models.Model):
     qtd_info_add = fields.Integer(string='Quantidade')
     vlr_unit_info_add = fields.Monetary(string='Valor Unitário')
     vlr_tot_info_add = fields.Monetary(string='Valor Total', compute='_total')
-    num_atpai_info_add = fields.Char(string='Número Ativo Pai' default=name)
+    num_atpai_info_add = fields.Char(string='Número Ativo Pai')
     metodo_info_add = fields.Selection([('1', 'Straight Line'),('2', 'Declining'),('3', 'Declining then Straight Line')],'Método', default='1')
     metodo_depreciado_info_add = fields.Float(string='Fator de Declínio', default=0.30)
     method_number_info_add = fields.Integer(string='', default = 5)

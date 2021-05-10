@@ -93,3 +93,7 @@ class Patrimonio(models.Model):
             self.vlr_tot_info_add = self.qtd_info_add * self.vlr_unit_info_add
         else: 
             self.vlr_tot_info_add = 0
+
+    @api.onchange('name')
+    def set_code(self):
+        self.num_atpai_info_add = self.name

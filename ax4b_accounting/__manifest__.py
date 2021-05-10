@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "ax4b_patrimonio",
+    'name': "AX4B Accounting",
 
     'summary': """
         Short (1 phrase/line) summary of the module's purpose, used as

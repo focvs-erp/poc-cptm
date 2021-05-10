@@ -82,7 +82,8 @@ class Patrimonio(models.Model):
     def create(self, vals):
         obj = super(Patrimonio, self).create(vals)
         number = self.env['ir.sequence'].get('x_patimonio')
-        obj.write({'name': number}, {'num_atpai_info_add': number})
+        obj.write({'name': number})
+        obj.write({'num_atpai_info_add': number})
         return obj
     
 
@@ -93,3 +94,7 @@ class Patrimonio(models.Model):
             self.vlr_tot_info_add = self.qtd_info_add * self.vlr_unit_info_add
         else: 
             self.vlr_tot_info_add = 0
+
+    # @api.onchange('name')
+    # def set_code(self):
+    #     self.num_atpai_info_add = self.name

@@ -30,7 +30,7 @@ class FornecedoresDaCotacao(models.Model):
    def _contato_fornecedores(self):
       for record in self:
          if record.teste:
-            record.teste += 1
+            record.teste = 3
          else:
             record.teste = 1 
          # if record.contato:

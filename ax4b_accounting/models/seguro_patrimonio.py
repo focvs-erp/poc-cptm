@@ -15,6 +15,6 @@ class SeguroDoPatrimonio(models.Model):
     data_vate_dados_seguro = fields.Date(string='Vigência até')
     vlr_seg_dados_seguro = fields.Float(string='Valor Segurado')
     vlr_frq_dados_seguro = fields.Float(string='Franquia')
-    desc_obs_dados_seguro = fields.Char(string='Observação')
+    seguradora_dados_seguro = fields.Char(string='Seguradora')
     
 

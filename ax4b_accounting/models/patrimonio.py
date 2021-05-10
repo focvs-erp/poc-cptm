@@ -7,7 +7,7 @@ class Patrimonio(models.Model):
 
     # Cabeçalho
     name = fields.Char(string='Número', default='PAT_00000000') # Número sequencial
-    data_cri = fields.Date(string = 'Data de Criação')
+    data_cri = fields.Date(string = 'Data de Criação', default=lambda self: fields.Date.today())
     num_fis = fields.Char(string = 'Número Físico')
     num_cont = fields.Char(string='Contrato')
     num_nf = fields.Char(string='Nota Fiscal')
@@ -47,7 +47,7 @@ class Patrimonio(models.Model):
     qtd_info_add = fields.Integer(string='Quantidade')
     vlr_unit_info_add = fields.Monetary(string='Valor Unitário')
     vlr_tot_info_add = fields.Monetary(string='Valor Total', compute='_total')
-    num_atpai_info_add = fields.Char(string='Número Ativo Pai')
+    num_atpai_info_add = fields.Many2one('account.asset', string='Número Ativo Pai')
     metodo_info_add = fields.Selection([('1', 'Straight Line'),('2', 'Declining'),('3', 'Declining then Straight Line')],'Método', default='1')
     metodo_depreciado_info_add = fields.Float(string='Fator de Declínio', default=0.30)
     method_number_info_add = fields.Integer(string='', default = 5)
@@ -83,7 +83,6 @@ class Patrimonio(models.Model):
         obj = super(Patrimonio, self).create(vals)
         number = self.env['ir.sequence'].get('x_patimonio')
         obj.write({'name': number})
-        obj.write({'num_atpai_info_add': number})
         return obj
     
 

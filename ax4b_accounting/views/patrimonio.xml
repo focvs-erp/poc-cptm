@@ -10,7 +10,7 @@
             <xpath expr="/form/sheet/group[1]/group[1]" position="before">
                 <group string="Identificação">
                     <field name="name" readonly="1"/>
-                    <field name="data_cri"/>
+                    <field name="data_cri" readonly="1"/>
                     <field name="num_fis"/>                        
                 </group>
                 <group name='contrato' string='Contrato'>
@@ -18,8 +18,8 @@
                 </group>
             </xpath>
             <field name="journal_id" position="after">
-<!--                 <field name="centro_custo_related"/> -->
-<!--                 <field name="desc_centro_custo_related"/> -->
+                <field name="centro_custo_related"/>
+                <field name="desc_centro_custo_related"/>
             </field>
             <xpath expr="/form/sheet/group[1]/group[5]" position="after">
                 <group name='informacoes_adicionais' string='Método de Depreciação Societária'>

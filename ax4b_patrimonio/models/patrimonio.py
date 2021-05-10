@@ -4,14 +4,6 @@ from odoo import models, fields, api
 
 class Patrimonio(models.Model):
     _inherit = 'account.asset'
-    
-    @api.depends('qtd_info_add', 'vlr_unit_info_add')
-    def _total(self):
-        self.vlr_unit_info_add = float(self.vlr_unit_info_add)
-        if(self.qtd_info_add > 0.00):
-            self.vlr_tot_info_add = self.qtd_info_add * self.vlr_unit_info_add
-        else: 
-            self.vlr_tot_info_add = 0
 
     # Cabeçalho
     name = fields.Char(string='Número', default='PAT_00000000') # Número sequencial
@@ -93,4 +85,11 @@ class Patrimonio(models.Model):
         obj.write({'name': number})
         return obj
     
-
+    
+    @api.depends('qtd_info_add', 'vlr_unit_info_add')
+    def _total(self):
+        self.vlr_unit_info_add = float(self.vlr_unit_info_add)
+        if(self.qtd_info_add > 0.00):
+            self.vlr_tot_info_add = self.qtd_info_add * self.vlr_unit_info_add
+        else: 
+            self.vlr_tot_info_add = 0

@@ -90,10 +90,7 @@
                 <page string="Orçamento" name="orcamento">
                      <group>
                         <group name='orcamento'>
-<!--                        Inserir campos aqui       -->
-                        </group>
-                        <group name='orcamento'>
-<!--                        Inserir campos aqui       -->
+                            <field name="Tabela_Dotacao_orcamento"/>
                         </group>
                     </group>     
                 </page>

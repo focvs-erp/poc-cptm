@@ -45,6 +45,6 @@
 		
 		<menuitem id="account_grupo_patrimonio_menu" name="Grupo de Patrimônio" 
 				parent="account.account_account_menu"                 
-				action="ax4b_account.action_window"/> 
+				action="ax4b_accounting.action_window"/> 
 	</data>  
 </odoo>

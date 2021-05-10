@@ -63,7 +63,7 @@
                   </group>
                 </group> 
               </page>
-              <page string="Cronograma" name="Cronograma">
+              <page string="Cronograma" name="Cronograma" attrs="{'invisible': [('modalidade_de_compra_name','=','Normal')]}">
                <field name="cronograma"/>
               </page>
             </notebook>

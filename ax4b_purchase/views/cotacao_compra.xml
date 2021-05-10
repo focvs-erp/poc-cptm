@@ -37,13 +37,13 @@
                 <field name="modalidade_de_compra" placeholder="Modalidade de Compra"/> 
               </group>
             </group>
-            <notebook attrs="{'invisible' : [('modalidade_de_compra', '=', 'Normal')]}" >
+            <notebook attrs="{'invisible': ['|',['modalidade_de_compra','=','Normal']]}">
               <page string="Produto" name="produto">
               </page>
               <page string="Fornecedores" name="Fornecedores">
                 <field name="fornecedores_da_cotacao"/>
               </page>
-              <page string="Orçamento" name="Orçamento"  attrs="{'invisible' : [('modalidade_de_compra', '=', 'Normal')]}" >
+              <page string="Orçamento" name="Orçamento" attrs="{'invisible': ['|',['modalidade_de_compra','=','Normal']]}">
                 <group>
                   <group name="right" >
                     <field name="nota_de_reserva"/>

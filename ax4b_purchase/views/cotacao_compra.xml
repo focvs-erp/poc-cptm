@@ -43,7 +43,7 @@
               <page string="Fornecedores" name="Fornecedores">
                 <field name="fornecedores_da_cotacao"/>
               </page>
-              <page string="Orçamento" name="Orçamento" attrs="{'invisible' : [('modalidade_de_compra', '=', 'normal')]}>
+              <page string="Orçamento" name="Orçamento" attrs="{'invisible' : [('modalidade_de_compra', '=', 'normal')]}">
               <group>
                 <group name="right">
                  <field name="nota_de_reserva"/>

@@ -5,7 +5,7 @@ class FornecedoresDaCotacao(models.Model):
    _name = 'purchase.fornecedores_cotacao'
    _description = 'Fornecedores da Cotação'
     
-   name = fields.Float() 
+   name = fields.Char() 
    teste = fields.Char(compute='_contato_fornecedores', store= True)
    prioridade = fields.Selection([('0', 'Normal'), ('1', 'Urgent')], 'Priority', default='0', index=True)
    cotacao_de_compra = fields.Many2one("purchase.cotacao_compra", invisible=True, string="Cotação de Compra")

@@ -1,6 +1,6 @@
 <odoo> 
 	<data>
-<!-- 		<record id="view_grupo_patrimonio_form" model="ir.ui.view">
+		<record id="view_grupo_patrimonio_form" model="ir.ui.view">
 			<field name="name">Grupo de Patrimônio</field>
 			<field name="model">account.grupo_patrimonio</field>
 			<field name="arch" type="xml">
@@ -9,15 +9,15 @@
 						<div class="oe_title">
 							<span class="o_form_label">Grupo de Patrimônio</span>
 							<h1>
-								<field name="codigo"/>
+								<field name="codigo" required="1" placeholder="Código..." attrs="{'readonly':[('id', '>', '0')]}"/>
 							</h1>
 						</div>
 						<group>
 							<group name="left_main_group">
-								<feild name="empresa"/>
+								<field name="nome_grupo"/>
 							</group>
 							<group name="right_main_group">
-								<field name="nome_grupo"/>
+								<field name="empresa" attrs="{'readonly':[('id', '>', '0')]}"/>
 							</group>
 						</group>         
 					</sheet>
@@ -36,7 +36,7 @@
 			</field>
 		</record>
 			
-		<record model="ir.actions.act_window" id="ax4b_patrimonio.action_window">
+		<record model="ir.actions.act_window" id="ax4b_accounting.action_window">
 			<field name="name">Grupo de Patrimônio</field>
 			<field name="res_model">account.grupo_patrimonio</field>
 			<field name="type">ir.actions.act_window</field>
@@ -44,7 +44,7 @@
 		</record>
 		
 		<menuitem id="account_grupo_patrimonio_menu" name="Grupo de Patrimônio" 
-				parent="menu_finance_configuration"                 
-				action="ax4b_patrimonio.action_window"  />  -->
+				parent="account.account_account_menu"                 
+				action="ax4b_accounting.action_window"/> 
 	</data>  
 </odoo>

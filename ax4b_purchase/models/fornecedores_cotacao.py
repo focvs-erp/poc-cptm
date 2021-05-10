@@ -5,7 +5,7 @@ class FornecedoresDaCotacao(models.Model):
    _name = 'purchase.fornecedores_cotacao'
    _description = 'Fornecedores da Cotação'
     
-   name = fields.Char() 
+   name = fields.Float() 
    teste = fields.Char(compute='_contato_fornecedores', store= True)
    prioridade = fields.Selection([('0', 'Normal'), ('1', 'Urgent')], 'Priority', default='0', index=True)
    cotacao_de_compra = fields.Many2one("purchase.cotacao_compra", invisible=True, string="Cotação de Compra")
@@ -29,7 +29,7 @@ class FornecedoresDaCotacao(models.Model):
    @api.model
    def _contato_fornecedores(self):
       for record in self:
-         record.teste += "a,"
+         record.teste += 1
          # if record.contato:
          #    for contato in record.contato:
          #       record.teste = record.contato.name

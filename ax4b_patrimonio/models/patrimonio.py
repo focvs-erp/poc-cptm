@@ -6,7 +6,7 @@ class Patrimonio(models.Model):
     _inherit = 'account.asset'
 
     # Cabeçalho
-    name = fields.Char(string='Número', default='PAT_00000000') # Número sequencial
+    name = fields.Char(string='Número', default='PAT_00000000', readonly=True) # Número sequencial
     data_cri = fields.Date(string = 'Data de Criação')
     num_fis = fields.Char(string = 'Número Físico')
     num_cont = fields.Char(string='Contrato')
@@ -85,7 +85,7 @@ class Patrimonio(models.Model):
         obj.write({'name': number})
         return obj
     
-    
+
     @api.depends('qtd_info_add', 'vlr_unit_info_add')
     def _total(self):
         self.vlr_unit_info_add = float(self.vlr_unit_info_add)

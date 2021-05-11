@@ -5,9 +5,7 @@
 			<field name="name">
 				Plano de Conta Secundária
 			</field>
-			<field name="model">
-				account.plano_conta_secundaria
-			</field>
+			<field name="model">account.plano_conta_secundaria</field>
 			<field name="arch" type="xml">
 				<form string="Plano de Conta Secundária">
 					<sheet>
@@ -35,9 +33,7 @@
 		</record>
 		<!-- LISTA -->
 		<record id="view_account_plano_conta_secundaria_tree" model="ir.ui.view">
-			<field name="model">
-				account.plano_conta_secundaria
-			</field>
+			<field name="model">account.plano_conta_secundaria</field>
 			<field name="arch" type="xml">
 				<tree string="Grupo de Patrimônio">
 					<field name="codigo" />

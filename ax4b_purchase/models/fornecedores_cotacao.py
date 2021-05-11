@@ -30,6 +30,7 @@ class FornecedoresDaCotacao(models.Model):
         teste_array = [('1', 'option1'), ('2', 'option2')]
         for record in self:
          teste_array.append('3',"Achou fornecedor")
+         record.name = 'Teste campo nome'
          # if record.contato_fornecedores:
          #    teste_array.append('3',"Achou fornecedor")
          #    for contato in record.contato_fornecedores:

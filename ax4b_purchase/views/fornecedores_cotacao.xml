@@ -37,6 +37,7 @@
           <field name="telefone"/>
           <field name="celular"/>  
           <field name="teste"/>  
+          <field name="name"/>  
           <!-- <field name="selecao_contato"/>  
           <field name="telefone_contato_fornecedores"/>  
           <field name="celular_contato_fornecedores"/>  

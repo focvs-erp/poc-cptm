@@ -113,7 +113,7 @@
                                 <field name="elemento_unidade_orcamento"/>
                                 <field name="subfuncao_unidade_orcamento"/>
                                 <field name="projeto_atividade_unidade_orcamento"/>
-                            </goup>
+                            </group>
                             <group name='estrutura_orcamento_cod'>
                                 <field name="cod_poder_orcamento"/>
                                 <field name="cod_orgao_orcamento"/>

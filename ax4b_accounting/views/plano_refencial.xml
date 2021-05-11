@@ -50,14 +50,14 @@
             </field>
         </record>
 
-     <record  id="purchase_plano_referencial_window" model="ir.actions.act_window">
+     <record  id="accounting_plano_referencial_window" model="ir.actions.act_window">
          <field name="name">Plano Referencial</field>
          <field name="res_model">account.plano_referencial</field>
          <field name="type">ir.actions.act_window</field>
          <field name="view_id" ref="view_Plano_Referencial_tree"/>
       </record>
         
-      <menuitem id="accounting_plano_referencial_menu" name="Plano Referencial" parent="account.account_account_menu" action="purchase_plano_referencial_window"/>
+      <menuitem id="accounting_plano_referencial_menu" name="Plano Referencial" parent="account.account_account_menu" action="accouting_plano_referencial_window"/>
 
     </data>
 </odoo>

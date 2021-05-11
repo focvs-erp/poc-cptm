@@ -7,9 +7,15 @@
             <xpath expr="/form/sheet/div[3]/h1/field[@name='name']" position="attributes">
                 <attribute name="readonly">1</attribute>
             </xpath>
-            <!-- <xpath expr="/form/sheet/group[1]/group[1]" position="attributes">
-                <attribute string="Valores de Ativos"/>
-            </xpath> -->
+            <xpath expr="/form/sheet/group[1]/group[1]" position="attributes">
+                <attribute name="string">Valores de Ativos Fixos</attribute>
+            </xpath>
+            <xpath expr="/form/sheet/group[1]/group[2]" position="attributes">
+                <attribute name="string">Valores Atuais</attribute>
+            </xpath>
+            <xpath expr="/form/sheet/group[1]/group[3]/field[3]" position="attributes">
+                <attribute name="string">Início da Depreciação</attribute>
+            </xpath>
             <xpath expr="/form/sheet/group[1]/group[1]" position="before">
                 <group string="Identificação">
                     <field name="name" readonly="1"/>
@@ -91,9 +97,41 @@
                     </group>     
                 </page>
                 <page string="Orçamento" name="orcamento">
-                     <group>
-                        <group name='orcamento'>
-                            <field name="Tabela_Dotacao_orcamento"/>
+                    <div class="oe_title">
+                        <group>
+                            <field name="tabela_dotacao_orcamento"/>
+                        </group>
+                    </div>
+                    <group string='Estrutura do Orçamento'>
+                        <group name='estrutura_orcamento'>
+                            <field name="nome_poder_orcamento"/>
+                            <field name="nome_orgao_orcamento"/>
+                            <field name="nome_unidade_orcamento"/>
+                            <field name="grupo_unidade_orcamento"/>
+                            <field name="funcao_unidade_orcamento"/>
+                            <field name="programas_unidade_orcamento"/>
+                            <field name="fonte_unidade_orcamento"/>
+                            <field name="categoria_unidade_orcamento"/>
+                            <field name="classe_unidade_orcamento"/>
+                            <field name="modalidade_unidade_orcamento"/>
+                            <field name="elemento_unidade_orcamento"/>
+                            <field name="subfuncao_unidade_orcamento"/>
+                            <field name="projeto_atividade_unidade_orcamento"/>
+                        </group>
+                        <group name='estrutura_orcamento_cod'>
+                            <field name="cod_poder_orcamento"/>
+                            <field name="cod_orgao_orcamento"/>
+                            <field name="cod_unidade_orcamento"/>
+                            <field name="cod_grupo_unidade_orcamento"/>
+                            <field name="cod_funcao_unidade_orcamento"/>
+                            <field name="cod_programas_unidade_orcamento"/>
+                            <field name="cod_fonte_unidade_orcamento"/>
+                            <field name="cod_categoria_unidade_orcamento"/>
+                            <field name="cod_classe_unidade_orcamento"/>
+                            <field name="cod_modalidade_unidade_orcamento"/>
+                            <field name="cod_elemento_unidade_orcamento"/>
+                            <field name="cod_subfuncao_unidade_orcamento"/>
+                            <field name="cod_projeto_atividade_unidade_orcamento"/>
                         </group>
                     </group>     
                 </page>

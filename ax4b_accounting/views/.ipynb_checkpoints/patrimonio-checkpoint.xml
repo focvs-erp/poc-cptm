@@ -4,10 +4,22 @@
         <field name="model">account.asset</field>
         <field name="inherit_id" ref="account_asset.view_account_asset_form" />
         <field name="arch" type="xml">
+            <xpath expr="/form/sheet/div[3]/h1/field[@name='name']" position="attributes">
+                <attribute name="readonly">1</attribute>
+            </xpath>
+            <xpath expr="/form/sheet/group[1]/group[1]" position="attributes">
+                <attribute name="string">Valores de Ativos Fixos</attribute>
+            </xpath>
+            <xpath expr="/form/sheet/group[1]/group[2]" position="attributes">
+                <attribute name="string">Valores Atuais</attribute>
+            </xpath>
+            <xpath expr="/form/sheet/group[1]/group[3]/field[3]" position="attributes">
+                <attribute name="string">Início da Depreciação</attribute>
+            </xpath>
             <xpath expr="/form/sheet/group[1]/group[1]" position="before">
                 <group string="Identificação">
-                    <field name="name"/>
-                    <field name="data_cri"/>
+                    <field name="name" readonly="1"/>
+                    <field name="data_cri" readonly="1"/>
                     <field name="num_fis"/>                        
                 </group>
                 <group name='contrato' string='Contrato'>
@@ -15,8 +27,8 @@
                 </group>
             </xpath>
             <field name="journal_id" position="after">
-<!--                 <field name="centro_custo_related"/> -->
-<!--                 <field name="desc_centro_custo_related"/> -->
+                <field name="centro_custo_related"/>
+                <field name="desc_centro_custo_related"/>
             </field>
             <xpath expr="/form/sheet/group[1]/group[5]" position="after">
                 <group name='informacoes_adicionais' string='Método de Depreciação Societária'>
@@ -70,19 +82,6 @@
                 </page>
                 <page string="Seguro" name="dados_seguro">
                     <field name="table_dados_seguro"/>
-<!--                      <group>
-                        <group name='dados_seguro'>
-                            <field name="cod_forn_dados_seguro"/>
-                            <field name="nome_agt_dados_seguro"/>
-                            <field name="num_apol_dados_seguro"/>
-                            <field name="data_vde_dados_seguro"/>
-                        </group>
-                        <group name='dados_seguro'>
-                            <field name="data_vate_dados_seguro"/>
-                            <field name="vlr_seg_dados_seguro"/>
-                            <field name="desc_obs_dados_seguro"/>
-                        </group>
-                    </group>      -->
                 </page>
                 <page string="Dados de Garantia" name="dados_garantia">
                      <group>
@@ -100,10 +99,7 @@
                 <page string="Orçamento" name="orcamento">
                      <group>
                         <group name='orcamento'>
-<!--                        Inserir campos aqui       -->
-                        </group>
-                        <group name='orcamento'>
-<!--                        Inserir campos aqui       -->
+                            <field name="Tabela_Dotacao_orcamento"/>
                         </group>
                     </group>     
                 </page>

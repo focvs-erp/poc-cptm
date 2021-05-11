@@ -1,5 +1,6 @@
 from odoo import  models, fields, api
 
+contacts = []
 
 class FornecedoresDaCotacao(models.Model):
    _name = 'purchase.fornecedores_cotacao'
@@ -13,8 +14,7 @@ class FornecedoresDaCotacao(models.Model):
    #contact = fields.Char(related="vendors.name")
    contato_fornecedores = fields.One2many(related="fornecedores.child_ids", string="Contato")
    # escolha_de_contato = fields.Selection([('', 'record.contato_fornecedores.name'), ['4','Sem registros']],compute='_contato_fornecedores', store= True)
-   # teste = fields.Selection(selection='_add_contato', string="Contato Fornecedor")
-   teste = fields.Many2one('fornecedores.child_ids', 'name', type='char', readonly=True, store=True, string='Teste')
+   teste = fields.Selection(contacts, compute='_add_contato',string="Contato Fornecedor")
    # selecao_contato = fields.Char(compute='_selecao_contato', store=True)
    # email_contato_fornecedores = fields.Char(compute='_selecao_contato', store=True)
    # telefone_contato_fornecedores = fields.Char(compute='_selecao_contato', store=True)
@@ -25,16 +25,16 @@ class FornecedoresDaCotacao(models.Model):
    #nome_fornecedor = fields.Char(related="fornecedores.name")
 
 
-   # @api.depends('fornecedores')
-   # def _add_contato(self):
-   #    #   contato_array= []
-   #    #   teste_array = [('1', 'option1'), ('2', 'option2')]
-   #    for record in self:
-   #       if record.contato_fornecedores:
-   #          for contato in record.contato_fornecedores:
-   #             nome_contato = fields.Char(related="contato.name")
+   @api.depends('fornecedores')
+   def _add_contato(self):
+      #   contato_array= []
+      #   teste_array = [('1', 'option1'), ('2', 'option2')]
+      for record in self:
+         if record.contato_fornecedores:
+            for contato in record.contato_fornecedores:
+               contacts.apppend(contato.name)
                   
-   #    return teste_array
+      # return teste_array
         
    
    # @api.depends('fornecedores')

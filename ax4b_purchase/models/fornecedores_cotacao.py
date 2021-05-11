@@ -27,8 +27,8 @@ class FornecedoresDaCotacao(models.Model):
    @api.model
    def _create(self, vals):
       record = super(FornecedoresDaCotacao, self).create(vals)
-      print ("A new Foo with name={} and has been created!").format(record.contato_fornecedores)
-      return record
+      # print ("A new Foo with name={} and has been created!").format(record.contato_fornecedores)
+      return [str((record.contato_fornecedores))]
 
 
    # @api.depends('fornecedores')

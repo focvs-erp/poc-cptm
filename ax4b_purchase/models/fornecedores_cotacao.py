@@ -26,13 +26,13 @@ class FornecedoresDaCotacao(models.Model):
    
    @api.depends('fornecedores')
    def _contato_fornecedores(self):
-       contato_array= []
+      contato_array= []
       for record in self:
          if record.contato_fornecedores:
             for contato in record.contato_fornecedores:
                # if self.escolha_de_contato == 'contato':
                #  value = "record.contato_fornecedores.name"
-               contato_array.append(contato.name)
+              contato_array.append(contato.name)
 
 
    # @api.depends('contato_fornecedores')

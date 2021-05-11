@@ -12,6 +12,9 @@
                             <!-- <h1>
                                 <field name="prioridade" widget="priority" class="mr-3"/>
                             </h1> -->
+                            <h1>
+								<field name="codigo" placeholder="Código..." />
+							</h1>
 						</div>
 						<group>
 							<group name="left_main_group">

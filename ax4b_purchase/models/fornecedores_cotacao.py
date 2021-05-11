@@ -27,16 +27,12 @@ class FornecedoresDaCotacao(models.Model):
    @api.depends('fornecedores')
    def _add_contato(self):
       list1 = []
-      for i in range(1900,2017):
-         list1.append((str(i), str(i)))
-      return list1
-
-      # teste_array = [('1', 'option1'), ('2', 'option2')]
-      # for record in self:
-      #    if record.contato_fornecedores:
-      #       for contato in record.contato_fornecedores:
-      #          contato_array.append(contato.name)
+      for record in self:
+         if record.contato_fornecedores:
+            for contato in record.contato_fornecedores:
+               list1.append((str(contato.name), str(contato.name)))
                   
+      return list1
         
    
    # @api.depends('fornecedores')

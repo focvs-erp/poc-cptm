@@ -2,7 +2,7 @@ from odoo import models, fields, api
 
 class PlanoReferencial(models.Model):
    _name = 'account.plano_referencial'
-   _description = 'Plano Referencial'
+   _description = 'Plano Referencial RFB'
 
 #    prioridade = fields.Selection([('0', 'Normal'), ('1', 'Urgent')], 'Priority', default='0', index=True)
    codigo = fields.Char(string='Código')

@@ -19,7 +19,6 @@
 						<group>
 							<group name="left_main_group">
 								<!-- <field name="prioridade"/> -->
-                                <field name="codigo"/>
                                 <field name="nome_cta"/>
                                 <field name="tipo"/>
 							</group>

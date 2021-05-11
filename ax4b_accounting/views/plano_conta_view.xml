@@ -1,0 +1,14 @@
+<odoo>
+    <record id="view_account_plano_conta_form" model="ir.ui.view">
+        <field name="model">account.account</field>
+        <field name="inherit_id" ref="account.view_tax_form"/>
+        <field name="arch" type="xml">
+            <group name="security_group" position="after">
+                <group name="administracao" string="Administração">
+                    <field name="manual"/>
+                    <field name="cod_ctapai"/>
+                </group>
+            </group>
+        </field>
+    </record>
+</odoo>

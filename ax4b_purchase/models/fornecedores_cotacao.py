@@ -26,7 +26,7 @@ class FornecedoresDaCotacao(models.Model):
    @api.depends('fornecedores')
    def _add_contato(self):
       listEmail = []
-      listEmail.append(('1',self.fornecedores.email))
+      listEmail.append(('1',self.email))
       return listEmail
 
 

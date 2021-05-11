@@ -33,7 +33,7 @@ class FornecedoresDaCotacao(models.Model):
                # if self.escolha_de_contato == 'contato':
                #  value = "record.contato_fornecedores.name"
                contato_array.append(contato_fornecedores.name)
-       return contato_array
+      return contato_array
 
 
    # @api.depends('contato_fornecedores')

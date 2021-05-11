@@ -28,7 +28,7 @@ class FornecedoresDaCotacao(models.Model):
    def _add_contato(self):
       list1 = []
       list1.append(('1', 'option1'))
-      if not self.contato_fornecedores:
+      if self.contato_fornecedores:
          list1.append(('3', 'option32'))
          # for contato in record.contato_fornecedores:
             # list1.append((str(contato.name), str(contato.name)))

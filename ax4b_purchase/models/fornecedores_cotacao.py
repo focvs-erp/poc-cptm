@@ -1,21 +1,19 @@
 from odoo import  models, fields, api
-import logging
-_logger = logging.getLogger(__name__)
-
 
 class FornecedoresDaCotacao(models.Model):
    _name = 'purchase.fornecedores_cotacao'
    _description = 'Fornecedores da Cotação'
     
-   name = fields.Char() 
+   contato_array = [('1', 'option1'), ('2', 'option2')]
 
+   name = fields.Char() 
    prioridade = fields.Selection([('0', 'Normal'), ('1', 'Urgent')], 'Priority', default='0', index=True)
    cotacao_de_compra = fields.Many2one("purchase.cotacao_compra", invisible=True, string="Cotação de Compra")
    fornecedores = fields.Many2one("res.partner", string="Fornecedores")
    #contact = fields.Char(related="vendors.name")
    contato_fornecedores = fields.One2many(related="fornecedores.child_ids", string="Contato")
    # escolha_de_contato = fields.Selection([('', 'record.contato_fornecedores.name'), ['4','Sem registros']],compute='_contato_fornecedores', store= True)
-   teste = fields.Selection(compute='_add_contato', string="Contato Fornecedor")
+   teste = fields.Selection(selection='_add_contato', string="Contato Fornecedor")
    # selecao_contato = fields.Char(compute='_selecao_contato', store=True)
    # email_contato_fornecedores = fields.Char(compute='_selecao_contato', store=True)
    # telefone_contato_fornecedores = fields.Char(compute='_selecao_contato', store=True)
@@ -28,15 +26,11 @@ class FornecedoresDaCotacao(models.Model):
 
    @api.depends('fornecedores')
    def _add_contato(self):
-      contato_array = []
       # teste_array = [('1', 'option1'), ('2', 'option2')]
-      for record in self:
-         _logger.debug(record)
-         if record.contato_fornecedores:
-            _logger.debug(record.contato_fornecedores)
-            for contato in record.contato_fornecedores:
-               _logger.debug(contato)
-               contato_array.append(contato.name)
+      # for record in self:
+      #    if record.contato_fornecedores:
+      #       for contato in record.contato_fornecedores:
+      #          contato_array.append(contato.name)
                   
       return contato_array
         

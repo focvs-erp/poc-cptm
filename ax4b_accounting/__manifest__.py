@@ -28,6 +28,7 @@
         'views/patrimonio.xml',
         'views/grupo_patrimonio.xml',
         'views/seguro_patrimonio.xml',
+        'views/plano_conta_secundaria.xml',
         'views/templates.xml',
     ],
     # only loaded in demonstration mode

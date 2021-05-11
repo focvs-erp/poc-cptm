@@ -36,7 +36,11 @@
           <field name="email"/>
           <field name="telefone"/>
           <field name="celular"/>  
-           <field name="teste"/>
+          <field name="teste"/>  
+          <!-- <field name="selecao_contato"/>  
+          <field name="telefone_contato_fornecedores"/>  
+          <field name="celular_contato_fornecedores"/>  
+          <field name="email_contato_fornecedores"/>  -->
         </tree>
       </field>
     </record>

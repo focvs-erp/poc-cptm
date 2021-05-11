@@ -100,7 +100,7 @@
                      <group>
                         <group name='orcamento'>
                             <group name='estrutura_orcamento' string='Estrutura do Orçamento'>
-                                <field name="Tabela_Dotacao_orcamento"/>
+                                <field name="tabela_dotacao_orcamento"/>
                                 <field name="nome_poder_orcamento"/>
                                 <field name="nome_orgao_orcamento"/>
                                 <field name="nome_unidade_orcamento"/>

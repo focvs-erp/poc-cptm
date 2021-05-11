@@ -32,8 +32,8 @@ class FornecedoresDaCotacao(models.Model):
             for contato_fornecedores in record.contato_fornecedores:
                # if self.escolha_de_contato == 'contato':
                #  value = "record.contato_fornecedores.name"
-               contato_array.append(contato_fornecedores.name)
-      return contato_array
+               # contato_array.append(contato_fornecedores.name)
+      return [(1, 'option1'), ('2', 'option2')]
 
 
    # @api.depends('contato_fornecedores')

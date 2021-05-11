@@ -26,8 +26,8 @@
 								<field name="data_ini"/>
                                 <field name="data_fin"/>
                                 <field name="cod_ctasup"/>
-                                <field name="nivel"/>
                                 <field name="natureza"/>
+                                <field name="nivel"/>
 							</group>
 						</group>         
 					</sheet>

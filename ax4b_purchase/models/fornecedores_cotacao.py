@@ -1,6 +1,5 @@
 from odoo import  models, fields, api
 import logging
-from openerp.osv import orm
 _logger = logging.getLogger(__name__)
 
 

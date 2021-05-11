@@ -32,7 +32,7 @@
       <field name="arch" type="xml">
         <tree string="Fornecedores da cotação"  class="o_purchase_order" editable="top" create="1" delete="1" multi_edit="1">
            <field name="fornecedores"/>
-          <field name="contato"/>
+          <!-- <field name="contato"/> -->
           <field name="email"/>
           <field name="telefone"/>
           <field name="celular"/>  

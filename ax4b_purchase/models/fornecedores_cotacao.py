@@ -35,7 +35,7 @@ class FornecedoresDaCotacao(models.Model):
                teste_array = [('7', 'option7'), ('8', 'option8')]
                # contacts.append(contato.name)
                   
-      # return teste_array
+      return teste_array
         
    
    # @api.depends('fornecedores')

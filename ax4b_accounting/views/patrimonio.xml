@@ -97,9 +97,11 @@
                     </group>     
                 </page>
                 <page string="Orçamento" name="orcamento">
-                    <group>
-                        <field name="tabela_dotacao_orcamento"/>
-                    </group>
+                    <div class="oe_title">
+                        <group>
+                            <field name="tabela_dotacao_orcamento"/>
+                        </group>
+                    </div>
                     <group string='Estrutura do Orçamento'>
                         <group name='estrutura_orcamento'>
                             <field name="nome_poder_orcamento"/>

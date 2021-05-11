@@ -25,11 +25,11 @@
     # always loaded
     'data': [
         'security/ir.model.access.csv',
-        'views/patrimonio.xml',
-        'views/grupo_patrimonio.xml',
-        'views/seguro_patrimonio.xml',
+        'views/patrimonio_view.xml',
+        'views/grupo_patrimonio_view.xml',
+        'views/seguro_patrimonio_view.xml',
         'views/plano_conta_secundaria_view.xml',
-        'views/plano_referencial.xml',
+        'views/plano_referencial_view.xml',
         'views/plano_conta_view.xml',
         'views/templates.xml',
     ],

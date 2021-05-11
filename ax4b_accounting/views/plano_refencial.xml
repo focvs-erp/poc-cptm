@@ -1,0 +1,63 @@
+<odoo>
+    <data>
+
+       <record id="view_grupo_patrimonio_form" model="ir.ui.view">
+			<field name="name">Plano Referencial Rfb</field>
+			<field name="model">account.plano_referencial</field>
+			<field name="arch" type="xml">
+				<form string="Plano Referencial Rfb">
+					<sheet>
+						<div class="oe_title">
+							<span class="o_form_label">Plano Referencial</span>
+                            <!-- <h1>
+                                <field name="prioridade" widget="priority" class="mr-3"/>
+                            </h1> -->
+						</div>
+						<group>
+							<group name="left_main_group">
+								<field name="prioridade"/>
+                                <field name="codigo"/>
+                                <field name="nome_cta"/>
+                                <field name="tipo"/>
+							</group>
+							<group name="right_main_group">
+								<field name="data_ini"/>
+                                <field name="data_fin"/>
+                                <field name="cod_ctasup"/>
+                                <field name="nivel"/>
+                                <field name="natureza"/>
+							</group>
+						</group>         
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+        <record id="view_Plano_Referencial_tree" model="ir.ui.view">
+            <field name="name">Plano Referencial Rfb</field>
+            <field name="model">account.plano_referencial</field>
+            <field name="arch" type="xml">
+                <tree string="Plano Referencial Rfb"  class="o_accounting_order" editable="top" create="1" delete="1" multi_edit="1">
+                    <field name="codigo"/>
+                    <field name="nome_cta"/>
+                    <field name="tipo"/>
+                    <field name="data_ini"/>
+                    <field name="data_fin"/>
+                    <field name="cod_ctasup"/>
+                    <field name="nivel"/>
+                    <field name="natureza"/>
+                </tree>
+            </field>
+        </record>
+
+     <record  id="purchase_plano_referencial_window" model="ir.actions.act_window">
+         <field name="name">Plano Referencial</field>
+         <field name="res_model">account.plano_referencial</field>
+         <field name="type">ir.actions.act_window</field>
+         <field name="view_id" ref="view_Plano_Referencial_tree"/>
+      </record>
+        
+      <menuitem id="accounting_plano_referencial_menu" name="Plano Referencial" parent="account.account_account_menu" action="purchase_plano_referencial_window"/>
+
+    </data>
+</odoo>

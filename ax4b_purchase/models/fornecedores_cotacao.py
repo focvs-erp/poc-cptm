@@ -26,12 +26,12 @@ class FornecedoresDaCotacao(models.Model):
 
    @api.depends('fornecedores')
    def _add_contato(self):
-        contato_array= []
-        teste_array = [('1', 'option1'), ('2', 'option2')]
+      #   contato_array= []
+      #   teste_array = [('1', 'option1'), ('2', 'option2')]
         for record in self:
          # teste_array.append('3',"Achou fornecedor")
          record.name = 'Teste campo nome'
-         record.teste =teste_array
+         # record.teste =teste_array
          # if record.contato_fornecedores:
          #    teste_array.append('3',"Achou fornecedor")
          #    for contato in record.contato_fornecedores:

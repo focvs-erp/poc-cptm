@@ -93,9 +93,36 @@
                 <page string="Orçamento" name="orcamento">
                      <group>
                         <group name='orcamento'>
-                            <field name="Tabela_Dotacao_orcamento"/>
-                            <field name="nome_poder_orcamento"/>
-                            <field name="cod_poder_orcamento"/>
+                            <group name='estrutura_orcamento' string='Estrutura do Orçamento'>
+                                <field name="Tabela_Dotacao_orcamento"/>
+                                <field name="nome_poder_orcamento"/>
+                                <field name="nome_orgao_orcamento"/>
+                                <field name="nome_unidade_orcamento"/>
+                                <field name="grupo_unidade_orcamento"/>
+                                <field name="funcao_unidade_orcamento"/>
+                                <field name="programas_unidade_orcamento"/>
+                                <field name="fonte_unidade_orcamento"/>
+                                <field name="classe_unidade_orcamento"/>
+                                <field name="modalidade_unidade_orcamento"/>
+                                <field name="elemento_unidade_orcamento"/>
+                                <field name="subfuncao_unidade_orcamento"/>
+                                <field name="projeto_atividade_unidade_orcamento"/>
+                            </goup>
+                            <group name='estrutura_orcamento_cod'>
+                                <field name="cod_poder_orcamento"/>
+                                <field name="cod_orgao_orcamento"/>
+                                <field name="cod_unidade_orcamento"/>
+                                <field name="cod_grupo_unidade_orcamento"/>
+                                <field name="cod_funcao_unidade_orcamento"/>
+                                <field name="cod_programas_unidade_orcamento"/>
+                                <field name="cod_fonte_unidade_orcamento"/>
+                                <field name="categoria_unidade_orcamento"/>
+                                <field name="cod_categoria_unidade_orcamento"/>
+                                <field name="cod_classe_unidade_orcamento"/>
+                                <field name="cod_modalidade_unidade_orcamento"/>
+                                <field name="cod_elemento_unidade_orcamento"/>
+                                <field name="cod_subfuncao_unidade_orcamento"/>
+                                <field name="cod_projeto_atividade_unidade_orcamento"/>
                         </group>
                     </group>     
                 </page>

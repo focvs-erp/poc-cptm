@@ -32,7 +32,7 @@ class FornecedoresDaCotacao(models.Model):
          if record.contato_fornecedores:
             for contato in record.contato_fornecedores:
                 nome_contato = fields.Char(related="contato.name")
-                contato_array.append(1,"Testem Rafael")
+                teste_array.append(1,"Testem Rafael")
         return teste_array
         
    

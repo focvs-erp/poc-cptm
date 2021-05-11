@@ -13,15 +13,15 @@
               </h1>
                </div>
               <group name="right_main_group">
-                  <group>
-                 <field name="fornecedores" placeholder="Fornecedores"/>
-                <field name="contato" placeholder="Contato"/>
-                <field name="email" placeholder="Email"/>
-                <field name="telefone" placeholder="Telefone"/>
-                <field name="celular" placeholder="Celular"/>  
-                <field name="teste"/>
-                  </group>
-                </group>
+               <group>
+                  <field name="fornecedores" placeholder="Fornecedores"/>
+                  <field name="contato_fornecedores" placeholder="contato_fornecedores"/>
+                  <field name="email" placeholder="Email"/>
+                  <field name="telefone" placeholder="Telefone"/>
+                  <field name="celular" placeholder="Celular"/>  
+                  <field name="teste"/>
+               </group>
+              </group>
          </sheet>
         </form>
        </field>
@@ -31,17 +31,21 @@
       <field name="model">purchase.fornecedores_cotacao</field>
       <field name="arch" type="xml">
         <tree string="Fornecedores da cotação"  class="o_purchase_order" editable="top" create="1" delete="1" multi_edit="1">
-           <field name="fornecedores"/>
-          <field name="contato"/>
+          <field name="fornecedores"/>
+          <field name="contato_fornecedores"/>
           <field name="email"/>
           <field name="telefone"/>
           <field name="celular"/>  
-           <field name="teste"/>
+          <field name="teste"/>  
+          <!-- <field name="selecao_contato"/>  
+          <field name="telefone_contato_fornecedores"/>  
+          <field name="celular_contato_fornecedores"/>  
+          <field name="email_contato_fornecedores"/>  -->
         </tree>
       </field>
     </record>
        
-        <record  id="purchase_fornecedores_cotacao_window" model="ir.actions.act_window">
+    <record  id="purchase_fornecedores_cotacao_window" model="ir.actions.act_window">
       <field name="name">Fornecedores da Cotação</field>
       <field name="res_model">purchase.fornecedores_cotacao</field>
       <field name="type">ir.actions.act_window</field>

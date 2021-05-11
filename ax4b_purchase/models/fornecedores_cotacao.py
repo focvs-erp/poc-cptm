@@ -14,7 +14,7 @@ class FornecedoresDaCotacao(models.Model):
    contato_fornecedores = fields.One2many(related="fornecedores.child_ids", string="Contato")
    # escolha_de_contato = fields.Selection([('', 'record.contato_fornecedores.name'), ['4','Sem registros']],compute='_contato_fornecedores', store= True)
    # teste = fields.Selection(selection='_add_contato', string="Contato Fornecedor")
-   teste = fields.related('child_ids', 'name', type='char', relation='res.partner', readonly=True, store=True, string='Teste')
+   teste = fields.related('child_ids', 'name', type='char', related='res.partner', readonly=True, store=True, string='Teste')
    # selecao_contato = fields.Char(compute='_selecao_contato', store=True)
    # email_contato_fornecedores = fields.Char(compute='_selecao_contato', store=True)
    # telefone_contato_fornecedores = fields.Char(compute='_selecao_contato', store=True)

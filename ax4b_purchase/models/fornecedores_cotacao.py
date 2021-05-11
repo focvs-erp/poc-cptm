@@ -28,14 +28,14 @@ class FornecedoresDaCotacao(models.Model):
    def _add_contato(self):
         contato_array= []
         teste_array = [('1', 'option1'), ('2', 'option2')]
-        teste_array.append('6',"Achou fornecedor")
+        
         for record in self:
          if record.contato_fornecedores:
-            teste_array.append('3',"Achou fornecedor")
+            teste_array.append(3,"Achou fornecedor")
             for contato in record.contato_fornecedores:
-                teste_array.append('4',"entrou no contato")
+                teste_array.append(4,"entrou no contato")
                 nome_contato = fields.Char(related="contato.name")
-                teste_array.append('5',"Testem Rafael")
+                teste_array.append(5,"Testem Rafael")
         return teste_array
         
    

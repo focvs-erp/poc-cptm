@@ -31,12 +31,12 @@ class FornecedoresDaCotacao(models.Model):
       return record
 
 
-   @api.depends('fornecedores')
-   def _add_contato(self):
-      list1 = []
-      list1.append(('1', 'option1'))
-      if self.contato_fornecedores:
-         list1.append((str('3', 'option32')))
+   # @api.depends('fornecedores')
+   # def _add_contato(self):
+   #    list1 = []
+   #    list1.append(('1', 'option1'))
+   #    if self.contato_fornecedores:
+   #       list1.append((str('3', 'option32')))
 
          # for contato in record.contato_fornecedores:
             # list1.append((str(contato.name), str(contato.name)))

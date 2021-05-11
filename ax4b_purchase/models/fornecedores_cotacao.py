@@ -29,8 +29,9 @@ class FornecedoresDaCotacao(models.Model):
         contato_array= []
         for record in self:
          if record.contato_fornecedores:
-            for contato_fornecedores in record.contato_fornecedores:
-                contato_array.append(contato_fornecedores.name,contato_fornecedores.name)
+            for contato in record.contato_fornecedores:
+                nome_contato = fields.Char(related="contato.name")
+                contato_array.append(nome_contato,nome_contato)
         return contato_array
         
    

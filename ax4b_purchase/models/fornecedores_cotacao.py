@@ -1,6 +1,6 @@
 from odoo import  models, fields, api
 
-contacts = []
+contacts = [('1', 'option1'), ('2', 'option2')]
 
 class FornecedoresDaCotacao(models.Model):
    _name = 'purchase.fornecedores_cotacao'
@@ -10,7 +10,7 @@ class FornecedoresDaCotacao(models.Model):
 
    prioridade = fields.Selection([('0', 'Normal'), ('1', 'Urgent')], 'Priority', default='0', index=True)
    cotacao_de_compra = fields.Many2one("purchase.cotacao_compra", invisible=True, string="Cotação de Compra")
-   fornecedores = fields.Many2one("res.partner", string="Fornecedores")
+   fornecedores = fields.Many2one("res.partner", string="Fornecedores", compute='_add_contato')
    #contact = fields.Char(related="vendors.name")
    contato_fornecedores = fields.One2many(related="fornecedores.child_ids", string="Contato")
    # escolha_de_contato = fields.Selection([('', 'record.contato_fornecedores.name'), ['4','Sem registros']],compute='_contato_fornecedores', store= True)

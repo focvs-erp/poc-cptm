@@ -6,6 +6,7 @@ class FornecedoresDaCotacao(models.Model):
     
    # contato_array = [('1', 'option1'), ('2', 'option2')]
 
+   texto = fields.Char(default='Leu o valor')
    name = fields.Char() 
    prioridade = fields.Selection([('0', 'Normal'), ('1', 'Urgent')], 'Priority', default='0', index=True)
    cotacao_de_compra = fields.Many2one("purchase.cotacao_compra", invisible=True, string="Cotação de Compra")
@@ -27,7 +28,7 @@ class FornecedoresDaCotacao(models.Model):
    @api.depends('fornecedores')
    def _add_contato(self):
       listEmail = []
-      listEmail.append(('1',str(self)))
+      listEmail.append(('1',str(self.texto)))
       return listEmail
 
 

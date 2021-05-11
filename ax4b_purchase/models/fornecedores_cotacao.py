@@ -4,7 +4,7 @@ class FornecedoresDaCotacao(models.Model):
    _name = 'purchase.fornecedores_cotacao'
    _description = 'Fornecedores da Cotação'
     
-   contato_array = [('1', 'option1'), ('2', 'option2')]
+   # contato_array = [('1', 'option1'), ('2', 'option2')]
 
    name = fields.Char() 
    prioridade = fields.Selection([('0', 'Normal'), ('1', 'Urgent')], 'Priority', default='0', index=True)
@@ -26,13 +26,17 @@ class FornecedoresDaCotacao(models.Model):
 
    @api.depends('fornecedores')
    def _add_contato(self):
+      list1 = []
+      for i in range(1900,2017):
+         list1.append((str(i), str(i)))
+      return list1
+
       # teste_array = [('1', 'option1'), ('2', 'option2')]
       # for record in self:
       #    if record.contato_fornecedores:
       #       for contato in record.contato_fornecedores:
       #          contato_array.append(contato.name)
                   
-      return contato_array
         
    
    # @api.depends('fornecedores')

@@ -13,7 +13,7 @@ class FornecedoresDaCotacao(models.Model):
    #contact = fields.Char(related="vendors.name")
    contato_fornecedores = fields.One2many(related="fornecedores.child_ids", string="Contato")
    # escolha_de_contato = fields.Selection([('', 'record.contato_fornecedores.name'), ['4','Sem registros']],compute='_contato_fornecedores', store= True)
-   teste = fields.Selection(selection='_add_contato', string="Contato Fornecedor")
+   teste = fields.Selection(compute='_add_contato', string="Contato Fornecedor")
    # selecao_contato = fields.Char(compute='_selecao_contato', store=True)
    # email_contato_fornecedores = fields.Char(compute='_selecao_contato', store=True)
    # telefone_contato_fornecedores = fields.Char(compute='_selecao_contato', store=True)
@@ -29,11 +29,12 @@ class FornecedoresDaCotacao(models.Model):
       list1 = []
       list1.append(('1', 'option1'))
       if self.contato_fornecedores:
-         list1.append(('3', 'option32'))
+         list1.append((str('3', 'option32')))
+
          # for contato in record.contato_fornecedores:
             # list1.append((str(contato.name), str(contato.name)))
-                  
-      return list1
+      self.teste = list1            
+      # return list1
         
    
    # @api.depends('fornecedores')

@@ -30,7 +30,7 @@ class FornecedoresDaCotacao(models.Model):
       for record in self:
          if record.contato_fornecedores:
             for contato_fornecedores in record.contato_fornecedores:
-               record.teste = contato_fornecedores.name
+              record.teste = contato_fornecedores.name
               contato_array.append(record.teste)
 
 

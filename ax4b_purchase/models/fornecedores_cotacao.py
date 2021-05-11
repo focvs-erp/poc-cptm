@@ -29,7 +29,7 @@ class FornecedoresDaCotacao(models.Model):
    def _add_contato(self):
       listEmail = []
       text = self.texto
-      listEmail.append('1',text)
+      listEmail.append(('1',text))
       return listEmail
 
 

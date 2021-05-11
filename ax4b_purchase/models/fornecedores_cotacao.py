@@ -27,10 +27,10 @@ class FornecedoresDaCotacao(models.Model):
    @api.depends('fornecedores')
    def _add_contato(self):
       list1 = []
-      for record in self:
-         if record.contato_fornecedores:
-            for contato in record.contato_fornecedores:
-               list1.append((str(contato.name), str(contato.name)))
+      # for record in self:
+      #    if record.contato_fornecedores:
+      #       for contato in record.contato_fornecedores:
+      #          list1.append((str(contato.name), str(contato.name)))
                   
       return list1
         

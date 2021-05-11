@@ -37,7 +37,7 @@
             <field name="name">Plano Referencial RFB</field>
             <field name="model">account.plano_referencial</field>
             <field name="arch" type="xml">
-                <tree string="Plano Referencial RFB"  class="o_accounting_order" editable="top" create="1" delete="1" multi_edit="1">
+                <tree string="Plano Referencial RFB">
                     <field name="codigo"/>
                     <field name="nome_cta"/>
                     <field name="tipo"/>
@@ -50,14 +50,14 @@
             </field>
         </record>
 
-     <record  id="accounting_plano_referencial_window" model="ir.actions.act_window">
+     <record  id="account_plano_referencial_window" model="ir.actions.act_window">
          <field name="name">Plano Referencial</field>
          <field name="res_model">account.plano_referencial</field>
          <field name="type">ir.actions.act_window</field>
          <field name="view_id" ref="view_plano_referencial_tree"/>
       </record>
         
-      <menuitem id="accounting_plano_referencial_menu" name="Plano Referencial" parent="account.account_account_menu" action="accouting_plano_referencial_window"/>
+      <menuitem id="account_plano_referencial_menu" name="Plano Referencial RFB" parent="account.account_account_menu" action="account_plano_referencial_window"/>
 
     </data>
 </odoo>

@@ -1,4 +1,8 @@
 from odoo import  models, fields, api
+import logging
+from openerp.osv import orm
+_logger = logging.getLogger(__name__)
+
 
 class FornecedoresDaCotacao(models.Model):
    _name = 'purchase.fornecedores_cotacao'
@@ -12,7 +16,7 @@ class FornecedoresDaCotacao(models.Model):
    #contact = fields.Char(related="vendors.name")
    contato_fornecedores = fields.One2many(related="fornecedores.child_ids", string="Contato")
    # escolha_de_contato = fields.Selection([('', 'record.contato_fornecedores.name'), ['4','Sem registros']],compute='_contato_fornecedores', store= True)
-   teste = fields.Selection(compute='_add_contato', string="Contato Fornecedor")
+   teste = fields.Selection(selection='_add_contato', string="Contato Fornecedor")
    # selecao_contato = fields.Char(compute='_selecao_contato', store=True)
    # email_contato_fornecedores = fields.Char(compute='_selecao_contato', store=True)
    # telefone_contato_fornecedores = fields.Char(compute='_selecao_contato', store=True)
@@ -25,16 +29,17 @@ class FornecedoresDaCotacao(models.Model):
 
    @api.depends('fornecedores')
    def _add_contato(self):
-      #   contato_array= []
-      teste_array = [('1', 'option1'), ('2', 'option2')]
+      contato_array = []
+      # teste_array = [('1', 'option1'), ('2', 'option2')]
       for record in self:
-         teste_array = [('3', 'option3'), ('4', 'option4')]
+         _logger.debug(record)
          if record.contato_fornecedores:
-            teste_array = [('5', 'option5'), ('6', 'option6')]
+            _logger.debug(record.contato_fornecedores)
             for contato in record.contato_fornecedores:
-               teste_array = [('7', 'option7'), ('8', 'option8')]
-               # contacts.append(contato.name)             
-      return teste_array
+               _logger.debug(contato)
+               contato_array.append(contato.name)
+                  
+      return contato_array
         
    
    # @api.depends('fornecedores')

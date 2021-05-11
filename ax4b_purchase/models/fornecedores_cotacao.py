@@ -10,6 +10,7 @@ class FornecedoresDaCotacao(models.Model):
    prioridade = fields.Selection([('0', 'Normal'), ('1', 'Urgent')], 'Priority', default='0', index=True)
    cotacao_de_compra = fields.Many2one("purchase.cotacao_compra", invisible=True, string="Cotação de Compra")
    fornecedores = fields.Many2one("res.partner", string="Fornecedores")
+   nome_contato = fields.Char()
    #contact = fields.Char(related="vendors.name")
    contato_fornecedores = fields.One2many(related="fornecedores.child_ids", string="Contato")
    # escolha_de_contato = fields.Selection([('', 'record.contato_fornecedores.name'), ['4','Sem registros']],compute='_contato_fornecedores', store= True)
@@ -26,7 +27,7 @@ class FornecedoresDaCotacao(models.Model):
    @api.depends('fornecedores')
    def _add_contato(self):
       listEmail = []
-      listEmail.append(('1',str(self.fornecedores.email)))
+      listEmail.append(('1',str(self.prioridade)))
       return listEmail
 
 

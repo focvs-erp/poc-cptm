@@ -27,12 +27,13 @@ class FornecedoresDaCotacao(models.Model):
    @api.depends('fornecedores')
    def _add_contato(self):
         contato_array= []
+        teste_array = [('1', 'option1'), ('2', 'option2')]
         for record in self:
          if record.contato_fornecedores:
             for contato in record.contato_fornecedores:
                 nome_contato = fields.Char(related="contato.name")
                 contato_array.append(1,"Testem Rafael")
-        return contato_array
+        return teste_array
         
    
    # @api.depends('fornecedores')

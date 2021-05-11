@@ -7,9 +7,15 @@
             <xpath expr="/form/sheet/div[3]/h1/field[@name='name']" position="attributes">
                 <attribute name="readonly">1</attribute>
             </xpath>
-            <!-- <xpath expr="/form/sheet/group[1]/group[1]" position="attributes">
-                <attribute string="Valores de Ativos">
-            </xpath> -->
+            <xpath expr="/form/sheet/group[1]/group[1]" position="attributes">
+                <attribute name="string">Valores de Ativos Fixos</attribute>
+            </xpath>
+            <xpath expr="/form/sheet/group[1]/group[2]" position="attributes">
+                <attribute name="string">Valores Atuais</attribute>
+            </xpath>
+            <xpath expr="/form/sheet/group[1]/group[3]/field[3]" position="attributes">
+                <attribute name="string">Início da Depreciação</attribute>
+            </xpath>
             <xpath expr="/form/sheet/group[1]/group[1]" position="before">
                 <group string="Identificação">
                     <field name="name" readonly="1"/>
@@ -94,8 +100,6 @@
                      <group>
                         <group name='orcamento'>
                             <field name="Tabela_Dotacao_orcamento"/>
-                            <field name="nome_poder_orcamento"/>
-                            <field name="cod_poder_orcamento"/>
                         </group>
                     </group>     
                 </page>

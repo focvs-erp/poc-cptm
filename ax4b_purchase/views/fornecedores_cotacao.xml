@@ -15,7 +15,7 @@
               <group name="right_main_group">
                   <group>
                  <field name="fornecedores" placeholder="Fornecedores"/>
-                <field name="contato" placeholder="Contato"/>
+                <field name="contato_fornecedores" placeholder="contato_fornecedores"/>
                 <field name="email" placeholder="Email"/>
                 <field name="telefone" placeholder="Telefone"/>
                 <field name="celular" placeholder="Celular"/>  
@@ -32,7 +32,7 @@
       <field name="arch" type="xml">
         <tree string="Fornecedores da cotação"  class="o_purchase_order" editable="top" create="1" delete="1" multi_edit="1">
            <field name="fornecedores"/>
-          <!-- <field name="contato"/> -->
+          <field name="contato_fornecedores"/>
           <field name="email"/>
           <field name="telefone"/>
           <field name="celular"/>  

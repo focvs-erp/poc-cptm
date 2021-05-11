@@ -51,7 +51,7 @@
         </record>
 
      <record  id="account_plano_referencial_window" model="ir.actions.act_window">
-         <field name="name">Plano Referencial</field>
+         <field name="name">Plano Referencial RFB</field>
          <field name="res_model">account.plano_referencial</field>
          <field name="type">ir.actions.act_window</field>
          <field name="view_id" ref="view_plano_referencial_tree"/>

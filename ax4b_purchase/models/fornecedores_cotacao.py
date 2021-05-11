@@ -13,7 +13,7 @@ class FornecedoresDaCotacao(models.Model):
    #contact = fields.Char(related="vendors.name")
    contato_fornecedores = fields.One2many(related="fornecedores.child_ids", string="Contato")
    # escolha_de_contato = fields.Selection([('', 'record.contato_fornecedores.name'), ['4','Sem registros']],compute='_contato_fornecedores', store= True)
-   teste = fields.Selection(selection='_create', string="Contato Fornecedor")
+   teste = fields.Selection(selection='_add_contato', string="Contato Fornecedor")
    # selecao_contato = fields.Char(compute='_selecao_contato', store=True)
    # email_contato_fornecedores = fields.Char(compute='_selecao_contato', store=True)
    # telefone_contato_fornecedores = fields.Char(compute='_selecao_contato', store=True)
@@ -23,11 +23,11 @@ class FornecedoresDaCotacao(models.Model):
    celular = fields.Char(related="fornecedores.mobile", string="Celular") 
    #nome_fornecedor = fields.Char(related="fornecedores.name")
 
-
-   @api.model
-   def _create(self, vals):
-      record = super(FornecedoresDaCotacao, self).create(vals)
-      return [('1', 'option1'), ('2', 'option2')]
+   @api.depends('fornecedores')
+   def _add_contato(self):
+      listEmail = []
+      listEmail.append(self.fornecedores.email)
+      return listEmail
 
 
    # @api.depends('fornecedores')
@@ -39,7 +39,7 @@ class FornecedoresDaCotacao(models.Model):
 
          # for contato in record.contato_fornecedores:
             # list1.append((str(contato.name), str(contato.name)))
-      self.teste = list1            
+      # self.teste = list1            
       # return list1
         
    

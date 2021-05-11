@@ -97,7 +97,7 @@
                     </group>     
                 </page>
                 <page string="Orçamento" name="orcamento">
-                     <group>
+                    <group>
                         <group name='orcamento'>
                             <group name='estrutura_orcamento' string='Estrutura do Orçamento'>
                                 <field name="tabela_dotacao_orcamento"/>
@@ -129,6 +129,7 @@
                                 <field name="cod_elemento_unidade_orcamento"/>
                                 <field name="cod_subfuncao_unidade_orcamento"/>
                                 <field name="cod_projeto_atividade_unidade_orcamento"/>
+                            </group>
                         </group>
                     </group>     
                 </page>

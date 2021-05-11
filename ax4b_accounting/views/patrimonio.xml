@@ -111,6 +111,7 @@
                             <field name="funcao_unidade_orcamento"/>
                             <field name="programas_unidade_orcamento"/>
                             <field name="fonte_unidade_orcamento"/>
+                            <field name="categoria_unidade_orcamento"/>
                             <field name="classe_unidade_orcamento"/>
                             <field name="modalidade_unidade_orcamento"/>
                             <field name="elemento_unidade_orcamento"/>
@@ -125,7 +126,6 @@
                             <field name="cod_funcao_unidade_orcamento"/>
                             <field name="cod_programas_unidade_orcamento"/>
                             <field name="cod_fonte_unidade_orcamento"/>
-                            <field name="categoria_unidade_orcamento"/>
                             <field name="cod_categoria_unidade_orcamento"/>
                             <field name="cod_classe_unidade_orcamento"/>
                             <field name="cod_modalidade_unidade_orcamento"/>

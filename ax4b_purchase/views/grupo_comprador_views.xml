@@ -1,4 +1,4 @@
-<odoo> 
+<!-- <odoo> 
 	<data>
 		<record id="view_grupo_comprador_form" model="ir.ui.view">
 			<field name="name">Grupo de Compradores</field>
@@ -8,7 +8,7 @@
 					<sheet>
 						<group>
 							<group name="left_main_group">
-                                <field name="cd_grupo_comprador" />
+                                <field name="cd_grupo_comprador"/>
                                 <field name="ds_grupo_comprador"/>
 							</group>
 							<group name="right_main_group">
@@ -45,4 +45,4 @@
 				parent="menu_grupo_in_config_purchase"                 
 				action="ax4b_purchase.action_window"/> 
 	</data>  
-</odoo>
+</odoo> -->

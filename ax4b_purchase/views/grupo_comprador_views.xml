@@ -14,10 +14,10 @@
 						</div>
 						<group>
 							<group name="left_main_group">
-                                <field name="ds_grupo_comprador" style=' max-width: 1150px;  width: 500px'/>
+                                <field name="ds_grupo_comprador"/>
 							</group>
 							<group name="right_main_group">
-								<field name="cd_ativo" type="checkbox" />
+								<field name="cd_ativo" widget="boolean_toggle" />
 							</group>
 						</group>
 						<notebook>

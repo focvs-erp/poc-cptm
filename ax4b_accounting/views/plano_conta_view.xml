@@ -4,9 +4,7 @@
         <field name="inherit_id" ref="account.view_account_form"/>
         <field name="arch" type="xml">
             <field name="company_id" position="before">
-                <group>
-                    <field name="cod_red"/>
-                </group>
+                <field name="cod_red"/>
             </field>
             <field name="tag_ids" position="after">
                 <field name="cod_refrfb"/>

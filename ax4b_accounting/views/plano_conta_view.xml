@@ -3,7 +3,7 @@
         <field name="model">account.account</field>
         <field name="inherit_id" ref="account.view_account_form"/>
         <field name="arch" type="xml">
-            <field name="company_id" position="after">
+            <field name="group_id" position="after">
                 <field name="cod_red"/>
             </field>
             <field name="tag_ids" position="after">
@@ -15,8 +15,6 @@
                 <group name="administracao" string="Administração">
                     <field name="manual"/>
                     <field name="cod_ctapai"/>
-                <!-- </group>
-                <group> -->
                     <field name="cod_catpri"/>
                     <field name="padrao"/>
                     <field name="nece_dc"/>

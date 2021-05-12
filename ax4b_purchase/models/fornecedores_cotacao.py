@@ -18,7 +18,7 @@ class FornecedoresDaCotacao(models.Model):
    # selecao_contato = fields.Char(compute='_selecao_contato', store=True)
    #nome_fornecedor = fields.Char(related="fornecedores.name")
 
-   teste = fields.Selection(selection='_add_contato', string="Contato Fornecedor")
+   teste = fields.Selection([], string="Contato Fornecedor")
    email_contato_fornecedores = fields.Char(compute='_onchange_fornecedore', store=True)
    email = fields.Char(related="fornecedores.email", string="Email")
    telefone = fields.Char(related="fornecedores.phone", string="Telefone") 
@@ -36,11 +36,11 @@ class FornecedoresDaCotacao(models.Model):
                
       return {'domain' : 
              {'my_field':
-             [contato_array] }
+             [contato_array] }}
 
-   # @api.depends('fornecedores')
-   # def _add_contato(self):
-   #    return [('1', 'option1'), ('2', 'option2')]
+   @api.depends('fornecedores')
+   def _add_contato(self):
+      return [('1', 'option1'), ('2', 'option2')]
 
 
    # @api.depends('fornecedores')
@@ -74,7 +74,3 @@ class FornecedoresDaCotacao(models.Model):
    #    contato_array= []
       
    #    return [('1', 'option1'), ('2', 'option2')]
-
-
-
-        

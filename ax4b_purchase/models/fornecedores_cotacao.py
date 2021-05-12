@@ -29,6 +29,16 @@ class FornecedoresDaCotacao(models.Model):
          record.name = "Rafael"
          record.teste.append(('1',text))
 
+   @api.depends('contato_fornecedores')
+   def _selecao_contato(self):
+      for record in self:
+         if record.contato_fornecedores:
+            for contato in record.contato_fornecedores:
+               if(contato.name == record.escolha_de_contato.value):
+                  record.email_contato_fornecedores = record.contato_fornecedores.email
+                  record.telefone_contato_fornecedores = record.contato_fornecedores.phone
+                  record.celular_contato_fornecedores = record.contato_fornecedores.mobile
+                  
 
    # @api.depends('fornecedores')
    # def _add_contato(self):
@@ -49,18 +59,6 @@ class FornecedoresDaCotacao(models.Model):
       
    #    return [('1', 'option1'), ('2', 'option2')]
 
-
-
-   # @api.depends('contato_fornecedores')
-   # def _selecao_contato(self):
-   #    for record in self:
-   #       if record.contato_fornecedores:
-   #          for contato in record.contato_fornecedores:
-   #             if(contato.name == record.escolha_de_contato.value):
-   #                record.email_contato_fornecedores = record.contato_fornecedores.email
-   #                record.telefone_contato_fornecedores = record.contato_fornecedores.phone
-   #                record.celular_contato_fornecedores = record.contato_fornecedores.mobile
-                  
 
 
         

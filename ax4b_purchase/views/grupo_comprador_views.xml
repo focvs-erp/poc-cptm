@@ -1,0 +1,48 @@
+<odoo> 
+	<data>
+		<record id="view_grupo_comprador_form" model="ir.ui.view">
+			<field name="name">Grupo de Compradores</field>
+			<field name="model">purchase.grupo_comprador</field>
+			<field name="arch" type="xml">
+				<form string="Compradores">
+					<sheet>
+						<group>
+							<group name="left_main_group">
+                                <field name="cd_grupo_comprador" />
+                                <field name="ds_grupo_comprador"/>
+							</group>
+							<group name="right_main_group">
+								<field name="cd_ativo"/>
+                                <!-- <field name="cd_celular"/> -->
+							</group>
+						</group>         
+					</sheet>
+				</form>
+			</field>
+		</record>
+        
+		<record id="view_purchase_grupo_comprador_tree" model="ir.ui.view">
+			<field name="model">purchase.grupo_comprador</field>
+			<field name="arch" type="xml">
+				<tree string="Cadastro Grupo de Compradores">
+					<field name="cd_grupo_comprador"/>
+                    <field name="ds_grupo_comprador"/>
+				</tree>
+			</field>
+		</record>
+			
+		<record model="ir.actions.act_window" id="ax4b_purchase.action_window">
+			<field name="name">Grupo de Compradores</field>
+			<field name="res_model">purchase.grupo_comprador</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="view_id" ref="view_purchase_grupo_comprador_tree"/>
+		</record>
+        
+        <menuitem id="menu_grupo_in_config_purchase" name="Cadastros"
+            parent="purchase.menu_purchase_config" sequence="30"/>
+		
+		<menuitem id="purchase_grupo_comprador_menu" name="Grupo de Compradores" 
+				parent="menu_grupo_in_config_purchase"                 
+				action="ax4b_purchase.action_window"/> 
+	</data>  
+</odoo>

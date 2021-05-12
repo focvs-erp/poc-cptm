@@ -1,6 +1,6 @@
 <odoo> 
 	<data>
-		<record id="view_grupo_patrimonio_form" model="ir.ui.view">
+		<record id="view_cadastro_comprador_form" model="ir.ui.view">
 			<field name="name">Cadastro de Compradores</field>
 			<field name="model">purchase.cadastro_comprador</field>
 			<field name="arch" type="xml">

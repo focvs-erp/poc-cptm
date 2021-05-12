@@ -33,7 +33,7 @@
         <tree string="Fornecedores da cotação"  class="o_purchase_order" editable="top" create="1" delete="1" multi_edit="1">
           <field name="fornecedores"/>
           <field name="contato_fornecedores"/>
-          <field name="email"/>
+          <field name="email_contato_fornecedores"/>
           <field name="telefone"/>
           <field name="celular"/>  
           <field name="teste"/>  

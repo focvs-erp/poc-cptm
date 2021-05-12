@@ -32,7 +32,7 @@
 			</field>
 		</record>
 			
-		<record model="ir.actions.act_window" id="ax4b_purchase.action_window">
+		<record model="ir.actions.act_window" id="ax4b_purchase.comprador_action_window">
 			<field name="name">Cadastro de Compradores</field>
 			<field name="res_model">purchase.comprador</field>
 			<field name="type">ir.actions.act_window</field>
@@ -44,6 +44,6 @@
 		
 		<menuitem id="purchase_comprador_menu" name="Compradores" 
 				parent="menu_cadastros_in_config_purchase"                 
-				action="ax4b_purchase.action_window"/> 
+				action="ax4b_purchase.comprador_action_window"/> 
 	</data>  
 </odoo>

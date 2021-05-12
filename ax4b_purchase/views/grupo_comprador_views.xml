@@ -47,7 +47,7 @@
 			</field>
 		</record>
 			
-		<record model="ir.actions.act_window" id="ax4b_purchase.action_window">
+		<record model="ir.actions.act_window" id="ax4b_purchase.grupo_comprador_action_window">
 			<field name="name">Grupo de Compradores</field>
 			<field name="res_model">purchase.grupo_comprador</field>
 			<field name="type">ir.actions.act_window</field>
@@ -56,6 +56,6 @@
 		
 		<menuitem id="purchase_grupo_comprador_menu" name="Grupo de Compradores" 
 				parent="ax4b_purchase.menu_cadastros_in_config_purchase"                 
-				action="ax4b_purchase.action_window"/> 
+				action="ax4b_purchase.grupo_comprador_action_window"/> 
 	</data>  
 </odoo>

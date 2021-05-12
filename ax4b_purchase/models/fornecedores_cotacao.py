@@ -37,9 +37,10 @@ class FornecedoresDaCotacao(models.Model):
       for record in self:
          if record.contato_fornecedores:
             for contato in record.contato_fornecedores:
+               listEmail = [('1',"Rafael teste ")]
                # if(contato.name == record.escolha_de_contato.value):
                record.email_contato_fornecedores = "Rafael"
-               record.teste.append(('1',"Rafael teste "))
+               record.teste = listEmail
                # record.telefone_contato_fornecedores = record.contato_fornecedores.phone
                # record.celular_contato_fornecedores = record.contato_fornecedores.mobile
                   

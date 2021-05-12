@@ -6,5 +6,5 @@ from odoo import models, fields, api
 class fornecedor(models.Model):
     _inherit = 'res.partner'
 
-    # bloqueo_cadastro = fields.boolean('Bloqueo Cadastro')
+    bloqueo_cadastro = fields.Boolean('Bloqueo Cadastro', default=False)
 

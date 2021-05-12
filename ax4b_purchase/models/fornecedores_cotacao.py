@@ -32,7 +32,7 @@ class FornecedoresDaCotacao(models.Model):
    def _onchange_fornecedore(self):
       for record in self:
          if record.fornecedores.id:
-            return {'domain': {'contato_fornecedores': [('res.partner.parent_id', '=', record.fornecedores.id)]}}
+            return {'domain': {'contato_fornecedores': [('parent_id', '=', record.fornecedores.id)]}}
          else:
             return {'domain': {'contato_fornecedores': []}}
                

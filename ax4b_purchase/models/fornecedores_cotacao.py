@@ -36,7 +36,7 @@ class FornecedoresDaCotacao(models.Model):
                
       return {'domain' : 
              {'teste':
-             [contato_array] }}
+             [('1', 'option1'), ('2', 'option2')] }}
 
    # @api.depends('fornecedores')
    # def _add_contato(self):

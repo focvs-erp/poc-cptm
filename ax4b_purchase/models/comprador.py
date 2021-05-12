@@ -3,8 +3,8 @@
 from odoo import models, fields, api
 
 
-class CadastroComprador(models.Model):
-    _name = 'purchase.cadastro_comprador'
+class Comprador(models.Model):
+    _name = 'purchase.comprador'
     _description = 'Cadastro de Comprador'
     
     nome_comprador = fields.Char(string='Nome Comprador')

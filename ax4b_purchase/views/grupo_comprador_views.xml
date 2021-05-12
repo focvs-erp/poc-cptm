@@ -1,4 +1,4 @@
-<!-- <odoo> 
+<odoo> 
 	<data>
 		<record id="view_grupo_comprador_form" model="ir.ui.view">
 			<field name="name">Grupo de Compradores</field>
@@ -12,10 +12,23 @@
                                 <field name="ds_grupo_comprador"/>
 							</group>
 							<group name="right_main_group">
-								<field name="cd_ativo"/>
+								<!-- <field name="cd_ativo"/> -->
+								<field name="cd_ativo" type="checkbox" />
                                 <!-- <field name="cd_celular"/> -->
 							</group>
-						</group>         
+						</group>
+						<notebook>
+							<page name='compradores_tab' string='Compradores'>
+								<field name="compradores" colspan="4" nolabel="1">
+									<tree>
+										<field name="nome_comprador"/>
+										<field name="cd_telefone"/>
+										<field name="cd_email"/>
+										<field name="cd_celular"/>
+									</tree>
+								</field>
+							</page>
+						</notebook>        
 					</sheet>
 				</form>
 			</field>
@@ -45,4 +58,4 @@
 				parent="menu_grupo_in_config_purchase"                 
 				action="ax4b_purchase.action_window"/> 
 	</data>  
-</odoo> -->
+</odoo>

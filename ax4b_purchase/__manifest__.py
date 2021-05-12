@@ -27,7 +27,7 @@
         'security/ir.model.access.csv',
         'views/cotacao_compra.xml',
         'views/fornecedores_cotacao.xml',
-        'views/cadastro_comprador_views.xml',  
+        'views/comprador_views.xml',  
         # 'views/grupo_comprador_views.xml',  
     ],
    

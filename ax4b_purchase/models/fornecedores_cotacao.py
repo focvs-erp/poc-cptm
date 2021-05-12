@@ -1,5 +1,7 @@
 from odoo import  models, fields, api
 
+contato_array= []
+
 class FornecedoresDaCotacao(models.Model):
    _name = 'purchase.fornecedores_cotacao'
    _description = 'Fornecedores da Cotação'
@@ -9,7 +11,7 @@ class FornecedoresDaCotacao(models.Model):
    cotacao_de_compra = fields.Many2one("purchase.cotacao_compra", invisible=True, string="Cotação de Compra")
    fornecedores = fields.Many2one("res.partner", string="Fornecedores")
    nome_contato = fields.Char()
-   contato_fornecedores = fields.One2many(related="fornecedores.child_ids", string="Contato")
+   contato_fornecedores = fields.Many2one("fornecedores.child_ids", string="Contato")
   
    # escolha_de_contato = fields.Selection([('', 'record.contato_fornecedores.name'), ['4','Sem registros']],compute='_contato_fornecedores', store= True)
    #contact = fields.Char(related="vendors.name")
@@ -18,30 +20,30 @@ class FornecedoresDaCotacao(models.Model):
    # selecao_contato = fields.Char(compute='_selecao_contato', store=True)
    #nome_fornecedor = fields.Char(related="fornecedores.name")
 
-   teste = fields.Selection([], string="Contato Fornecedor")
-   email_contato_fornecedores = fields.Char(compute='_onchange_fornecedore', store=True)
+   teste = fields.Selection(contato_array, string="Contato Fornecedor")
+   email_contato_fornecedores = fields.Char(compute='_add_contato', store=True)
    email = fields.Char(related="fornecedores.email", string="Email")
    telefone = fields.Char(related="fornecedores.phone", string="Telefone") 
    celular = fields.Char(related="fornecedores.mobile", string="Celular") 
   
    
    
-   @api.onchange('fornecedores')
-   def _onchange_fornecedore(self):
-      contato_array= []
-      for record in self:
-          if record.contato_fornecedores:
-             for contato in record.contato_fornecedores:
-               contato_array.append((str(contato.name), str(contato.name)))
+   # @api.onchange('fornecedores')
+   # def _onchange_fornecedore(self):
+   #    for record in self:
+   #       if record.brand_id:
+   #          return {'domain': {'model_id': [('brand_id', '=', record.brand_id.id)]}}
+   #       else:
+   #          return {'domain': {'model_id': []}}
                
-      return {'domain' : 
-             {'teste':
-             [('1', 'option1'), ('2', 'option2')] }}
 
    # @api.depends('fornecedores')
    # def _add_contato(self):
-   #    return [('1', 'option1'), ('2', 'option2')]
-
+   #    for record in self:
+   #        if record.contato_fornecedores:
+   #           for contato in record.contato_fornecedores:
+   #             contato_array.append((str(contato.name), str(contato.name)))
+  
 
    # @api.depends('fornecedores')
    # def _selecao_contato(self):

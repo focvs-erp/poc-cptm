@@ -26,6 +26,7 @@ class FornecedoresDaCotacao(models.Model):
       for record in self:
          listEmail = []
          text = "Adicionaou segundo campo"
+         record.name = "Rafael"
          record.teste.append(('1',text))
 
 

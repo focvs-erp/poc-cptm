@@ -1,0 +1,51 @@
+<odoo>
+	<data>
+		<!-- FORM -->
+		<record id="view_plano_conta_secundaria_form" model="ir.ui.view">
+			<field name="name">Plano de Conta Secundária</field>
+			<field name="model">account.plano_conta_secundaria</field>
+			<field name="arch" type="xml">
+				<form string="Plano de Conta Secundária">
+					<sheet>
+						<div class="oe_title">
+							<span class="o_form_label">Plano de Conta Secundária</span>
+							<h1>
+								<field name="codigo" placeholder="Código..." />
+							</h1>
+						</div>
+						<group>
+							<group name="left_main_group">
+								<field name="nome_cta" />
+								<field name="tipo" />
+							</group>
+							<group name="right_main_group">
+								<field name="nivel" />
+								<field name="natureza" />
+							</group>
+						</group>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		<!-- LISTA -->
+		<record id="view_account_plano_conta_secundaria_tree" model="ir.ui.view">
+			<field name="model">account.plano_conta_secundaria</field>
+			<field name="arch" type="xml">
+				<tree string="Grupo de Patrimônio">
+					<field name="codigo" />
+					<field name="nome_cta" />
+					<field name="tipo" />
+					<field name="nivel" />
+					<field name="natureza" />
+				</tree>
+			</field>
+		</record>
+		<record model="ir.actions.act_window" id="action_plano_conta_secundaria_window">
+			<field name="name">Plano de Conta Secundária</field>
+			<field name="res_model">account.plano_conta_secundaria</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="view_id" ref="view_account_plano_conta_secundaria_tree" />
+		</record>
+		<menuitem id="account_plano_conta_secundaria_menu" name="Plano de Conta Secundária" parent="account.account_account_menu" action="action_plano_conta_secundaria_window" />
+	</data>
+</odoo>

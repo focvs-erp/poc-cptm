@@ -1,3 +1,5 @@
 "id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
 "access_account_seguro_patrimonio","account.seguro_patrimonio","model_account_seguro_patrimonio","base.group_user","1","1","1","1"
 "access_account_grupo_patrimonio","account.grupo_patrimonio","model_account_grupo_patrimonio","base.group_user","1","1","1","1"
+"access_account_plano_referencial","account.plano_referencial","model_account_plano_referencial","base.group_user","1","1","1","1"
+"access_account_plano_conta_secundaria","account.plano_conta_secundaria","model_account_plano_conta_secundaria","base.group_user","1","1","1","1"

@@ -5,6 +5,7 @@
         <field name="arch" type="xml">
             <field name="group_id" position="after">
                 <field name="cod_red"/>
+                <field name="centro_custo_related"/>
             </field>
             <field name="tag_ids" position="after">
                 <field name="cod_refrfb"/>

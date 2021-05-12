@@ -19,7 +19,7 @@ class FornecedoresDaCotacao(models.Model):
    #nome_fornecedor = fields.Char(related="fornecedores.name")
 
    teste = fields.Selection([('1', 'Teste Lista Campos')], string="Contato Fornecedor")
-   email_contato_fornecedores = fields.Char(compute='_selecao_contato', store=True)
+   email_contato_fornecedores = fields.Char(store=True)
    email = fields.Char(related="fornecedores.email", string="Email")
    telefone = fields.Char(related="fornecedores.phone", string="Telefone") 
    celular = fields.Char(related="fornecedores.mobile", string="Celular") 

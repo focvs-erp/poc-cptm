@@ -11,14 +11,14 @@ class FornecedoresDaCotacao(models.Model):
    cotacao_de_compra = fields.Many2one("purchase.cotacao_compra", invisible=True, string="Cotação de Compra")
    fornecedores = fields.Many2one("res.partner", string="Fornecedores")
    nome_contato = fields.Char()
-   contato_fornecedores = fields.Many2one("fornecedores.child_ids", string="Contato")
+   contato_fornecedores = fields.Many2one("res.partner", string="Contato")
   
    # escolha_de_contato = fields.Selection([('', 'record.contato_fornecedores.name'), ['4','Sem registros']],compute='_contato_fornecedores', store= True)
    #contact = fields.Char(related="vendors.name")
    # telefone_contato_fornecedores = fields.Char(compute='_selecao_contato', store=True)
    # celular_contato_fornecedores = fields.Char(compute='_selecao_contato', store=True)
    # selecao_contato = fields.Char(compute='_selecao_contato', store=True)
-   #nome_fornecedor = fields.Char(related="fornecedores.name")
+   #nome_fornecedor = fields.Char(related="fornecedores.name") fornecedores.child_ids
 
    teste = fields.Selection(contato_array, string="Contato Fornecedor")
    email_contato_fornecedores = fields.Char(compute='_add_contato', store=True)
@@ -28,13 +28,13 @@ class FornecedoresDaCotacao(models.Model):
   
    
    
-   # @api.onchange('fornecedores')
-   # def _onchange_fornecedore(self):
-   #    for record in self:
-   #       if record.brand_id:
-   #          return {'domain': {'model_id': [('brand_id', '=', record.brand_id.id)]}}
-   #       else:
-   #          return {'domain': {'model_id': []}}
+   @api.onchange('fornecedores')
+   def _onchange_fornecedore(self):
+      for record in self:
+         if record.fornecedores.id:
+            return {'domain': {'contato_fornecedores': [('res.partner.child_ids', '=', record.fornecedores.id)]}}
+         else:
+            return {'domain': {'contato_fornecedores': []}}
                
 
    # @api.depends('fornecedores')

@@ -6,3 +6,4 @@ from . import grupo_patrimonio
 from . import plano_conta_secundaria
 from . import plano_referencial
 from . import plano_conta
+from . import fornecedor

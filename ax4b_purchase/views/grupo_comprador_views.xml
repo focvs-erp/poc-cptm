@@ -51,11 +51,11 @@
 			<field name="view_id" ref="view_purchase_grupo_comprador_tree"/>
 		</record>
         
-        <menuitem id="menu_grupo_in_config_purchase" name="Cadastros"
-            parent="purchase.menu_purchase_config" sequence="30"/>
+        <!-- <menuitem id="menu_grupo_in_config_purchase" name="Cadastros"
+            parent="purchase.menu_purchase_config" sequence="30"/> -->
 		
 		<menuitem id="purchase_grupo_comprador_menu" name="Grupo de Compradores" 
-				parent="menu_grupo_in_config_purchase"                 
+				parent="purchase.menu_cadastros_in_config_purchase"                 
 				action="ax4b_purchase.action_window"/> 
 	</data>  
 </odoo>

@@ -24,6 +24,8 @@ class PlanoContaAX4B(models.Model):
 
     cod_catpri = fields.Char(string="Categoria de Conta Principal")
 
+    centro_custo_related = fields.Many2one('x_centro_de_custo', string='Centro de Custo')
+
     padrao = fields.Selection(
         [("1", "Débito"),
          ("2", "Crédito")],

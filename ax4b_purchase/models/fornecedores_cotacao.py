@@ -24,15 +24,15 @@ class FornecedoresDaCotacao(models.Model):
    telefone = fields.Char(related="fornecedores.phone", string="Telefone") 
    celular = fields.Char(related="fornecedores.mobile", string="Celular") 
   
-   @api.depends('fornecedores')
-   def _add_contato(self):
-      for record in self:
-         listEmail = []
-         text = "Adicionaou segundo campo"
-         record.name = "Rafael"
-         record.teste.append(('1',text))
+   # @api.depends('fornecedores')
+   # def _add_contato(self):
+   #    for record in self:
+   #       listEmail = []
+   #       text = "Adicionaou segundo campo"
+   #       record.name = "Rafael"
+   #       record.teste.append(('1',text))
 
-   @api.depends('contato_fornecedores')
+   @api.depends('fornecedores')
    def _selecao_contato(self):
       for record in self:
          if record.contato_fornecedores:

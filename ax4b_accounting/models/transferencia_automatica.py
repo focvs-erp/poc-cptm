@@ -7,4 +7,4 @@ class TransferenciaAutomatica(models.Model):
     _inherit = "account.transfer.model"
     
     date_stop = fields.Date(string="Data Validade")
-    centro_custo_related = fields.Many2one('x_centro_de_custo', string='Centro de Custo')
+    # centro_custo_related = fields.Many2one('x_centro_de_custo', string='Centro de Custo')

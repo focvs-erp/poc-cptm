@@ -31,8 +31,8 @@ class FornecedoresDaCotacao(models.Model):
    @api.onchange('fornecedores')
    def _onchange_fornecedore(self):
       for record in self:
-         if record.fornecedores.id:
-            return {'domain': {'contato_fornecedores': [('res.partner.child_ids', '=', record.fornecedores.id)]}}
+         if record.brand_id:
+            return {'domain': {'contato_fornecedores': [('res.partner.parent_id', '=', record.fornecedores.id)]}}
          else:
             return {'domain': {'contato_fornecedores': []}}
                

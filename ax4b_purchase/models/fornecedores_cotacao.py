@@ -35,12 +35,12 @@ class FornecedoresDaCotacao(models.Model):
                contato_array.append((str(contato.name), str(contato.name)))
                
       return {'domain' : 
-             {'my_field':
+             {'teste':
              [contato_array] }}
 
-   @api.depends('fornecedores')
-   def _add_contato(self):
-      return [('1', 'option1'), ('2', 'option2')]
+   # @api.depends('fornecedores')
+   # def _add_contato(self):
+   #    return [('1', 'option1'), ('2', 'option2')]
 
 
    # @api.depends('fornecedores')

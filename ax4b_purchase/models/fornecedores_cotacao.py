@@ -18,7 +18,7 @@ class FornecedoresDaCotacao(models.Model):
    # selecao_contato = fields.Char(compute='_selecao_contato', store=True)
    #nome_fornecedor = fields.Char(related="fornecedores.name")
 
-   teste = fields.Selection([('1', 'Teste Lista Campos')], compute='_selecao_contato',string="Contato Fornecedor")
+   teste = fields.Selection([('1', 'Teste Lista Campos')], string="Contato Fornecedor")
    email_contato_fornecedores = fields.Char(compute='_selecao_contato', store=True)
    email = fields.Char(related="fornecedores.email", string="Email")
    telefone = fields.Char(related="fornecedores.phone", string="Telefone") 
@@ -30,7 +30,7 @@ class FornecedoresDaCotacao(models.Model):
    #       listEmail = []
    #       text = "Adicionaou segundo campo"
    #       record.name = "Rafael"
-   #       record.teste.append(('1',text))
+   #       record.teste.append(('1',text))  compute='_selecao_contato',
 
    @api.depends('fornecedores')
    def _selecao_contato(self):

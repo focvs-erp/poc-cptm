@@ -18,31 +18,42 @@ class FornecedoresDaCotacao(models.Model):
    # selecao_contato = fields.Char(compute='_selecao_contato', store=True)
    #nome_fornecedor = fields.Char(related="fornecedores.name")
 
-   teste = fields.Selection([('1', 'Teste Lista Campos')], string="Contato Fornecedor")
-   email_contato_fornecedores = fields.Char(compute='_selecao_contato', store=True)
+   teste = fields.Selection([], string="Contato Fornecedor")
+   email_contato_fornecedores = fields.Char(compute='_onchange_fornecedore', store=True)
    email = fields.Char(related="fornecedores.email", string="Email")
    telefone = fields.Char(related="fornecedores.phone", string="Telefone") 
    celular = fields.Char(related="fornecedores.mobile", string="Celular") 
   
+   
+   
+   @api.onchange('fornecedores')
+   def _onchange_fornecedore(self):
+      contato_array= []
+      for record in self:
+          if record.contato_fornecedores:
+             for contato in record.contato_fornecedores:
+               contato_array.append((str(contato.name), str(contato.name)))
+               
+      return {'domain' : 
+             {'teste':
+             [('1', 'option1'), ('2', 'option2')] }}
+
    # @api.depends('fornecedores')
    # def _add_contato(self):
-   #    for record in self:
-   #       listEmail = []
-   #       text = "Adicionaou segundo campo"
-   #       record.name = "Rafael"
-   #       record.teste.append(('1',text))  compute='_selecao_contato',
+   #    return [('1', 'option1'), ('2', 'option2')]
 
-   @api.depends('fornecedores')
-   def _selecao_contato(self):
-      for record in self:
-         if record.contato_fornecedores:
-            for contato in record.contato_fornecedores:
-               listEmail = [('1',"Rafael teste ")]
-               # if(contato.name == record.escolha_de_contato.value):
-               record.email_contato_fornecedores = "Rafael"
-               record.teste = listEmail
-               # record.telefone_contato_fornecedores = record.contato_fornecedores.phone
-               # record.celular_contato_fornecedores = record.contato_fornecedores.mobile
+
+   # @api.depends('fornecedores')
+   # def _selecao_contato(self):
+   #    for record in self:
+   #       if record.contato_fornecedores:
+   #          for contato in record.contato_fornecedores:
+   #             listEmail = [('1',"Rafael teste ")]
+   #             # if(contato.name == record.escolha_de_contato.value):
+   #             record.email_contato_fornecedores = "Rafael"
+   #             record.teste = listEmail
+   #             # record.telefone_contato_fornecedores = record.contato_fornecedores.phone
+   #             # record.celular_contato_fornecedores = record.contato_fornecedores.mobile
                   
 
    # @api.depends('fornecedores')
@@ -63,7 +74,3 @@ class FornecedoresDaCotacao(models.Model):
    #    contato_array= []
       
    #    return [('1', 'option1'), ('2', 'option2')]
-
-
-
-        

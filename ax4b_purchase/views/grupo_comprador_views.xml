@@ -14,7 +14,7 @@
 						</div>
 						<group>
 							<group name="left_main_group">
-                                <field name="ds_grupo_comprador"/>
+                                <field name="ds_grupo_comprador" style=' max-width: 1150px;  width: 500px'/>
 							</group>
 							<group name="right_main_group">
 								<field name="cd_ativo" type="checkbox" />

@@ -9,7 +9,7 @@ class FornecedoresDaCotacao(models.Model):
    cotacao_de_compra = fields.Many2one("purchase.cotacao_compra", invisible=True, string="Cotação de Compra")
    fornecedores = fields.Many2one("res.partner", string="Fornecedores")
    nome_contato = fields.Char()
-   contato_fornecedores = fields.Many2one(related="fornecedores.child_ids", string="Contato")
+   contato_fornecedores = fields.One2many(related="fornecedores.child_ids", string="Contato")
   
    # escolha_de_contato = fields.Selection([('', 'record.contato_fornecedores.name'), ['4','Sem registros']],compute='_contato_fornecedores', store= True)
    #contact = fields.Char(related="vendors.name")

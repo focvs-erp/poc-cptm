@@ -19,7 +19,6 @@
                   <field name="email" placeholder="Email"/>
                   <field name="telefone" placeholder="Telefone"/>
                   <field name="celular" placeholder="Celular"/>  
-                  <field name="teste"/>
                </group>
               </group>
          </sheet>
@@ -31,18 +30,12 @@
       <field name="model">purchase.fornecedores_cotacao</field>
       <field name="arch" type="xml">
         <tree string="Fornecedores da cotação"  class="o_purchase_order" editable="top" create="1" delete="1" multi_edit="1">
+          <field name="selecinado"> </field>
           <field name="fornecedores"/>
           <field name="contato_fornecedores"/>
-          <field name="email_contato_fornecedores"/>
           <field name="email"/>
           <field name="telefone"/>
           <field name="celular"/>  
-          <field name="teste" widget="selection"/>  
-          <field name="name"/>  
-          <!-- <field name="selecao_contato"/>  
-          <field name="telefone_contato_fornecedores"/>  
-          <field name="celular_contato_fornecedores"/>  
-          <field name="email_contato_fornecedores"/>  -->
         </tree>
       </field>
     </record>
@@ -54,7 +47,7 @@
       <field name="view_id" ref="view_fornecedores_cotacao_tree"/>
     </record>
 
-    <menuitem id="purchase_fornecedores_cotacao_menu" name="Fornecedores Da Cotação" parent="purchase.menu_procurement_management" action="purchase_fornecedores_cotacao_window"/>
+    <!-- <menuitem id="purchase_fornecedores_cotacao_menu" name="Fornecedores Da Cotação" parent="purchase.menu_procurement_management" action="purchase_fornecedores_cotacao_window"/> -->
 
   </data>
 </odoo>

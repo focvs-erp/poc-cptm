@@ -23,9 +23,10 @@ class FornecedoresDaCotacao(models.Model):
 
    @api.depends('fornecedores')
    def _add_contato(self):
-      listEmail = []
-      text = "Adicionaou segundo campo"
-      self.teste.append(('1',text))
+      for record in self:
+         listEmail = []
+         text = "Adicionaou segundo campo"
+         record.teste.append(('1',text))
 
 
    # @api.depends('fornecedores')

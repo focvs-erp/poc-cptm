@@ -3,10 +3,6 @@ from odoo import  models, fields, api
 class FornecedoresDaCotacao(models.Model):
    _name = 'purchase.fornecedores_cotacao'
    _description = 'Fornecedores da Cotação'
-    
-   # contato_array = [('1', 'option1'), ('2', 'option2')]
-
-   texto = fields.Char(default='Leu o valor')
    name = fields.Char() 
    prioridade = fields.Selection([('0', 'Normal'), ('1', 'Urgent')], 'Priority', default='0', index=True)
    cotacao_de_compra = fields.Many2one("purchase.cotacao_compra", invisible=True, string="Cotação de Compra")
@@ -15,7 +11,7 @@ class FornecedoresDaCotacao(models.Model):
    #contact = fields.Char(related="vendors.name")
    contato_fornecedores = fields.One2many(related="fornecedores.child_ids", string="Contato")
    # escolha_de_contato = fields.Selection([('', 'record.contato_fornecedores.name'), ['4','Sem registros']],compute='_contato_fornecedores', store= True)
-   teste = fields.Selection(selection='_add_contato', string="Contato Fornecedor")
+   teste = fields.Selection([('1', 'Teste Lista Campos')], string="Contato Fornecedor")
    # selecao_contato = fields.Char(compute='_selecao_contato', store=True)
    # email_contato_fornecedores = fields.Char(compute='_selecao_contato', store=True)
    # telefone_contato_fornecedores = fields.Char(compute='_selecao_contato', store=True)
@@ -28,9 +24,8 @@ class FornecedoresDaCotacao(models.Model):
    @api.depends('fornecedores')
    def _add_contato(self):
       listEmail = []
-      text = self.texto
-      listEmail.append(('1',text))
-      return listEmail
+      text = "Adicionaou segundo campo"
+      self.teste.append(('1',text))
 
 
    # @api.depends('fornecedores')

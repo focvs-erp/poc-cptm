@@ -5,7 +5,7 @@ class GrupoComprador(models.Model):
    _description = 'Grupo de Compradores'
 
    cd_grupo_comprador = fields.Char(string="Codigo grupo Comprador")
-   ds_grupo_comprador = fields.Char(string="Descriçaõ grupo comprador")
+   ds_grupo_comprador = fields.Char(string="Descrição grupo comprador")
    cd_ativo = fields = fields.Char(string="Ativo")
    cadastro_comprador = fields.Many2many('purchase.cadastro_comprador')
 

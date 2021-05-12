@@ -8,7 +8,7 @@
 					<sheet>
 						<group>
 							<group name="left_main_group">
-                                <field name="cd_grupo_comprador" />
+                                <field name="cd_grupo_comprador"/>
                                 <field name="ds_grupo_comprador"/>
 							</group>
 							<group name="right_main_group">

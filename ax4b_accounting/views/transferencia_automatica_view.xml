@@ -17,9 +17,9 @@
                 <field name="centro_custo_related"/>
             </field>
             
-<!--             <field name="user_type_id" position="after">
+            <field name="user_type_id" position="after">
                 <field name="centro_custo_related"/>
-            </field> -->
+            </field>
         </field>
     </record>
   </data>

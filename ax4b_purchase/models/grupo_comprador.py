@@ -1,7 +1,7 @@
 from odoo import  models, fields, api
 
 class GrupoComprador(models.Model):
-   _name = 'purchase.Grupo_Comprador'
+   _name = 'purchase.grupo_comprador'
    _description = 'Grupo de Compradores'
 
    cd_grupo_comprador = fields.Char(string="Codigo grupo Comprador")

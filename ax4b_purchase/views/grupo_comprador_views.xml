@@ -55,7 +55,7 @@
             parent="purchase.menu_purchase_config" sequence="30"/> -->
 		
 		<menuitem id="purchase_grupo_comprador_menu" name="Grupo de Compradores" 
-				parent="purchase.menu_cadastros_in_config_purchase"                 
+				parent="ax4b_purchase.menu_cadastros_in_config_purchase"                 
 				action="ax4b_purchase.action_window"/> 
 	</data>  
 </odoo>

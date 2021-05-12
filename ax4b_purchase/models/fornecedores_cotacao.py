@@ -7,7 +7,7 @@ class FornecedoresDaCotacao(models.Model):
    _description = 'Fornecedores da Cotação'
 
    name = fields.Char() 
-  
+   Selecionado = fields.Boolean(string= "Marcar")
    prioridade = fields.Selection([('0', 'Normal'), ('1', 'Urgent')], 'Priority', default='0', index=True)
    cotacao_de_compra = fields.Many2one("purchase.cotacao_compra", invisible=True, string="Cotação de Compra")
    fornecedores = fields.Many2one("res.partner", string="Fornecedores")
@@ -24,4 +24,3 @@ class FornecedoresDaCotacao(models.Model):
             return {'domain': {'contato_fornecedores': [('parent_id', '=', record.fornecedores.id)]}}
          else:
             return {'domain': {'contato_fornecedores': []}}               
-            

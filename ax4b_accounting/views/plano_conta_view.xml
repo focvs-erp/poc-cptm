@@ -3,11 +3,22 @@
         <field name="model">account.account</field>
         <field name="inherit_id" ref="account.view_account_form"/>
         <field name="arch" type="xml">
+            <field name="company_id" position="before">
+                <field name="cod_red"/>
+            </field>
+            <field name="tag_ids" position="after">
+                <field name="cod_refrfb"/>
+                <field name="cod_ctacons"/>
+                <field name="cod_ctasec"/>
+            </field>
             <group name="security_group" position="after">
                 <group name="administracao" string="Administração">
                     <field name="manual"/>
                     <field name="cod_ctapai"/>
                 </group>
+                <field name="cod_catpri"/>
+                <field name="padrao"/>
+                <field name="nece_dc"/>
             </group>
         </field>
     </record>

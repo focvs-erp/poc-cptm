@@ -19,14 +19,28 @@ class FornecedoresDaCotacao(models.Model):
    #nome_fornecedor = fields.Char(related="fornecedores.name")
 
    teste = fields.Selection(selection='_add_contato', string="Contato Fornecedor")
-   email_contato_fornecedores = fields.Char(compute='_selecao_contato', store=True)
+   email_contato_fornecedores = fields.Char(compute='_onchange_fornecedore', store=True)
    email = fields.Char(related="fornecedores.email", string="Email")
    telefone = fields.Char(related="fornecedores.phone", string="Telefone") 
    celular = fields.Char(related="fornecedores.mobile", string="Celular") 
   
-   @api.depends('fornecedores')
-   def _add_contato(self):
-      return [('1', 'option1'), ('2', 'option2')]
+   
+   
+   @api.onchange('fornecedores')
+   def _onchange_fornecedore(self):
+      contato_array= []
+      for record in self:
+          if record.contato_fornecedores:
+             for contato in record.contato_fornecedores:
+               contato_array.append((str(contato.name), str(contato.name)))
+               
+      return {'domain' : 
+             {'my_field':
+             [contato_array] }
+
+   # @api.depends('fornecedores')
+   # def _add_contato(self):
+   #    return [('1', 'option1'), ('2', 'option2')]
 
 
    # @api.depends('fornecedores')

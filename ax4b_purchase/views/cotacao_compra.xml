@@ -107,7 +107,6 @@
     <!-- E-mail template -->
     <record id="email_template_purchase_cotacao_compra" model="mail.template">
         <field name="name">Teste E-mail</field>
-        <field name="model_id" ref="purchase.cotacao_compra"/>
         <field name="subject">Teste</field>
         <field name="email_from">anderson.peruci@ax4b.com</field>
         <field name="recipient_ids">anderson.peruci@ax4b.com</field>

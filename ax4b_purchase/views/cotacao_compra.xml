@@ -109,7 +109,6 @@
         <field name="name">Teste E-mail</field>
         <field name="subject">Teste</field>
         <field name="email_from">anderson.peruci@ax4b.com</field>
-        <field name="recipient_ids">anderson.peruci@ax4b.com</field>
         <field name="use_default_to" eval="True"/>
         <field name="body_html" type="html">
           <div>teste</div>                

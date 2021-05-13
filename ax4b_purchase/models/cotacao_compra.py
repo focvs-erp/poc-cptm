@@ -67,7 +67,7 @@ class CotacaoDeCompras(models.Model):
     #     self.teste = 123
 
     @api.model
-    def btn_enviar_email(self):
+    def btn_enviar_email(self, vals):
         self.ensure_one()
 
         template_obj = self.env['mail.template'].sudo().search([('name','=','Send E-mail Test')], limit=1)  

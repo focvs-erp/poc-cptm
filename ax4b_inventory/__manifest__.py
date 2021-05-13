@@ -26,7 +26,6 @@
     'data': [
         'security/ir.model.access.csv',
         'views/baixa_estoque_views.xml',
-        'views/templates.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

@@ -9,7 +9,7 @@ class ProdutosDaCotacao(models.Model):
    name = fields.Char(string="Produto da cotação") 
    requisicao = fields.Many2one("purchase.x_requisicoes_de_compr", string="Requisição")
    produtos_requisicao = fields.Many2one("x_produto_requisicao", string="Contato")
-  
+   cotacao_de_compra = fields.Many2one("purchase.cotacao_compra", invisible=True, string="Cotação de Compra")
    # email = fields.Char(related="contato_fornecedores.email", string="Email")
    # telefone = fields.Char(related="contato_fornecedores.phone", string="Telefone") 
    # celular = fields.Char(related="contato_fornecedores.mobile", string="Celular") 

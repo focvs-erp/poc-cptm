@@ -6,7 +6,7 @@ from odoo import models, fields, api
 class Rembolso(models.Model):
     _inherit = 'account.move'
 
-    checkbox_bloqueio = fields.Boolean(related='partner_id.bloquear_cadastro', invisible="1", compute="_bloqueio")
+    checkbox_bloqueio = fields.Boolean(related='partner_id.bloquear_cadastro', compute="_bloqueio")
     payment_reference = fields.Char(string="TESTE")
 
     @api.depends('checkbox_bloqueio')

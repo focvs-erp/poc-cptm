@@ -18,7 +18,7 @@
                   <!-- <field name="requisicao" placeholder="Fornecedores"/> -->
                   <field name="produtos_requisicao" placeholder="Produto"/>
                   <field name="quantidade" />
-                  <field name="unidademedida" />
+                  <!-- <field name="unidademedida" /> -->
                   <!-- <field name="situacao" /> -->
                </group>
               </group>

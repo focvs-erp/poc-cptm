@@ -40,7 +40,6 @@
             </group>
             <notebook>
               <page string="Produto" name="produto">
-                <field name="fornecedores_da_cotacao"/>
               </page>
               <page string="Fornecedores" name="Fornecedores">
                 <field name="fornecedores_da_cotacao"/>

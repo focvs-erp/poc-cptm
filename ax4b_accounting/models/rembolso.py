@@ -6,6 +6,7 @@ from odoo import models, fields, api
 class Rembolso(models.Model):
     _inherit = 'account.move'
 
+    partner_id = fields.Many2one('res.partner', string="Fornecedor")
     checkbox_bloqueio = fields.Boolean(related='partner_id.bloquear_cadastro', compute="_bloqueio")
     payment_reference = fields.Char(string="TESTE")
 

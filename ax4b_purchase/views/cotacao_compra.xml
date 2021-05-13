@@ -7,7 +7,7 @@
       <field name="arch" type="xml">
         <form string="Cotacao_Compra">
           <header>
-            <!-- <button name="btn_enviar_email" string="ENVIAR POR E-MAIL" type="object"/> -->
+            <button name="btn_enviar" string="ENVIAR POR E-MAIL" />
             <button name="btn_Confirmar" string="CONFIRMAR"/>
             <button name="btn_cancelar" string="CANCELAR"/>
             <field name="status" widget="statusbar" statusbar_visible="SDC,SDCENVIADA,PEDIDODECOMPRA"/>
@@ -28,7 +28,6 @@
                 <!--                 <field name="cd_inconterm" placeholder="inconterm"/>   -->
                 <field name="situacao" placeholder="situacao"/>
                 <field name="moeda"/>
-                <!-- <field name="teste"/> -->
               </group>
               <group name="left_main_group">
                 <field name="data_esperada" placeholder="data esperada"/>
@@ -41,7 +40,7 @@
             </group>
             <notebook>
               <page string="Produto" name="produto">
-                <field name="produtos_da_cotacao"/>
+                <field name="fornecedores_da_cotacao"/>
               </page>
               <page string="Fornecedores" name="Fornecedores">
                 <field name="fornecedores_da_cotacao"/>
@@ -105,20 +104,5 @@
         </record>
     <menuitem id="purchase_cotacao_compra_menu" name="Cotação de Compra" parent="purchase.menu_procurement_management" action="purchase_contacao_compra_window"/>
 
-
-    <!-- E-mail template -->
-    <!-- <record id="email_template_employee_peer_feedback" model="mail.template">
-        <field name="name">Teste E-mail</field>
-        <field name="model_id" ref="purchase.cotacao_compra"/>
-        <field name="subject">Teste</field>
-        <field name="email_from">anderson.peruci@ax4b.com</field>
-        <field name="recipient_ids">anderson.peruci@ax4b.com</field>
-        <field name="use_default_to" eval="True"/>
-        <field name="body_html" type="html">
-          <div>teste</div>                
-        </field>
-        <field name="auto_delete" eval="True"/>
-        <field name="user_signature" eval="True"/>
-    </record> -->
   </data>
 </odoo>

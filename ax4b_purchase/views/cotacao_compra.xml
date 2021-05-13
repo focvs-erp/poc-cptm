@@ -28,7 +28,6 @@
                 <!--                 <field name="cd_inconterm" placeholder="inconterm"/>   -->
                 <field name="situacao" placeholder="situacao"/>
                 <field name="moeda"/>
-                <!-- <field name="teste"/> -->
               </group>
               <group name="left_main_group">
                 <field name="data_esperada" placeholder="data esperada"/>
@@ -41,7 +40,6 @@
             </group>
             <notebook>
               <page string="Produto" name="produto">
-                <field name="produtos_da_cotacao"/>
               </page>
               <page string="Fornecedores" name="Fornecedores">
                 <field name="fornecedores_da_cotacao"/>
@@ -105,6 +103,7 @@
         </record>
     <menuitem id="purchase_cotacao_compra_menu" name="Cotação de Compra" parent="purchase.menu_procurement_management" action="purchase_contacao_compra_window"/>
 
+<<<<<<< HEAD
 
     <!-- E-mail template -->
     <record id="email_template_purchase_cotacao_compra" model="mail.template">
@@ -120,5 +119,7 @@
         <field name="auto_delete" eval="True"/>
         <field name="user_signature" eval="True"/>
     </record>
+=======
+>>>>>>> d11c63c4f6d7885200b882fea66f26479d04eb56
   </data>
 </odoo>

@@ -27,8 +27,8 @@ class CotacaoDeCompras(models.Model):
         ("PEDIDODECOMPRA", "PEDIDO DE COMPRA"),
     ], default = "SDC")
 
-    produtos_da_cotacao = fields.One2many("purchase.produtos_cotacao","cotacao_de_compra",string="Produtos")
-    # fornecedores_da_cotacao = fields.One2many("purchase.fornecedores_cotacao","cotacao_de_compra",string="Fornecedores da Cotação")
+    # produtos_da_cotacao = fields.One2many("purchase.produtos_cotacao","cotacao_de_compra",string="Produtos")
+    fornecedores_da_cotacao = fields.One2many("purchase.fornecedores_cotacao","cotacao_de_compra",string="Fornecedores da Cotação")
 
     nome_do_poder = fields.Char(related='nota_de_reserva.x_studio_ds_poder_reserva')
     nome_do_orgao = fields.Char(related='nota_de_reserva.x_studio_nome_do_orgao_reserva')

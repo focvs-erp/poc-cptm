@@ -3,4 +3,5 @@
 "access_purchase_fornecedores_cotacao","purchase.fornecedores_cotacao","model_purchase_fornecedores_cotacao","base.group_user","1","1","1","1"
 "access_purchase_comprador","purchase.comprador","model_purchase_comprador","base.group_user","1","1","1","1"
 "access_purchase_grupo_comprador","purchase.grupo_comprador","model_purchase_grupo_comprador","base.group_user","1","1","1","1"
+"access_purchase_produtos_cotacao","purchase.produtos_cotacao","model_purchase_produtos_cotacao","base.group_user","1","1","1","1"
 

@@ -7,7 +7,7 @@
       <field name="arch" type="xml">
         <form string="Cotacao_Compra">
           <header>
-            <button name="btn_enviar_email" string="ENVIAR POR E-MAIL" type="object"/>
+            <!-- <button name="btn_enviar_email" string="ENVIAR POR E-MAIL" type="object"/> -->
             <button name="btn_Confirmar" string="CONFIRMAR"/>
             <button name="btn_cancelar" string="CANCELAR"/>
             <field name="status" widget="statusbar" statusbar_visible="SDC,SDCENVIADA,PEDIDODECOMPRA"/>
@@ -102,6 +102,7 @@
             <field name="prefix">COT_</field>
             <field name="suffix"></field>
         </record>
+
     <menuitem id="purchase_cotacao_compra_menu" name="Cotação de Compra" parent="purchase.menu_procurement_management" action="purchase_contacao_compra_window"/>
 
 

@@ -17,7 +17,7 @@ class ProdutosDaCotacao(models.Model):
    @api.onchange('requisicao')
    def _onchange_requisicao(self):
       for record in self:
-         if record.requisicaon.id:
+         if record.requisicao.id:
             return {'domain': {'requisicao': [('x_studio_many2one_field_oMlx9', '=', record.requisicao.id)]}}
          else:
             return {'domain': {'requisicao': []}}               

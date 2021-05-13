@@ -105,7 +105,7 @@
 
 
     <!-- E-mail template -->
-    <record id="email_template_purchase_cotacao_compra" model="mail.template">
+    <!-- <record id="email_template_purchase_cotacao_compra" model="mail.template">
         <field name="name">Teste E-mail</field>
         <field name="subject">Teste</field>
         <field name="email_from">anderson.peruci@ax4b.com</field>
@@ -114,6 +114,6 @@
           <div>teste</div>                
         </field>
         <field name="auto_delete" eval="True"/>
-    </record>
+    </record> -->
   </data>
 </odoo>

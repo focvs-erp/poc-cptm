@@ -1,4 +1,4 @@
-<!-- <odoo> 
+<odoo> 
 	<data>
 		<record id="view_grupo_comprador_form" model="ir.ui.view">
 			<field name="name">Grupo de Compradores</field>
@@ -6,16 +6,32 @@
 			<field name="arch" type="xml">
 				<form string="Compradores">
 					<sheet>
+						<div class="oe_title">
+							<span class="o_form_label">Grupo Comprador</span>
+							<h1>
+                                <field name="cd_grupo_comprador" placeholder='Código...'/>
+							</h1>
+						</div>
 						<group>
 							<group name="left_main_group">
-                                <field name="cd_grupo_comprador"/>
                                 <field name="ds_grupo_comprador"/>
 							</group>
 							<group name="right_main_group">
-								<field name="cd_ativo"/>
-                                <!-- <field name="cd_celular"/> -->
+								<field name="cd_ativo" widget="boolean_toggle" />
 							</group>
-						</group>         
+						</group>
+						<notebook>
+							<page name='compradores_tab' string='Compradores'>
+								<field name="compradores" colspan="4" nolabel="1">
+									<tree>
+										<field name="nome_comprador"/>
+										<field name="cd_telefone"/>
+										<field name="cd_email"/>
+										<field name="cd_celular"/>
+									</tree>
+								</field>
+							</page>
+						</notebook>        
 					</sheet>
 				</form>
 			</field>
@@ -31,18 +47,15 @@
 			</field>
 		</record>
 			
-		<record model="ir.actions.act_window" id="ax4b_purchase.action_window">
+		<record model="ir.actions.act_window" id="ax4b_purchase.grupo_comprador_action_window">
 			<field name="name">Grupo de Compradores</field>
 			<field name="res_model">purchase.grupo_comprador</field>
 			<field name="type">ir.actions.act_window</field>
 			<field name="view_id" ref="view_purchase_grupo_comprador_tree"/>
 		</record>
-        
-        <menuitem id="menu_grupo_in_config_purchase" name="Cadastros"
-            parent="purchase.menu_purchase_config" sequence="30"/>
 		
 		<menuitem id="purchase_grupo_comprador_menu" name="Grupo de Compradores" 
-				parent="menu_grupo_in_config_purchase"                 
-				action="ax4b_purchase.action_window"/> 
+				parent="ax4b_purchase.menu_cadastros_in_config_purchase"                 
+				action="ax4b_purchase.grupo_comprador_action_window"/> 
 	</data>  
-</odoo> -->
+</odoo>

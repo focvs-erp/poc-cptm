@@ -58,5 +58,6 @@ class CotacaoDeCompras(models.Model):
         number = self.env['ir.sequence'].get('x_cotacao_compras')
         obj.write({'cd_solitacao_cotacao': number})
         return obj
-        
-    
+ 
+    def btn_enviar_email(self):
+        print("Teste")

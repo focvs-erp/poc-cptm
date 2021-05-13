@@ -19,7 +19,7 @@
                   <field name="produtos_requisicao"/>
                   <field name="quantidade" />
                   <!-- <field name="unidademedida" /> -->
-                  <!-- <field name="situacao" /> -->
+                  <field name="situacao" />
                </group>
               </group>
          </sheet>
@@ -35,7 +35,7 @@
             <field name="produtos_requisicao" />
             <field name="quantidade" />
             <!-- <field name="unidademedida" /> -->
-            <!-- <field name="situacao" /> -->
+            <field name="situacao" />
         </tree>
       </field>
     </record>

@@ -7,7 +7,7 @@
       <field name="arch" type="xml">
         <form string="Cotacao_Compra">
           <header>
-            <button name="btn_enviar_email" string="ENVIAR POR E-MAIL" type="object"/>
+            <!-- <button name="btn_enviar_email" string="ENVIAR POR E-MAIL" type="object"/> -->
             <button name="btn_Confirmar" string="CONFIRMAR"/>
             <button name="btn_cancelar" string="CANCELAR"/>
             <field name="status" widget="statusbar" statusbar_visible="SDC,SDCENVIADA,PEDIDODECOMPRA"/>
@@ -105,7 +105,7 @@
 
 
     <!-- E-mail template -->
-    <record id="email_template_purchase_cotacao_compra" model="mail.template">
+    <!-- <record id="email_template_purchase_cotacao_compra" model="mail.template">
         <field name="name">Teste E-mail</field>
         <field name="model_id" ref="purchase.cotacao_compra"/>
         <field name="subject">Teste</field>
@@ -117,6 +117,6 @@
         </field>
         <field name="auto_delete" eval="True"/>
         <field name="user_signature" eval="True"/>
-    </record>
+    </record> -->
   </data>
 </odoo>

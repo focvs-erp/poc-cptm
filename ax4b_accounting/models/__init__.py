@@ -8,3 +8,4 @@ from . import plano_referencial
 from . import plano_conta
 from . import fornecedor
 from . import rembolso
+from . import pagamentos

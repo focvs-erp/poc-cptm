@@ -8,7 +8,7 @@ class Pagamento(models.Model):
 
     partner_id = fields.Many2one('partner_id', string="Fornecedor")
     checkbox_bloqueio = fields.Boolean(related='partner_id.bloquear_cadastro', compute="_bloqueio")
-    ref = fields.Char(string="teste")
+    date = fields.Date(string="teste")
 
     @api.depends('checkbox_bloqueio')
     def _bloqueio(self):

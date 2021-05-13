@@ -66,6 +66,7 @@ class CotacaoDeCompras(models.Model):
     # def btn_enviar_email(self):
     #     self.teste = 123
 
+    @api.model
     def btn_enviar_email(self):
         self.ensure_one()
 

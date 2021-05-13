@@ -58,6 +58,6 @@ class CotacaoDeCompras(models.Model):
         obj.write({'cd_solitacao_cotacao': number})
         return obj
 
-    @api.one  
-    def btn_enviar_email(self):
-        print("#########################################################")
+    # @api.one  
+    # def btn_enviar_email(self):
+    #     print("Teste")

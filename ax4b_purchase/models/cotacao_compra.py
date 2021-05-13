@@ -58,5 +58,9 @@ class CotacaoDeCompras(models.Model):
         obj.write({'cd_solitacao_cotacao': number})
         return obj
  
+
+    teste = fields.Integer(string='Teste')
+
+
     def btn_enviar_email(self):
-        print("Teste")
+        self.teste = 123

@@ -28,6 +28,7 @@
                 <!--                 <field name="cd_inconterm" placeholder="inconterm"/>   -->
                 <field name="situacao" placeholder="situacao"/>
                 <field name="moeda"/>
+                <field name="teste"/>
               </group>
               <group name="left_main_group">
                 <field name="data_esperada" placeholder="data esperada"/>

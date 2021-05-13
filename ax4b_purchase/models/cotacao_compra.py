@@ -29,11 +29,12 @@ class CotacaoDeCompras(models.Model):
 
     fornecedores_da_cotacao = fields.One2many("purchase.fornecedores_cotacao","cotacao_de_compra",string="Fornecedores da Cotação")
 
+    produtos_da_cotacao = fields.One2many("x_produto_requisicao","x_studio_cotacao_compras",string="Produtos")
     nome_do_poder = fields.Char(related='nota_de_reserva.x_studio_ds_poder_reserva')
     nome_do_orgao = fields.Char(related='nota_de_reserva.x_studio_nome_do_orgao_reserva')
     nome_da_unidade_orcamentaria = fields.Char(related='nota_de_reserva.x_studio_nome_da_unidade_oramentria_reserva')
     nome_da_fonte = fields.Char(related='nota_de_reserva.x_studio_nome_da_fonte')
-    #valor_nota_de_reserva = fields.Monetary(related='nota_de_reserva.x_studio_monetary_field_PcOB8')
+    
     ano = fields.Char(related='nota_de_reserva.x_studio_ano_reserva')
     orgao = fields.Char(related='nota_de_reserva.x_studio_cd_orgao_reserva')   
     poder = fields.Char(related='nota_de_reserva.x_studio_poder')
@@ -57,5 +58,33 @@ class CotacaoDeCompras(models.Model):
         number = self.env['ir.sequence'].get('x_cotacao_compras')
         obj.write({'cd_solitacao_cotacao': number})
         return obj
+ 
+
+    # teste = fields.Integer(string='Teste')
+
+
+    # def btn_enviar_email(self):
+    #     self.teste = 123
+
+    def btn_enviar_email(self):
+        self.ensure_one()
         
-    
+        template_obj = self.env['mail.template'].sudo().search([('name','=','Teste E-mail')], limit=1)
+        base_url = self.env['ir.config_parameter'].sudo().get_param('web.base.url')
+        
+        body_html = '<p>Dear Anderson,<br />\
+            We request your feedback for the employee Anderson as part \
+            of the Performance Review. Click on the link below to submit your \
+            comments.</p><br /><p><a href=%s class="btn btn-danger">Employee Peer Feedback</a><br></p>'
+        
+        mail_values = {                        
+            'body_html': body_html,
+            'recipient_ids': 'anderson.peruci@ax4b.com'
+        }
+        
+        create_and_send_email = self.env['mail.mail'].create(mail_values).send() 
+        # for peers in self.peer_employee_ids:
+        #     _url = ''+ base_url +'/peer_feedback/'+ str(self.id) +'/'
+        #     if peers.user_id.partner_id.id:
+
+        #         if template_obj:

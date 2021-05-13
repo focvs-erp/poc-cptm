@@ -7,7 +7,7 @@
       <field name="arch" type="xml">
         <form string="Cotacao_Compra">
           <header>
-            <button name="btn_enviar_email" string="ENVIAR POR E-MAIL" type="object"/>
+            <!-- <button name="btn_enviar_email" string="ENVIAR POR E-MAIL" type="object"/> -->
             <button name="btn_Confirmar" string="CONFIRMAR"/>
             <button name="btn_cancelar" string="CANCELAR"/>
             <field name="status" widget="statusbar" statusbar_visible="SDC,SDCENVIADA,PEDIDODECOMPRA"/>

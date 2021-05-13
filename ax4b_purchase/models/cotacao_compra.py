@@ -60,8 +60,32 @@ class CotacaoDeCompras(models.Model):
         return obj
  
 
-    teste = fields.Integer(string='Teste')
+    # teste = fields.Integer(string='Teste')
 
 
+    # def btn_enviar_email(self):
+    #     self.teste = 123
+
+    @api.multi
     def btn_enviar_email(self):
-        self.teste = 123
+        self.ensure_one()
+        
+        template_obj = self.env['mail.template'].sudo().search([('name','=','Teste E-mail')], limit=1)
+        base_url = self.env['ir.config_parameter'].sudo().get_param('web.base.url')
+        
+        body_html = '<p>Dear Anderson,<br />\
+            We request your feedback for the employee Anderson as part \
+            of the Performance Review. Click on the link below to submit your \
+            comments.</p><br /><p><a href=%s class="btn btn-danger">Employee Peer Feedback</a><br></p>'
+        
+        mail_values = {                        
+            'body_html': body_html,
+            'recipient_ids': 'anderson.peruci@ax4b.com'
+        }
+        
+        create_and_send_email = self.env['mail.mail'].create(mail_values).send() 
+        # for peers in self.peer_employee_ids:
+        #     _url = ''+ base_url +'/peer_feedback/'+ str(self.id) +'/'
+        #     if peers.user_id.partner_id.id:
+
+        #         if template_obj:

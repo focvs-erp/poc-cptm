@@ -41,7 +41,7 @@
 			<field name="model">purchase.grupo_comprador</field>
 			<field name="arch" type="xml">
 				<tree string="Cadastro Grupo de Compradores">
-					<field name="cd_grupo_comprador"/>
+					<field name="name"/>
                     <field name="ds_grupo_comprador"/>
 				</tree>
 			</field>

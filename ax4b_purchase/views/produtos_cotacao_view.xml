@@ -9,7 +9,7 @@
               <div class= "name" >
                    <span class="_form_label">Produtos da Cotação</span>
               <h1>
-                <field name="prioridade" widget="priority" class="mr-3"/>
+                <!-- <field name="prioridade" widget="priority" class="mr-3"/> -->
               </h1>
                </div>
               <group name="right_main_group">

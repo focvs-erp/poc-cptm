@@ -9,7 +9,7 @@ class ProdutosDaCotacao(models.Model):
    name = fields.Char(string="Produto da cotação") 
    # requisicao = fields.Many2one("x_requisicoes_de_compr", string="Requisição")
    cotacao_de_compra = fields.Many2one("purchase.cotacao_compra", invisible=True, string="Cotação de Compra")
-   produto_requisicao = fields.Many2one("x_produto_requisicao", string="Produto")
+   produtos_requisicao = fields.Many2one("x_produto_requisicao", string="Produto")
 
    quantidade = fields.Integer(related="produto_requisicao.x_studio_quantidade", string="Quantidade")
    # unidademedida = fields.Many2one(related="produtos_requisicao.x_studio_unidade_de_medida", string="Unidade") 

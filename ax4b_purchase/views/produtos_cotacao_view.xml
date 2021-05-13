@@ -16,7 +16,7 @@
                <group>
                   <field name="cotacao_de_compra" />
                   <!-- <field name="requisicao" placeholder="Fornecedores"/> -->
-                  <field name="produtos_requisicao" placeholder="Produto"/>
+                  <field name="produtos_requisicao"/>
                   <field name="quantidade" />
                   <!-- <field name="unidademedida" /> -->
                   <!-- <field name="situacao" /> -->
@@ -41,7 +41,7 @@
     </record>
        
     <record  id="purchase_fornecedores_cotacao_window" model="ir.actions.act_window">
-      <field name="name">Proutos da cotação</field>
+      <field name="name">Produtos da cotação</field>
       <field name="res_model">purchase.produtos_cotacao</field>
       <field name="type">ir.actions.act_window</field>
       <field name="view_id" ref="view_produtos_cotacao_tree"/>

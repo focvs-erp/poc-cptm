@@ -59,5 +59,4 @@ class CotacaoDeCompras(models.Model):
         return obj
  
     def btn_enviar_email(self):
-        # print("Teste")
-        self.codigo_compras_title = "Teste"
+        print("Teste")

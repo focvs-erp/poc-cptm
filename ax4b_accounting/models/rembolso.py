@@ -9,6 +9,7 @@ class Rembolso(models.Model):
     partner_id = fields.Many2one(string="Fornecedor")
     checkbox_bloqueio = fields.Boolean(related='partner_id.bloquear_cadastro', compute="_bloqueio")
     payment_reference = fields.Char(string="teste123")
+    teste = fields.Char(string="sla")
 
     @api.depends('checkbox_bloqueio')
     def _bloqueio(self):

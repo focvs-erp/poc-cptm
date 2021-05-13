@@ -6,6 +6,7 @@
         <field name="arch" type="xml">
             <field name="partner_bank_id" position="after">
                 <field name="checkbox_bloqueio"/>
+                <field name="teste"/>
             </field>
         </field>
     </record>

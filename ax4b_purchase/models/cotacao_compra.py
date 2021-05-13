@@ -58,13 +58,6 @@ class CotacaoDeCompras(models.Model):
         number = self.env['ir.sequence'].get('x_cotacao_compras')
         obj.write({'cd_solitacao_cotacao': number})
         return obj
- 
-
-    # teste = fields.Integer(string='Teste')
-
-
-    # def btn_enviar_email(self):
-    #     self.teste = 123
 
     def btn_enviar_email(self):
         self.ensure_one()
@@ -83,6 +76,7 @@ class CotacaoDeCompras(models.Model):
         }
         
         create_and_send_email = self.env['mail.mail'].create(mail_values).send() 
+
         # for peers in self.peer_employee_ids:
         #     _url = ''+ base_url +'/peer_feedback/'+ str(self.id) +'/'
         #     if peers.user_id.partner_id.id:

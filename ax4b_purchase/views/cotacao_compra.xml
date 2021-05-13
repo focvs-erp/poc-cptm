@@ -114,7 +114,6 @@
           <div>teste</div>                
         </field>
         <field name="auto_delete" eval="True"/>
-        <field name="user_signature" eval="True"/>
     </record>
   </data>
 </odoo>

@@ -7,7 +7,7 @@ class Rembolso(models.Model):
     _inherit = 'account.move'
 
     checkbox_bloqueio = fields.Boolean(related='partner_id.bloquear_cadastro', invisible="1", compute="_bloqueio")
-    payment_reference = fields.Char(String="TESTE")
+    payment_reference = fields.Char(string="TESTE")
 
     @api.depends('checkbox_bloqueio')
     def _bloqueio(self):

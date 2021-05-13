@@ -11,9 +11,10 @@ class Rembolso(models.Model):
 
     @api.depends('checkbox_bloqueio')
     def _bloqueio(self):
-        if self.checkbox_bloqueio == True:
-            self.payment_reference = "TRUE"
-        else:
-            self.payment_reference = "FALSE"
+        for record in self:
+            if record.checkbox_bloqueio == True:
+                record.payment_reference = "TRUE"
+            else:
+                record.payment_reference = "FALSE"
 
 

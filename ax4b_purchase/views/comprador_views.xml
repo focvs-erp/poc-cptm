@@ -30,7 +30,7 @@
 			<field name="model">purchase.comprador</field>
 			<field name="arch" type="xml">
 				<tree string="Cadastro de Compradores">
-					<field name="nome_comprador"/>
+					<field name="name"/>
                     <field name="cd_telefone"/>
 					<field name="cd_email"/>
 				</tree>

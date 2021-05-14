@@ -16,7 +16,7 @@
                <group>
                   <field name="cotacao_de_compra" />
                   <!-- <field name="requisicao" placeholder="Fornecedores"/> -->
-                  <field name="produtos_requisicao"/>
+                  <field name="produtos_requisicao" domain="[('x_studio_situao', 'in', 'SDC' )]"/>
                   <field name="quantidade" />
                   <field name="unidademedida" />
                   <field name="situacao" />

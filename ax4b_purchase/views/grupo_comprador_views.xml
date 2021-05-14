@@ -24,7 +24,7 @@
 							<page name='compradores_tab' string='Compradores'>
 								<field name="compradores" colspan="4" nolabel="1">
 									<tree>
-										<field name="nome_comprador"/>
+										<field name="name"/>
 										<field name="cd_telefone"/>
 										<field name="cd_email"/>
 										<field name="cd_celular"/>

@@ -8,7 +8,7 @@
 					<sheet>
 						<group>
 							<group name="left_main_group">
-                                <field name="nome_comprador" required="1"/>
+                                <field name="name" required="1"/>
                                 <field name="cd_email" required="1"/>
 							</group>
 							<group name="right_main_group">

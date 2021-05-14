@@ -32,7 +32,7 @@
       <field name="arch" type="xml">
         <tree string="Fornecedores da cotação"  class="o_purchase_order" editable="top" create="1" delete="1" multi_edit="1">
             <!-- <field name="requisicao" placeholder="Requisição"/> -->
-            <field name="produtos_requisicao" domain="[('x_studio_situao', '=', 'SDC' )]"/>
+            <field name="produtos_requisicao" domain="[('x_studio_situao', '=', 'SDC' ),('x_studio_definio_de_atendimento', '=', 'Processo de Compras' )]"/>
             <field name="quantidade" />
             <field name="unidademedida" />
             <field name="situacao" />

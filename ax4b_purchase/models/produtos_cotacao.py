@@ -10,15 +10,16 @@ class ProdutosDaCotacao(models.Model):
    
    cotacao_de_compra = fields.Many2one("purchase.cotacao_compra", invisible=True, string="Cotação de Compra")
    produtos_requisicao = fields.Many2one("x_produto_requisicao", string="Produto")
-   # requisicao = fields.Many2one("x_requisicoes_de_compr", string="Requisição")
+   requisicao = fields.Many2one("produtos_requisicao.x_requisicoes_de_compr", string="Requisição")
    quantidade = fields.Integer(related="produtos_requisicao.x_studio_quantidade", string="Quantidade")
    unidademedida = fields.Many2one(related="produtos_requisicao.x_studio_unidade_de_medida", string="Unidade") 
    situacao = fields.Selection(related="produtos_requisicao.x_studio_situao", string="Situação") 
-  
-   # @api.onchange('requisicao')
-   # def _onchange_requisicao(self):
-   #    for record in self:
-   #       if record.requisicao.id:
-   #          return {'domain': {'produtos_requisicao': [('x_studio_many2one_field_oMlx9', '=', record.requisicao.id)]}}
-   #       else:
-   #          return {'domain': {'produtos_requisicao': []}}               
+   # requisicao = fields.Many2one(related="produtos_requisicao.x_studio_unidade_de_medida", string="Unidade") 
+
+   @api.onchange('requisicao')
+   def _onchange_requisicao(self):
+      for record in self:
+         if record.requisicao.id:
+            return {'domain': {'produtos_requisicao': [('x_studio_many2one_field_oMlx9', '=', record.requisicao.id)]}}
+         else:
+            return {'domain': {'produtos_requisicao': []}}               

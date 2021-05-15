@@ -1,19 +1,19 @@
 # -*- coding: utf-8 -*-
 
-# from odoo import models, fields, api
-# from odoo.exceptions import UserError, ValidationError
+from odoo import models, fields, api
+from odoo.exceptions import UserError, ValidationError
 
 
-# class Fornecedor(models.Model):
-#     _inherit = 'res.partner'
+class Fornecedor(models.Model):
+    _inherit = 'res.partner'
 
-#     situacao = fields.Selection([('1', 'Ativo'), ('2', 'Bloqueado')], required=False, default='1', readonly=True)
+    situacao = fields.Selection([('1', 'Ativo'), ('2', 'Bloqueado')], required=False, default='1', readonly=True)
 
-#     def btn_desbloquear(self):
-#         self.situacao = '1'
+    def btn_desbloquear(self):
+        self.situacao = '1'
     
-#     def btn_bloquear(self):
-#         self.situacao = '2'
+    def btn_bloquear(self):
+        self.situacao = '2'
         
         
 #         message_id = self.env['res.fornecedor_bloqueado_wizard'].create({'message': 'Osam gerados com Sucesso!'})
@@ -43,14 +43,14 @@
 #         return
 
 
-# class FornecedorBloqueadoWizard(models.TransientModel):
-#     _name = 'res.fornecedor_bloqueado_wizard'
-#     _description = "Mensagem de Confirmação do Fornecedor Bloqueado"
+class FornecedorBloqueadoWizard(models.TransientModel):
+    _name = 'res.fornecedor_bloqueado_wizard'
+    _description = "Mensagem de Confirmação do Fornecedor Bloqueado"
 
-#     message = fields.Text('Confirmação', required=True)
-#     def yes(self):
-#         raise ValidationError(self.env.context.get('active_model'))
-#         return False
+    message = fields.Text('Confirmação', required=True)
+    def yes(self):
+        # raise ValidationError(self.env.context.get('active_model'))
+        return False
 
-#     def no(self):
-#         return False
+    def no(self):
+        return False

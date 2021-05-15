@@ -1,4 +1,4 @@
-<!-- <odoo>
+<odoo>
     <record id="fornecedor_form" model="ir.ui.view">
         <field name="name">Fornecedor</field>
         <field name="model">res.partner</field>
@@ -29,4 +29,4 @@ este fornecedor. Deseja realmente bloquear este fornecedor?" attrs="{'invisible'
             </form>
         </field>
     </record>
-</odoo> -->
+</odoo>

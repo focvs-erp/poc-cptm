@@ -9,4 +9,4 @@ from . import plano_conta
 from . import transferencia_automatica
 from . import transferencia_automatica_line
 from . import fornecedor
-# from . import conta
+from . import conta

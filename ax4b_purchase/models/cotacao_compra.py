@@ -11,7 +11,6 @@ class CotacaoDeCompras(models.Model):
     name = fields.Char()
     empresa = fields.Many2one("res.company")
     cd_empresa = fields.Many2one(related='empresa.partner_id', string="Empresa")
-    situacao_fornecedor = fields.Selection(related='empresa.situacao', invisible=1)
     inconterm = fields.Many2one("account.incoterms")
     cd_inconterm = fields.Char(related='inconterm.name', string="Inconterm")
     codigo_compras_title = fields.Text()

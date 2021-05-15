@@ -84,9 +84,3 @@ class CotacaoDeCompras(models.Model):
         #     if peers.user_id.partner_id.id:
 
         #         if template_obj:
-
-    @api.onchange('empresa')
-    def _fornecedor_bloqueado(self):
-        for record in self:
-            if record.situacao_fornecedor == '2':
-                raise ValidationError("Fornecedor bloqueado para transações")

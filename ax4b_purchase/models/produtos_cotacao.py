@@ -14,7 +14,7 @@ class ProdutosDaCotacao(models.Model):
 
    quantidade = fields.Integer(related="produtos_requisicao.x_studio_quantidade", string="Quantidade")
    unidademedida = fields.Many2one(related="produtos_requisicao.x_studio_unidade_de_medida", string="Unidade") 
-   situacao = fields.Selection(related="produtos_requisicao.x_studio_situao", string="Situação") 
+   # situacao = fields.Selection(related="produtos_requisicao.x_studio_situao", string="Situação") 
    # requisicao = fields.Many2one(related="produtos_requisicao.x_studio_unidade_de_medida", string="Unidade") 
 
    # @api.onchange('requisicao')

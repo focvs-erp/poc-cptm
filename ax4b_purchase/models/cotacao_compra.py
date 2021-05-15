@@ -85,7 +85,7 @@ class CotacaoDeCompras(models.Model):
 
         #         if template_obj:
 
-    @api.onchange('partner_id')
+    @api.onchange('empresa')
     def _fornecedor_bloqueado(self):
         for record in self:
             if record.situacao_fornecedor == '2':

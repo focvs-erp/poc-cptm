@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
 
-# from odoo import models, fields, api
-# from odoo.exceptions import UserError, ValidationError
+from odoo import models, fields, api
+from odoo.exceptions import UserError, ValidationError
 
-# class AcordoDeCompra(models.Model):
-#     _inherit = 'purchase.requisition'
+class AcordoDeCompra(models.Model):
+    _inherit = 'purchase.requisition'
 
-#     situacao_fornecedor = fields.Selection(related='vendor_id.situacao', invisible=1)
+    situacao_fornecedor = fields.Selection(related='vendor_id.situacao', invisible=1)
 
-#     @api.onchange('vendor_id')
-#     def _fornecedor_bloqueado(self):
-#         for record in self:
-#             if record.situacao_fornecedor == '2':
-#                 raise ValidationError("Fornecedor bloqueado para transações")
+    @api.onchange('vendor_id')
+    def _fornecedor_bloqueado(self):
+        for record in self:
+            if record.situacao_fornecedor == '2':
+                raise ValidationError("Fornecedor bloqueado para transações")

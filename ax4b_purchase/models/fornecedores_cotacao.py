@@ -1,4 +1,5 @@
 from odoo import  models, fields, api
+from odoo.exceptions import UserError, ValidationError
 
 contato_array= []
 
@@ -22,13 +23,9 @@ class FornecedoresDaCotacao(models.Model):
    @api.onchange('fornecedores')
    def _onchange_fornecedore(self):
       for record in self:
+         if record.situacao_fornecedor == '2':
+                raise ValidationError("Fornecedor bloqueado para transações")
          if record.fornecedores.id:
             return {'domain': {'contato_fornecedores': [('parent_id', '=', record.fornecedores.id)]}}
          else:
-            return {'domain': {'contato_fornecedores': []}}               
-   
-   @api.onchange('empresa')
-   def _fornecedor_bloqueado(self):
-        for record in self:
-            if record.situacao_fornecedor == '2':
-                raise ValidationError("Fornecedor bloqueado para transações")
+            return {'domain': {'contato_fornecedores': []}}

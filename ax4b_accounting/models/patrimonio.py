@@ -114,9 +114,6 @@ class Patrimonio(models.Model):
         else: 
             self.vlr_tot_info_add = 0
 
-    def btn_mudar_status_para_draft(self):
-        self.write({'state': 'draft'})
-
     # @api.onchange('name')
     # def set_code(self):
     #     self.num_atpai_info_add = self.name

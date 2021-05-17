@@ -6,9 +6,14 @@
 			<field name="arch" type="xml">
 				<form string="Compradores">
 					<sheet>
+						<div class="oe_title">
+							<span class="o_form_label">Comprador</span>
+							<h1>
+                                <field name="name" placeholder='Código...'/>
+							</h1>
+						</div>
 						<group>
 							<group name="left_main_group">
-                                <field name="nome_comprador" required="1"/>
                                 <field name="cd_email" required="1"/>
 							</group>
 							<group name="right_main_group">
@@ -25,7 +30,7 @@
 			<field name="model">purchase.comprador</field>
 			<field name="arch" type="xml">
 				<tree string="Cadastro de Compradores">
-					<field name="nome_comprador"/>
+					<field name="name"/>
                     <field name="cd_telefone"/>
 					<field name="cd_email"/>
 				</tree>

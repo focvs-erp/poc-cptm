@@ -9,13 +9,17 @@
               <div class= "name" >
                    <span class="_form_label">Produtos da Cotação</span>
               <h1>
-                <field name="prioridade" widget="priority" class="mr-3"/>
+                <!-- <field name="prioridade" widget="priority" class="mr-3"/> -->
               </h1>
                </div>
               <group name="right_main_group">
                <group>
-                  <field name="requisicao" placeholder="Fornecedores"/>
-                  <field name="produtos_requisicao" placeholder="contato_fornecedores"/>
+                  <field name="cotacao_de_compra" />
+                  <!-- <field name="requisicao" placeholder="Fornecedores"/> -->
+                  <field name="produtos_requisicao" domain="[('x_studio_situao', '=', 'SDC' ),('x_studio_definio_de_atendimento', '=', 'Processo de Compras' )]"/>
+                  <field name="quantidade" />
+                  <field name="unidademedida" />
+                  <field name="situacao" />
                </group>
               </group>
          </sheet>
@@ -27,14 +31,17 @@
       <field name="model">purchase.produtos_cotacao</field>
       <field name="arch" type="xml">
         <tree string="Fornecedores da cotação"  class="o_purchase_order" editable="top" create="1" delete="1" multi_edit="1">
-            <field name="requisicao" placeholder="Requisição"/>
-            <field name="produtos_requisicao" placeholder="produto"/>
+            <!-- <field name="requisicao" placeholder="Requisição"/> -->
+            <field name="produtos_requisicao" domain="[('x_studio_situao', '=', 'SDC' ),('x_studio_definio_de_atendimento', '=', 'Processo de Compras' )]"/>
+            <field name="quantidade" />
+            <field name="unidademedida" />
+            <field name="situacao" />
         </tree>
       </field>
     </record>
        
     <record  id="purchase_fornecedores_cotacao_window" model="ir.actions.act_window">
-      <field name="name">Proutos da cotação</field>
+      <field name="name">Produtos da cotação</field>
       <field name="res_model">purchase.produtos_cotacao</field>
       <field name="type">ir.actions.act_window</field>
       <field name="view_id" ref="view_produtos_cotacao_tree"/>

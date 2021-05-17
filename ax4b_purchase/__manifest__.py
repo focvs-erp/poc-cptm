@@ -20,7 +20,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','purchase'],
+    'depends': ['base','purchase', 'purchase_requisition'],
 
     # always loaded
     'data': [
@@ -28,7 +28,8 @@
         'views/cotacao_compra.xml',
         'views/fornecedores_cotacao.xml',
         'views/comprador_views.xml',  
-        'views/grupo_comprador_views.xml',  
+        'views/grupo_comprador_views.xml', 
+         'views/produtos_cotacao_view.xml', 
     ],
    
 }

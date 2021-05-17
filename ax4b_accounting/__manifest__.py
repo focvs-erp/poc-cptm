@@ -20,7 +20,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'account_asset', 'account_auto_transfer'],
+    'depends': ['base', 'account_asset', 'account_auto_transfer', 'account'],
 
     # always loaded
     'data': [
@@ -32,6 +32,7 @@
         'views/plano_referencial_view.xml',
         'views/plano_conta_view.xml',
         'views/transferencia_automatica_view.xml',
+        'views/fornecedor_view.xml',
         'views/templates.xml',
         'views/ecd_views.xml',
     ],

@@ -1,0 +1,32 @@
+<odoo>
+    <record id="fornecedor_form" model="ir.ui.view">
+        <field name="name">Fornecedor</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form" />
+        <field name="arch" type="xml">
+            <xpath expr="/form/div[1]" position="after">
+                <header>
+                    <button name="btn_bloquear" class='oe_inline oe_edit_only' string="BLOQUEAR" type="object" confirm="Existem transações em andamento para
+este fornecedor. Deseja realmente bloquear este fornecedor?" attrs="{'invisible':[('situacao','=','2')]}"/>
+                    <button name="btn_desbloquear" class='oe_inline oe_edit_only' string="ATIVAR" type="object" attrs="{'invisible':[('situacao','=','1')]}"/>
+                    <field name="situacao" widget="statusbar"/>
+                </header>
+            </xpath>
+        </field>
+    </record>
+    
+<!--     FORM WIZARD -->
+    <record model="ir.ui.view" id="confirm_wizard_form">
+        <field name="name">res.fornecedor_bloqueado_wizard.form</field>
+        <field name="model">res.fornecedor_bloqueado_wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <field name="message" readonly="True"/>
+                <footer>
+                    <button class="oe_highlight" name="yes" string="Yes" type="object"  />
+                    <button class="oe_highlight" name="no" string="No" type="object"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

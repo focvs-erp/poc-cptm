@@ -33,6 +33,7 @@
         'views/plano_conta_view.xml',
         'views/transferencia_automatica_view.xml',
         'views/templates.xml',
+        'views/ecd_views.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

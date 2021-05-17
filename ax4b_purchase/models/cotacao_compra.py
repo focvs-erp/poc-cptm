@@ -64,7 +64,7 @@ class CotacaoDeCompras(models.Model):
 
     def write(self, vals):
         res = super(CotacaoDeCompras, self).write(vals)
-        self._cr.execute('update x_produto_requisicao set x_studio_situao=%s where id=%s', ("em Processo", 3))                                  
+        self._cr.execute('update x_produto_requisicao set x_studio_situao=%s where id=%s', ("Em Processo", 3))                                  
         self.flush()
         self.invalidate_cache()
         return res

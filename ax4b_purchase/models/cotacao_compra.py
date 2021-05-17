@@ -65,6 +65,14 @@ class CotacaoDeCompras(models.Model):
         raise ValidationError(('You cannot assign the Main Pricelist as Other Pricelist in PriceList Item'))
         return res
 
+        
+    # @api.multi
+    # def write(self, vals):
+    #     res = super(CotacaoDeCompras, self).write(vals)
+    #     raise ValidationError(('You cannot assign the Main Pricelist as Other Pricelist in PriceList Item'))
+    #     return res
+
+
     # def btn_enviar_email(self):
     #     self.ensure_one()
         

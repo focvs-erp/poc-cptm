@@ -5,4 +5,3 @@
 "access_account_plano_conta_secundaria","account.plano_conta_secundaria","model_account_plano_conta_secundaria","base.group_user","1","1","1","1"
 "access_account_ecd","account.ecd","model_account_ecd","base.group_user","1","1","1","1"
 "access_account_message","account.message","model_account_message","base.group_user","1","1","1","1"
-"access_res_fornecedor_bloqueado_wizard","res.fornecedor_bloqueado_wizard","model_res_fornecedor_bloqueado_wizard","base.group_user","1","1","1","1"

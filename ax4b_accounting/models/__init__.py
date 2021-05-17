@@ -8,3 +8,6 @@ from . import plano_referencial
 from . import plano_conta
 from . import transferencia_automatica
 from . import transferencia_automatica_line
+from . import ecd
+from . import fornecedor
+from . import conta

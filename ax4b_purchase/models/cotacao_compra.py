@@ -51,9 +51,6 @@ class CotacaoDeCompras(models.Model):
 #     def _constrains_fornecedores_da_cotacao(self):
 #         if not self.fornecedores_da_cotacao or len(self.fornecedores_da_cotacao)==0:
 #             raise ValidationError("Erro ao configura fornecedor da cotação.") 
-    
-    # def AtualizarStatusProdutos(self):
-    #     self._cr.execute('update x_produto_requisicao set x_studio_situao=%s where id=%s', ("em Processo", 3))                                  
 
     @api.model
     def create(self, vals):
@@ -64,17 +61,13 @@ class CotacaoDeCompras(models.Model):
 
     def write(self, vals):
         res = super(CotacaoDeCompras, self).write(vals)
-        self._cr.execute('update x_produto_requisicao set x_studio_situao=%s where id=%s', ("Em Processo", 3))                                  
+        for record in self:
+            for produto in record.produtos_da_cotacao:
+                self._cr.execute('update x_produto_requisicao set x_studio_situao=%s where id=%s', ("Em Processo", produto.produtorequisicaoid))                                  
+       
         self.flush()
         self.invalidate_cache()
         return res
-
-        
-    # @api.multi
-    # def write(self, vals):
-    #     res = super(CotacaoDeCompras, self).write(vals)
-    #     raise ValidationError(('You cannot assign the Main Pricelist as Other Pricelist in PriceList Item'))
-    #     return res
 
 
     # def btn_enviar_email(self):

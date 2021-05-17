@@ -10,10 +10,12 @@ class Fornecedor(models.Model):
     situacao_bloqueio = fields.Selection([('1', 'Ativo'), ('2', 'Bloqueado')], required=False, default='1', readonly=True)
 
     def btn_desbloquear(self):
-        self.situacao_bloqueio = '1'
+        for record in self:
+            record.situacao_bloqueio = '1'
     
     def btn_bloquear(self):
-        self.situacao_bloqueio = '2'
+        for record in self:
+            record.situacao_bloqueio = '2'
         
         
 #         message_id = self.env['res.fornecedor_bloqueado_wizard'].create({'message': 'Osam gerados com Sucesso!'})

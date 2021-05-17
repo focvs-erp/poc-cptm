@@ -4,6 +4,9 @@
         <field name="model">account.asset</field>
         <field name="inherit_id" ref="account_asset.view_account_asset_form" />
         <field name="arch" type="xml">
+            <xpath expr="/form/header/field[@name='state']" position="after">
+                <button name="btn_mudar_status_para_draft" string="Transferir" class='oe_inline oe_edit_only' type="object" attrs="{'invisible': [('state', '=', 'draft')]}"/>
+            </xpath>
             <xpath expr="/form/sheet/div[3]/h1/field[@name='name']" position="attributes">
                 <attribute name="readonly">1</attribute>
             </xpath>

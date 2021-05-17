@@ -65,7 +65,7 @@ class CotacaoDeCompras(models.Model):
     def write(self, vals):
         res = super(CotacaoDeCompras, self).write(vals)
         # raise ValidationError(('You cannot assign the Main Pricelist as Other Pricelist in PriceList Item'))
-        self.AtualizarStatusProdutos()
+        self.AtualizarStatusProdutos(self, vals)
         self.flush()
         self.invalidate_cache()
 

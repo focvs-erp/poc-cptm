@@ -7,13 +7,13 @@ from odoo.exceptions import UserError, ValidationError
 class Fornecedor(models.Model):
     _inherit = 'res.partner'
 
-    situacao_bloqueio = fields.Selection([('1', 'Ativo'), ('2', 'Bloqueado')], required=False, default='1', readonly=True)
+    situacao_bloqueio_Teste = fields.Selection([('1', 'Ativo'), ('2', 'Bloqueado')], required=False, default='1', readonly=True)
 
     def btn_desbloquear(self):
-        self.situacao_bloqueio = '1'
+        self.situacao_bloqueio_Teste = '1'
     
     def btn_bloquear(self):
-        self.situacao_bloqueio = '2'
+        self.situacao_bloqueio_Teste = '2'
         
         
 #         message_id = self.env['res.fornecedor_bloqueado_wizard'].create({'message': 'Osam gerados com Sucesso!'})

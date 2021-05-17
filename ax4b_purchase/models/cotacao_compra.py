@@ -59,11 +59,11 @@ class CotacaoDeCompras(models.Model):
         obj.write({'cd_solitacao_cotacao': number})
         return obj
 
-    # @api.model_create_multi
-    # def write(self, vals):
-    #     res = super(CotacaoDeCompras, self).write(vals)
-    #     raise ValidationError(('You cannot assign the Main Pricelist as Other Pricelist in PriceList Item'))
-    #     return res
+    @api.model_create_multi
+    def write(self, vals):
+        res = super(CotacaoDeCompras, self).write(vals)
+        # raise ValidationError(('You cannot assign the Main Pricelist as Other Pricelist in PriceList Item'))
+        return res
 
         
     # @api.multi

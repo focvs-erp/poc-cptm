@@ -52,8 +52,8 @@ class CotacaoDeCompras(models.Model):
 #         if not self.fornecedores_da_cotacao or len(self.fornecedores_da_cotacao)==0:
 #             raise ValidationError("Erro ao configura fornecedor da cotação.") 
     
-    def AtualizarStatusProdutos(self):
-        self._cr.execute('update x_produto_requisicao set x_studio_situao=%s where id=%s', ("em Processo", 3))                                  
+    # def AtualizarStatusProdutos(self):
+    #     self._cr.execute('update x_produto_requisicao set x_studio_situao=%s where id=%s', ("em Processo", 3))                                  
 
     @api.model
     def create(self, vals):

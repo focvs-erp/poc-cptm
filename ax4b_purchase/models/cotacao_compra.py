@@ -59,9 +59,13 @@ class CotacaoDeCompras(models.Model):
         obj.write({'cd_solitacao_cotacao': number})
         return obj
 
+    def AtualizarStatusProdutos(self, vals):
+        self._cr.execute('update x_produto_requisicao set x_studio_situao=%s where id=%s', ("em Processo", 3))                                  
+
     def write(self, vals):
         res = super(CotacaoDeCompras, self).write(vals)
-        raise ValidationError(('You cannot assign the Main Pricelist as Other Pricelist in PriceList Item'))
+        # raise ValidationError(('You cannot assign the Main Pricelist as Other Pricelist in PriceList Item'))
+        self.AtualizarStatusProdutos()
         self.flush()
         self.invalidate_cache()
 

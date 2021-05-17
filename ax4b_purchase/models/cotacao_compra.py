@@ -58,8 +58,8 @@ class CotacaoDeCompras(models.Model):
         number = self.env['ir.sequence'].get('x_cotacao_compras')
         obj.write({'cd_solitacao_cotacao': number})
         return obj
-        
-    @api.multi
+
+    @api.model_create_multi
     def write(self, vals):
         res = super(CotacaoDeCompras, self).write(vals)
         raise ValidationError(('You cannot assign the Main Pricelist as Other Pricelist in PriceList Item'))

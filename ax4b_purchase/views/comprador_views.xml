@@ -1,0 +1,54 @@
+<odoo> 
+	<data>
+		<record id="view_comprador_form" model="ir.ui.view">
+			<field name="name">Cadastro de Compradores</field>
+			<field name="model">purchase.comprador</field>
+			<field name="arch" type="xml">
+				<form string="Compradores">
+					<sheet>
+						<div class="oe_title">
+							<span class="o_form_label">Comprador</span>
+							<h1>
+                                <field name="name" placeholder='Código...'/>
+							</h1>
+						</div>
+						<group>
+							<group name="left_main_group">
+                                <field name="cd_email" required="1"/>
+							</group>
+							<group name="right_main_group">
+								<field name="cd_telefone"/>
+                                <field name="cd_celular"/>
+							</group>
+						</group>         
+					</sheet>
+				</form>
+			</field>
+		</record>
+        
+		<record id="view_purchase_comprador_tree" model="ir.ui.view">
+			<field name="model">purchase.comprador</field>
+			<field name="arch" type="xml">
+				<tree string="Cadastro de Compradores">
+					<field name="name"/>
+                    <field name="cd_telefone"/>
+					<field name="cd_email"/>
+				</tree>
+			</field>
+		</record>
+			
+		<record model="ir.actions.act_window" id="ax4b_purchase.comprador_action_window">
+			<field name="name">Cadastro de Compradores</field>
+			<field name="res_model">purchase.comprador</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="view_id" ref="view_purchase_comprador_tree"/>
+		</record>
+        
+        <menuitem id="menu_cadastros_in_config_purchase" name="Cadastros"
+            parent="purchase.menu_purchase_config" sequence="30"/>
+		
+		<menuitem id="purchase_comprador_menu" name="Compradores" 
+				parent="menu_cadastros_in_config_purchase"                 
+				action="ax4b_purchase.comprador_action_window"/> 
+	</data>  
+</odoo>

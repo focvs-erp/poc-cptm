@@ -1,54 +1,52 @@
 <odoo>
-   <data>
+  <data>
     <record id="view_fornecedores_cotacao_form" model="ir.ui.view">
       <field name="name">Fornecedores da cotacao</field>
       <field name="model">purchase.fornecedores_cotacao</field>
-      <field name="arch" type="xml">
-      <form string="Fornecedores Da Cotação">
+      <field name="arch" type="xml"/>
+        <form string="Fornecedores Da Cotação">
           <sheet>
-              <div class= "name" >
-                   <span class="_form_label">Fornecedores da Cotação</span>
+            <div class= "name" >
+              <span class="_form_label">Fornecedores da Cotação</span>
               <h1>
                 <field name="prioridade" widget="priority" class="mr-3"/>
               </h1>
-               </div>
-              <group name="right_main_group">
-                  <group>
-                 <field name="fornecedores" placeholder="Fornecedores"/>
-                <field name="contato" placeholder="Contato"/>
+            </div>
+            <group name="right_main_group">
+              <group>
+                <field name="fornecedores" placeholder="Fornecedores"/>
+                <field name="contato_fornecedores" placeholder="contato_fornecedores"/>
                 <field name="email" placeholder="Email"/>
                 <field name="telefone" placeholder="Telefone"/>
                 <field name="celular" placeholder="Celular"/>  
-                <field name="teste"/>
-                  </group>
-                </group>
-         </sheet>
+              </group>
+            </group>
+          </sheet>
         </form>
-       </field>
-      </record>
-       
-        <record id="view_fornecedores_cotacao_tree" model="ir.ui.view">
+      </field>
+    </record>
+    <record id="view_fornecedores_cotacao_tree" model="ir.ui.view">
       <field name="model">purchase.fornecedores_cotacao</field>
       <field name="arch" type="xml">
         <tree string="Fornecedores da cotação"  class="o_purchase_order" editable="top" create="1" delete="1" multi_edit="1">
-           <field name="fornecedores"/>
-          <field name="contato"/>
+          <field name="selecionado"/>
+          <field name="fornecedores"/>
+          <field name="contato_fornecedores"/>
           <field name="email"/>
           <field name="telefone"/>
           <field name="celular"/>  
-           <field name="teste"/>
         </tree>
       </field>
     </record>
        
-        <record  id="purchase_fornecedores_cotacao_window" model="ir.actions.act_window">
+    <record  id="purchase_fornecedores_cotacao_window" model="ir.actions.act_window">
       <field name="name">Fornecedores da Cotação</field>
       <field name="res_model">purchase.fornecedores_cotacao</field>
       <field name="type">ir.actions.act_window</field>
       <field name="view_id" ref="view_fornecedores_cotacao_tree"/>
     </record>
 
-    <menuitem id="purchase_fornecedores_cotacao_menu" name="Fornecedores Da Cotação" parent="purchase.menu_procurement_management" action="purchase_fornecedores_cotacao_window"/>
+    <!-- <menuitem id="purchase_fornecedores_cotacao_menu" name="Fornecedores Da Cotação" parent="purchase.menu_procurement_management" action="purchase_fornecedores_cotacao_window"/> -->
 
   </data>
 </odoo>

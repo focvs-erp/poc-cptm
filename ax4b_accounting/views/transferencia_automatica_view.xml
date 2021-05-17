@@ -1,0 +1,26 @@
+<odoo>
+  <data>
+        <record id="transferencia_automatica_form" model="ir.ui.view">
+        <field name="name">Transferenecia Automatica</field>
+        <field name="model">account.transfer.model</field>
+        <field name="inherit_id" ref="account_auto_transfer.view_transfer_model_form" />
+        <field name="arch" type="xml">
+            <xpath expr="/form/sheet/group[2]/group[1]" position="attributes">
+                <attribute name="string">Contas Originais</attribute>
+            </xpath>
+            
+            <field name="percent" position="attributes">
+                <attribute name="string">Percentual</attribute>
+            </field>
+            
+            <field name="account_id" position="after">
+                <field name="centro_custo_related"/>
+            </field>
+            
+            <field name="user_type_id" position="after">
+                <field name="centro_custo_related"/>
+            </field>
+        </field>
+    </record>
+  </data>
+</odoo>

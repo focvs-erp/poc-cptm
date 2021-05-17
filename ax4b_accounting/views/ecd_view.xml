@@ -1,0 +1,72 @@
+<odoo> 
+ <data>
+     <record id="view_ecd_form" model="ir.ui.view">
+			<field name="name">ECD</field>
+			<field name="model">account.ecd</field>
+			<field name="arch" type="xml">
+				<form string="ECD">
+					<sheet>
+						<div class="oe_title">
+							<span class="o_form_label">ECD</span>
+							<h1>
+								<field name="name"/>
+							</h1>
+                        </div>
+						<group>
+							<group name="left_main_group">
+								<field name="org_fis"/>
+                                <field name="de"/>
+                                <field name="ate"/>
+                                <field name="inc_dem" widget="boolean_toggle"/>
+                                <field name="periodo" attrs="{'readonly': [('inc_dem','=',False)]}"/>
+						  </group>
+						<group name="right_main_group">
+								<field name="tp_res"/>
+                                <field name="sit_emp"/>
+                                <field name="dt_enc"/>
+                                <field name="per_abe"/>
+                                <field name="versao"/>
+                                <field name="tp_arq"/>
+                                <field name="dt_enc"/>
+                                <field name="tp_inst"/>
+                                <field name="num_Livro"/>
+                                <button name="btn_ok" string="Ok" type="object"/>
+                                <button name="btn_cancelar" string="Cancelar" /> 
+							</group>
+						</group>         
+					</sheet>
+				</form>
+			</field>
+		</record>
+      
+        
+        
+        <record id="account_ecd_action_window" model="ir.actions.act_window" >
+			<field name="name">ECD</field>
+			<field name="res_model">account.ecd</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="view_id" ref="view_ecd_form"/>
+         </record>   
+            
+            
+     	<menuitem id="account_ecd_menu" name="ECD" 
+			 parent="account.menu_finance_entries_actions"                 
+			 action="account_ecd_action_window"/> 
+    
+    
+        <!--Mensagem botão ok -->
+        <record id="account_ecd_message_form" model="ir.ui.view">
+            <field name="name">account.message.form</field>
+            <field name="model">account.message</field>
+            <field name="arch" type="xml">
+                <form>
+                    
+                    <field name="message" readonly="True"/>
+                    <footer>
+                        <button name="action_close" string="Ok" type="object" default_focus="1" class="oe_highlight"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo> 

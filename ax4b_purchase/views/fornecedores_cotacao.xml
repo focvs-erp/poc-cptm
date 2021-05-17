@@ -1,32 +1,31 @@
 <odoo>
-   <data>
+  <data>
     <record id="view_fornecedores_cotacao_form" model="ir.ui.view">
       <field name="name">Fornecedores da cotacao</field>
       <field name="model">purchase.fornecedores_cotacao</field>
-      <field name="arch" type="xml">
-      <form string="Fornecedores Da Cotação">
+      <field name="arch" type="xml"/>
+        <form string="Fornecedores Da Cotação">
           <sheet>
-              <div class= "name" >
-                   <span class="_form_label">Fornecedores da Cotação</span>
+            <div class= "name" >
+              <span class="_form_label">Fornecedores da Cotação</span>
               <h1>
                 <field name="prioridade" widget="priority" class="mr-3"/>
               </h1>
-               </div>
-              <group name="right_main_group">
-               <group>
-                  <field name="fornecedores" placeholder="Fornecedores"/>
-                  <field name="contato_fornecedores" placeholder="contato_fornecedores"/>
-                  <field name="email" placeholder="Email"/>
-                  <field name="telefone" placeholder="Telefone"/>
-                  <field name="celular" placeholder="Celular"/>  
-               </group>
+            </div>
+            <group name="right_main_group">
+              <group>
+                <field name="fornecedores" placeholder="Fornecedores"/>
+                <field name="contato_fornecedores" placeholder="contato_fornecedores"/>
+                <field name="email" placeholder="Email"/>
+                <field name="telefone" placeholder="Telefone"/>
+                <field name="celular" placeholder="Celular"/>  
               </group>
-         </sheet>
+            </group>
+          </sheet>
         </form>
-       </field>
-      </record>
-       
-        <record id="view_fornecedores_cotacao_tree" model="ir.ui.view">
+      </field>
+    </record>
+    <record id="view_fornecedores_cotacao_tree" model="ir.ui.view">
       <field name="model">purchase.fornecedores_cotacao</field>
       <field name="arch" type="xml">
         <tree string="Fornecedores da cotação"  class="o_purchase_order" editable="top" create="1" delete="1" multi_edit="1">

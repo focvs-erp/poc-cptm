@@ -6,7 +6,7 @@ from odoo.exceptions import UserError, ValidationError
 class Conta(models.Model):
     _inherit = 'account.move'
 
-    situacao_fornecedor = fields.Selection(related='partner_id.situacao_bloqueio', invisible=1)
+    situacao_fornecedor = fields.Selection(related='partner_id.situacao_bloqueio_teste', invisible=1)
 
     @api.onchange('partner_id')
     def _fornecedor_bloqueado(self):

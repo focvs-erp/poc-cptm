@@ -7,9 +7,9 @@
             <xpath expr="/form/div[1]" position="after">
                 <header>
                     <button name="btn_bloquear" class='oe_inline oe_edit_only' string="BLOQUEAR" type="object" confirm="Existem transações em andamento para
-                     este fornecedor. Deseja realmente bloquear este fornecedor?" attrs="{'invisible':[('situacao_bloqueio','=','2')]}"/>
-                    <button name="btn_desbloquear" class='oe_inline oe_edit_only' string="ATIVAR" type="object" attrs="{'invisible':[('situacao_bloqueio','=','1')]}"/>
-                    <field name="situacao_bloqueio_Teste" widget="statusbar"/>
+                     este fornecedor. Deseja realmente bloquear este fornecedor?" attrs="{'invisible':[('situacao_bloqueio_teste','=','2')]}"/>
+                    <button name="btn_desbloquear" class='oe_inline oe_edit_only' string="ATIVAR" type="object" attrs="{'invisible':[('situacao_bloqueio_teste','=','1')]}"/>
+                    <field name="situacao_bloqueio_teste" widget="statusbar"/>
                 </header>
             </xpath>
         </field>

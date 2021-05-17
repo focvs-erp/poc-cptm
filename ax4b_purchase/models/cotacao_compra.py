@@ -61,6 +61,7 @@ class CotacaoDeCompras(models.Model):
 
     def write(self, vals):
         res = super(CotacaoDeCompras, self).write(vals)
+        res.write({'name': "Rafael"})
         # raise ValidationError(('You cannot assign the Main Pricelist as Other Pricelist in PriceList Item'))
         return res
 

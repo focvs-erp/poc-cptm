@@ -29,7 +29,8 @@
         'views/fornecedores_cotacao.xml',
         'views/comprador_views.xml',  
         'views/grupo_comprador_views.xml', 
-         'views/produtos_cotacao_view.xml', 
+        'views/produtos_cotacao_view.xml', 
+
     ],
    
 }

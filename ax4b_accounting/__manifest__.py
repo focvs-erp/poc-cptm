@@ -34,7 +34,7 @@
         'views/transferencia_automatica_view.xml',
         'views/fornecedor_view.xml',
         'views/templates.xml',
-        'views/ecd_views.xml',
+        'views/ecd_view.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

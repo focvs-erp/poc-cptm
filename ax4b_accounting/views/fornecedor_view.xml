@@ -9,7 +9,7 @@
                     <button name="btn_bloquear" class='oe_inline oe_edit_only' string="BLOQUEAR" type="object" confirm="Existem transações em andamento para
                      este fornecedor. Deseja realmente bloquear este fornecedor?" attrs="{'invisible':[('situacao','=','2')]}"/>
                     <button name="btn_desbloquear" class='oe_inline oe_edit_only' string="ATIVAR" type="object" attrs="{'invisible':[('situacao','=','1')]}"/>
-                    <field name="situacao" widget="statusbar"/>
+                    <!-- <field name="situacao" widget="statusbar"/> -->
                 </header>
             </xpath>
         </field>

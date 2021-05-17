@@ -1,5 +1,5 @@
 <odoo>
-    <record id="fornecedor_form" model="ir.ui.view">
+    <!-- <record id="fornecedor_form" model="ir.ui.view">
         <field name="name">Fornecedor</field>
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="base.view_partner_form" />
@@ -15,7 +15,6 @@
         </field>
     </record>
     
-<!--     FORM WIZARD -->
     <record model="ir.ui.view" id="confirm_wizard_form">
         <field name="name">res.fornecedor_bloqueado_wizard.form</field>
         <field name="model">res.fornecedor_bloqueado_wizard</field>
@@ -28,5 +27,5 @@
                 </footer>
             </form>
         </field>
-    </record>
+    </record> -->
 </odoo>

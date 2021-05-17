@@ -32,7 +32,7 @@
         'views/plano_referencial_view.xml',
         'views/plano_conta_view.xml',
         'views/transferencia_automatica_view.xml',
-        'views/fornecedor_view.xml',
+        # 'views/fornecedor_view.xml',
         'views/templates.xml',
         'views/ecd_view.xml',
     ],

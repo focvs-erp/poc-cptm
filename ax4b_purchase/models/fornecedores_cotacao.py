@@ -12,7 +12,7 @@ class FornecedoresDaCotacao(models.Model):
    prioridade = fields.Selection([('0', 'Normal'), ('1', 'Urgent')], 'Priority', default='0', index=True)
    cotacao_de_compra = fields.Many2one("purchase.cotacao_compra", invisible=True, string="Cotação de Compra")
    fornecedores = fields.Many2one("res.partner", string="Fornecedores")
-   situacao_fornecedor = fields.Selection(related='fornecedores.situacao_bloqueio', invisible=1)
+   # situacao_fornecedor = fields.Selection(related='fornecedores.situacao_bloqueio', invisible=1)
 
    contato_fornecedores = fields.Many2one("res.partner", string="Contato")
 
@@ -23,8 +23,8 @@ class FornecedoresDaCotacao(models.Model):
    @api.onchange('fornecedores')
    def _onchange_fornecedore(self):
       for record in self:
-         if record.situacao_fornecedor == '2':
-                raise ValidationError("Fornecedor bloqueado para transações")
+         # if record.situacao_fornecedor == '2':
+         #        raise ValidationError("Fornecedor bloqueado para transações")
          if record.fornecedores.id:
             return {'domain': {'contato_fornecedores': [('parent_id', '=', record.fornecedores.id)]}}
          else:

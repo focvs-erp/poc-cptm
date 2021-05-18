@@ -43,11 +43,6 @@ class Patrimonio(models.Model):
     data_vcto_dados_garantia = fields.Date(string='Vencimento')
     desc_obs_dados_garantia = fields.Char(string='Observações')
 
-    # Depreciação Societária
-    depreciation_move_ids_societaria = fields.One2many('account.move', 'asset_id', string='Depreciation Lines', readonly=True, states={'draft': [('readonly', False)], 'open': [('readonly', False)], 'paused': [('readonly', False)]})
-    currency_id_societaria = fields.Many2one('res.currency', string='Currency', required=True, readonly=True, states={'draft': [('readonly', False)]},
-                                  default=lambda self: self.env.company.currency_id.id)
-
     # Informações adicionais
     qtd_info_add = fields.Integer(string='Quantidade')
     vlr_unit_info_add = fields.Monetary(string='Valor Unitário')

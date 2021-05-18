@@ -70,9 +70,20 @@ class CotacaoDeCompras(models.Model):
         return res
 
 
-    # def btn_enviar_email(self):
-    #     self.ensure_one()
+    def btn_enviar_email(self):
+        raise ValidationError('Envio email')
+    @ api.model 
+    def fields_view_get (self, view_id = None, view_type = 'form', toolbar = False, submenu = False): 
+        res = super ("purchase.cotacao_compra", self) .fields_view_get (view_id = view_id, 
+                                                 view_type = view_type, 
+                                                 toolbar = toolbar, 
+                                                 submenu = submenu) 
+
         
+        return res
+    
+
+
     #     template_obj = self.env['mail.template'].sudo().search([('name','=','Teste E-mail')], limit=1)
     #     base_url = self.env['ir.config_parameter'].sudo().get_param('web.base.url')
         
@@ -86,7 +97,7 @@ class CotacaoDeCompras(models.Model):
     #         'recipient_ids': 'anderson.peruci@ax4b.com'
     #     }
         
-        create_and_send_email = self.env['mail.mail'].create(mail_values).send() 
+        # create_and_send_email = self.env['mail.mail'].create(mail_values).send() 
 
         # for peers in self.peer_employee_ids:
         #     _url = ''+ base_url +'/peer_feedback/'+ str(self.id) +'/'

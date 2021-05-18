@@ -20,7 +20,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','purchase', 'purchase_requisition'],
+    'depends': ['base','purchase', 'purchase_requisition', 'ax4b_accounting'],
 
     # always loaded
     'data': [

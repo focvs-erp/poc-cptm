@@ -42,6 +42,12 @@ class Patrimonio(models.Model):
     num_serie_dados_garantia = fields.Char(string='Número de Série')
     data_vcto_dados_garantia = fields.Date(string='Vencimento')
     desc_obs_dados_garantia = fields.Char(string='Observações')
+
+    # Depreciação Societária
+    depreciation_move_ids_societaria = fields.One2many('account.move', 'asset_id', string='Depreciation Lines', readonly=True, states={'draft': [('readonly', False)], 'open': [('readonly', False)], 'paused': [('readonly', False)]})
+    currency_id_societaria = fields.Many2one('res.currency', string='Currency', required=True, readonly=True, states={'draft': [('readonly', False)]},
+                                  default=lambda self: self.env.company.currency_id.id)
+
     
     # Informações adicionais
     qtd_info_add = fields.Integer(string='Quantidade')
@@ -53,10 +59,10 @@ class Patrimonio(models.Model):
     method_number_info_add = fields.Integer(string='', default = 5)
     method_period_info_add = fields.Selection([('1', 'Month'),('2', 'Year')],'Type', default='1')
     
-#     duracao_info_add = fields.Float(string='Duração')
+    # duracao_info_add = fields.Float(string='Duração')
     tipo_tempo_info_add = fields.Char(string='Tempo')
     
-    #Orçamento
+    # Orçamento
     tabela_dotacao_orcamento = fields.Many2one('x_dotacao', string = "Dotação Orçamentária")
     nome_poder_orcamento = fields.Many2one(related='tabela_dotacao_orcamento.x_studio_many2one_field_4XDnU', string="Poder")
     cod_poder_orcamento = fields.Char(related='tabela_dotacao_orcamento.x_studio_cdigo_do_poder', string="Código do Poder")

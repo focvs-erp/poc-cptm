@@ -48,7 +48,6 @@ class Patrimonio(models.Model):
     currency_id_societaria = fields.Many2one('res.currency', string='Currency', required=True, readonly=True, states={'draft': [('readonly', False)]},
                                   default=lambda self: self.env.company.currency_id.id)
 
-    
     # Informações adicionais
     qtd_info_add = fields.Integer(string='Quantidade')
     vlr_unit_info_add = fields.Monetary(string='Valor Unitário')

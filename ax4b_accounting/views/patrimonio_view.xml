@@ -69,7 +69,7 @@
                 <page string="Localização" name="localizacao">
                     <group>
                         <group name='localizacao'>
-                            <field name="desc_loc_localizacao" />
+                            <field name="desc_loc_localizacao" /> 
                             <field name="nome_resp_localizacao"/>
                             <field name="desc_dep_localizacao"/>
                         </group>

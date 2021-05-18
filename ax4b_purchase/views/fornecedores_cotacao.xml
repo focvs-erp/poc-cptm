@@ -15,7 +15,7 @@
             <group name="right_main_group">
               <group>
                 <field name="fornecedores" placeholder="Fornecedores"/>
-                <field name="contato_fornecedores" placeholder="contato_fornecedores"/>
+                <field name="contato_fornecedores" placeholder="Contatos do Fornecedor"/>
                 <field name="email" placeholder="Email"/>
                 <field name="telefone" placeholder="Telefone"/>
                 <field name="celular" placeholder="Celular"/>  

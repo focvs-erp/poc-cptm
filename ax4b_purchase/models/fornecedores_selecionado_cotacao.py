@@ -21,15 +21,15 @@ class FornecedoresSelecionadoDaCotacao(models.Model):
    
    precounitario = fields.Monetary(string='Valor Unitário')
    desconto = fields.Monetary(string='Desconto')
-   valortotal = fields.Monetary(string='Valor Total', compute='_total')
+   valortotal = fields.Monetary(string='Valor Total')
    condicaopagamento = fields.Char("Condição de Pagamento")
    prazodeentrega = fields.Char("Prazo de Entrega")
    
 
-   @api.depends('precounitario', 'quantidade','desconto')
-   def _total(self):
-      if(self.quantidade > 0.00):
-         self.valortotal = ((self.precounitario * self.quantidade) - self.desconto)
-      else: 
-         self.valortotal = 0
+   # @api.depends('precounitario', 'quantidade','desconto')
+   # def _total(self):
+   #    if(self.quantidade > 0.00):
+   #       self.valortotal = ((self.precounitario * self.quantidade) - self.desconto)
+   #    else: 
+   #       self.valortotal = 0
 

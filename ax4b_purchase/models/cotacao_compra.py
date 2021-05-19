@@ -73,8 +73,8 @@ class CotacaoDeCompras(models.Model):
 
     def btn_enviar_email(self):
         for record in self:
-            raise ValidationError("finalizou execução"+str(record.id))
             for fornecedor in record.fornecedores_da_cotacao:
+                raise ValidationError("finalizou execução"+str(record.id))
                 # fornecedores
                 for produto in record.produtos_da_cotacao:
                     # codigo do produto produtos_requisicao

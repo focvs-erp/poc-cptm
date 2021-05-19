@@ -35,6 +35,9 @@
         'views/fornecedor_view.xml',
         'views/templates.xml',
         'views/ecd_view.xml',
+         'views/multa_view.xml',
+        'views/juros_view.xml', 
+        'views/codigo_motivo_view.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

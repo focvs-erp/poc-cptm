@@ -28,10 +28,10 @@ class FornecedoresSelecionadoDaCotacao(models.Model):
 
    @api.depends('precounitario', 'quantidade')
    def _total(self):
-      if(self.quantidade > 0.00):
-         self.precounitario = float(self.precounitario)
-      else:
-         self.precounitario = 0
+      # if(self.quantidade > 0.00):
+      #    self.precounitario = float(self.precounitario)
+      # else:
+      #    self.precounitario = 0
 
       if(self.quantidade > 0.00):
          self.valortotal = (self.precounitario * self.quantidade) - self.desconto

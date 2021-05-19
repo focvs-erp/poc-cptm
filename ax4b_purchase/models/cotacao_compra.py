@@ -72,7 +72,12 @@ class CotacaoDeCompras(models.Model):
 
 
     def btn_enviar_email(self):
-        raise ValidationError('Envio email')
+        for record in self:
+            for fornecedor in record.fornecedores_da_cotacao:
+                # fornecedores
+                for produto in record.produtos_da_cotacao:
+                    # codigo do produto produtos_requisicao
+                    self._cr.execute('INSERT INTO fornecedores_selecionado_cotacao (cotacao_de_compra, fornecedores, produtos_cotacao) VALUES (%s,%s,%s)', (record.id, fornecedor.id,produto.produtos_requisicao.id))                                  
     
     # @ api.model 
     # def fields_view_get (self, view_id = None, view_type = 'form', toolbar = False, submenu = False): 

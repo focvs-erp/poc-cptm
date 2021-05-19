@@ -1,0 +1,43 @@
+<odoo>
+     <record id="view_codigo_motivo_form" model="ir.ui.view">
+      <field name="name">Código de Motivo</field>
+      <field name="model">account.codigo_motivo</field>
+      <field name="arch" type="xml">
+        <form string="codigo_motivo">
+          <sheet>
+            <div class="codigo_motivo_title">
+              <span class="o_form_label">Código de Motivo</span>
+              <h1>
+                <field name="name" placeholder="Código..."/> 
+              </h1>
+            </div>
+            <group>
+              <group name="right_main_group">
+                <field name="descricao"/> 
+            </group>
+         </group>
+        </sheet>
+      </form>
+   </field>
+  </record>
+       
+    <record id="view_codigo_motivo_tree" model="ir.ui.view">
+      <field name="model">account.codigo_motivo</field>
+      <field name="arch" type="xml">
+        <tree string="Código de Motivo">
+          <field name="name"/>
+          <field name="descricao"/>    
+        </tree>
+      </field>
+    </record> 
+       
+    <record id="account_codigo_motivo_window" model="ir.actions.act_window">
+      <field name="name">Código de Motivo</field>
+      <field name="res_model">account.codigo_motivo</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="view_id" ref="view_codigo_motivo_tree"/>
+    </record>
+       
+       <menuitem id="account_codigo_motivo_menu" name="Código de Motivo"                                                 parent="account.account_account_menu" action="account_codigo_motivo_window"/>
+    
+</odoo>

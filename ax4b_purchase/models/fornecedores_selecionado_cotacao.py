@@ -26,21 +26,11 @@ class FornecedoresSelecionadoDaCotacao(models.Model):
    prazodeentrega = fields.Char("Prazo de Entrega")
    
 
-   # @api.depends('precounitario', 'quantidade')
-   # def _total(self):
-   #    self.precounitario = float(self.precounitario)
-   #    if(self.quantidade > 0.00):
-   #       self.valortotal = self.precounitario * self.quantidade - self.desconto
-   #    else: 
-   #       self.desconto = 0
+   @api.depends('precounitario', 'quantidade')
+   def _total(self):
+      self.precounitario = float(self.precounitario)
+      if(self.quantidade > 0.00):
+         self.valortotal = self.precounitario * self.quantidade - self.desconto
+      else: 
+         self.desconto = 0
 
-
-   # @api.onchange('fornecedores')
-   # def _onchange_fornecedore(self):
-   #    for record in self:
-   #       if record.situacao_fornecedor == '2':
-   #              raise ValidationError("Fornecedor bloqueado para transações")
-   #       if record.fornecedores.id:
-   #          return {'domain': {'contato_fornecedores': [('parent_id', '=', record.fornecedores.id)]}}
-   #       else:
-   #          return {'domain': {'contato_fornecedores': []}}

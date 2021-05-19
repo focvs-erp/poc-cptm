@@ -18,6 +18,8 @@ class Fornecedor(models.Model):
     def btn_bloquear(self):
         for record in self:
             record.situacao_bloqueio = '2'
+
+    
         
         
 #         message_id = self.env['res.fornecedor_bloqueado_wizard'].create({'message': 'Osam gerados com Sucesso!'})

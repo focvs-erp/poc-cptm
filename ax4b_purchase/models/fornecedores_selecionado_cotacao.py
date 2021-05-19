@@ -20,7 +20,7 @@ class FornecedoresSelecionadoDaCotacao(models.Model):
                                   default=lambda self: self.env.company.currency_id.id)
    
    precounitario = fields.Monetary(string='Valor Unitário')
-   desconto = fields.Monetary(string='desconto')
+   desconto = fields.Monetary(string='Desconto')
    valortotal = fields.Monetary(string='Valor Total', compute='_total')
    condicaopagamento = fields.Char("Condição de Pagamento")
    prazodeentrega = fields.Char("Prazo de Entrega")
@@ -34,7 +34,7 @@ class FornecedoresSelecionadoDaCotacao(models.Model):
          self.precounitario = 0
 
       if(self.quantidade > 0.00):
-         self.valortotal = self.precounitario * self.quantidade - self.desconto
+         self.valortotal = (self.precounitario * self.quantidade) - self.desconto
       else: 
          self.valortotal = 0
 

@@ -45,7 +45,7 @@
               <page string="Fornecedores" name="Fornecedores">
                 <field name="fornecedores_da_cotacao"/>
               </page>
-              <page string="FornecedoresSelecionado" name="FornecedoresSelecionado">
+              <page string="Fornecedores Selecionado" name="FornecedoresSelecionado">
                 <field name="fornecedores_selecionado_cotacao"/>
               </page>
               <page string="Orçamento" name="Orçamento" attrs="{'invisible': [('modalidade_de_compra_name','=','Normal')]}">

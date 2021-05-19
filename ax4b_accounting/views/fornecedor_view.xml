@@ -6,7 +6,7 @@
         <field name="arch" type="xml">
             <group name="purchase"> 
                <!-- <field name="juros"/>  -->
-                <field name="multa"/>  
+                <!-- <field name="multa"/>   -->
             </group> 
             <xpath expr="/form/div[1]" position="after">
                 <header>

@@ -74,7 +74,7 @@
                     </field> -->
                 </page>
                 <page string="Informações Adicionais" name="informacoes_adicionais">
-                    <group>
+                    <group> 
                         <group name='informacoes_adicionais'>
                             <field name="qtd_info_add" />
                             <field name="vlr_unit_info_add"/>

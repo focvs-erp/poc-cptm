@@ -29,6 +29,7 @@ class CotacaoDeCompras(models.Model):
 
     produtos_da_cotacao = fields.One2many("purchase.produtos_cotacao","cotacao_de_compra",string="Produtos")
     fornecedores_da_cotacao = fields.One2many("purchase.fornecedores_cotacao","cotacao_de_compra",string="Fornecedores da Cotação")
+    fornecedores_selecionado_cotacao = fields.One2many("purchase.fornecedores_selecionado_cotacao","cotacao_de_compra",string="Fornecedores Selecionado da Cotação")
 
     nome_do_poder = fields.Char(related='nota_de_reserva.x_studio_ds_poder_reserva')
     nome_do_orgao = fields.Char(related='nota_de_reserva.x_studio_nome_do_orgao_reserva')
@@ -51,7 +52,7 @@ class CotacaoDeCompras(models.Model):
 #     def _constrains_fornecedores_da_cotacao(self):
 #         if not self.fornecedores_da_cotacao or len(self.fornecedores_da_cotacao)==0:
 #             raise ValidationError("Erro ao configura fornecedor da cotação.") 
-    
+
     @api.model
     def create(self, vals):
         obj = super(CotacaoDeCompras, self).create(vals)
@@ -61,24 +62,30 @@ class CotacaoDeCompras(models.Model):
 
     def write(self, vals):
         res = super(CotacaoDeCompras, self).write(vals)
-        raise ValidationError(('You cannot assign the Main Pricelist as Other Pricelist in PriceList Item'))
+        for record in self:
+            for produto in record.produtos_da_cotacao:
+                self._cr.execute('update x_produto_requisicao set x_studio_situao=%s where id=%s', ("Em Processo", produto.produtorequisicaoid))                                  
+       
         self.flush()
         self.invalidate_cache()
-
-        # raise ValidationError(('You cannot assign the Main Pricelist as Other Pricelist in PriceList Item'))
         return res
 
-        
-    # @api.multi
-    # def write(self, vals):
-    #     res = super(CotacaoDeCompras, self).write(vals)
-    #     raise ValidationError(('You cannot assign the Main Pricelist as Other Pricelist in PriceList Item'))
+
+    def btn_enviar_email(self):
+        raise ValidationError('Envio email')
+    
+    # @ api.model 
+    # def fields_view_get (self, view_id = None, view_type = 'form', toolbar = False, submenu = False): 
+    #     res = super ("purchase.cotacao_compra", self) .fields_view_get (view_id = view_id, 
+    #                                              view_type = view_type, 
+    #                                              toolbar = toolbar, 
+    #                                              submenu = submenu) 
+
+
     #     return res
+    
 
 
-    # def btn_enviar_email(self):
-    #     self.ensure_one()
-        
     #     template_obj = self.env['mail.template'].sudo().search([('name','=','Teste E-mail')], limit=1)
     #     base_url = self.env['ir.config_parameter'].sudo().get_param('web.base.url')
         
@@ -92,7 +99,7 @@ class CotacaoDeCompras(models.Model):
     #         'recipient_ids': 'anderson.peruci@ax4b.com'
     #     }
         
-        create_and_send_email = self.env['mail.mail'].create(mail_values).send() 
+        # create_and_send_email = self.env['mail.mail'].create(mail_values).send() 
 
         # for peers in self.peer_employee_ids:
         #     _url = ''+ base_url +'/peer_feedback/'+ str(self.id) +'/'

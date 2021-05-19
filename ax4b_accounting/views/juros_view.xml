@@ -1,0 +1,51 @@
+<odoo>
+     <record id="view_codigo_juros_form" model="ir.ui.view">
+      <field name="name">Código de Juros</field>
+      <field name="model">account.juros</field>
+      <field name="arch" type="xml">
+        <form string="codigo_juros">
+          <sheet>
+            <div class="codigo_juros_title">
+              <span class="o_form_label">Código de Juros</span>
+              <h1>
+                <field name="name" placeholder="Código..."/> 
+              </h1>
+            </div>
+            <group>
+              <group name="right_main_group">
+                <field name="descricao"/>
+                <field name="calculo"/>
+                <field name="percentual"/>
+                <field name="dia_mes"/>
+                <field name="carencia"/>
+             </group>
+          </group>
+        </sheet>
+      </form>
+    </field>
+   </record>
+       
+    <record id="view_codigo_juros_tree" model="ir.ui.view">
+      <field name="model">account.juros</field>
+      <field name="arch" type="xml">
+        <tree string="Código de juros">
+          <field name="name"/>
+          <field name="descricao"/>
+          <field name="percentual"/>
+          <field name="calculo"/>
+          <field name="dia_mes"/>
+          <field name="carencia"/>  
+        </tree>
+      </field>
+    </record> 
+       
+    <record id="account_codigo_juros_window" model="ir.actions.act_window">
+      <field name="name">Código de Juros</field>
+      <field name="res_model">account.juros</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="view_id" ref="view_codigo_juros_tree"/>
+    </record>
+       
+          <menuitem id="account_codigo_juros_menu" name="Código de Juros"                                                  parent="account.account_account_menu" action="account_codigo_juros_window"/>
+       
+</odoo>

@@ -1,0 +1,57 @@
+<odoo>
+  <data>
+    <record id="view_fornecedores_cotacao_form" model="ir.ui.view">
+      <field name="name">Fornecedores selecioando da cotacao</field>
+      <field name="model">purchase.fornecedores_selecionado_cotacao</field>
+      <field name="arch" type="xml">
+        <form string="Fornecedores Da Cotação">
+          <sheet>
+            <div class= "name" >
+              <span class="_form_label">Fornecedores selecionado da Cotação</span>
+            </div>
+            <group name="right_main_group">
+              <group>
+                <field name="fornecedores"/>
+                <field name="produtos_cotacao"/>
+                <field name="quantidade"/>
+                <field name="unidademedida"/>
+                <field name="precounitario"/>  
+                <field name="desconto"/>  
+                <field name="valortotal"/>  
+                <field name="condicaopagamento"/> 
+                <field name="prazodeentrega"/> 
+              </group>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    <record id="view_fornecedores_cotacao_tree" model="ir.ui.view">
+      <field name="model">purchase.fornecedores_selecionado_cotacao</field>
+      <field name="arch" type="xml">
+        <tree string="Fornecedores da cotação"  class="o_purchase_order" editable="top" create="1" delete="1" multi_edit="1">
+          <field name="aceito"/>
+          <field name="fornecedores"/>
+          <field name="produtos_cotacao"/>
+          <field name="quantidade"/>
+          <field name="unidademedida"/>
+          <field name="precounitario"/>  
+          <field name="desconto"/>  
+          <field name="valortotal"/>  
+          <field name="condicaopagamento"/> 
+           <field name="prazodeentrega"/> 
+        </tree>
+      </field>
+    </record>
+       
+    <record  id="purchase_fornecedores_cotacao_window" model="ir.actions.act_window">
+      <field name="name">Fornecedores selecionado da cotacao</field>
+      <field name="res_model">purchase.fornecedores_selecionado_cotacao</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="view_id" ref="view_fornecedores_cotacao_tree"/>
+    </record>
+
+    <!-- <menuitem id="purchase_fornecedores_cotacao_menu" name="Fornecedores Da Cotação" parent="purchase.menu_procurement_management" action="purchase_fornecedores_cotacao_window"/> -->
+
+  </data>
+</odoo>

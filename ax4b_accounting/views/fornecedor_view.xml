@@ -4,10 +4,13 @@
         <field name="model">res.partner</field>
         <field name="inherit_id" ref="base.view_partner_form" />
         <field name="arch" type="xml">
+            <group name="purchase"> 
+                <field name="juros"/>
+                <!-- <field name="multa"/>   -->
+            </group> 
             <xpath expr="/form/div[1]" position="after">
                 <header>
-                    <button name="btn_bloquear" class='oe_inline oe_edit_only' string="BLOQUEAR" type="object" confirm="Existem transações em andamento para
-                     este fornecedor. Deseja realmente bloquear este fornecedor?" attrs="{'invisible':[('situacao_bloqueio','=','2')]}"/>
+                    <button name="btn_bloquear" class='oe_inline oe_edit_only' string="BLOQUEAR" type="object" attrs="{'invisible':[('situacao_bloqueio','=','2')]}"/>
                     <button name="btn_desbloquear" class='oe_inline oe_edit_only' string="ATIVAR" type="object" attrs="{'invisible':[('situacao_bloqueio','=','1')]}"/>
                     <field name="situacao_bloqueio" widget="statusbar"/>
                 </header>
@@ -15,7 +18,6 @@
         </field>
     </record>
     
-<!--     FORM WIZARD -->
     <record model="ir.ui.view" id="confirm_wizard_form">
         <field name="name">res.fornecedor_bloqueado_wizard.form</field>
         <field name="model">res.fornecedor_bloqueado_wizard</field>

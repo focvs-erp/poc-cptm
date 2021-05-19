@@ -4,6 +4,9 @@
         <field name="model">account.asset</field>
         <field name="inherit_id" ref="account_asset.view_account_asset_form" />
         <field name="arch" type="xml">
+            <xpath expr="/form/header/field[@name='state']" position="after">
+		        <button name="btn_mudar_status_para_draft" string="Transferir" class='oe_inline oe_edit_only' type="object" attrs="{'invisible': [('state', '=', 'draft')]}"/>
+	        </xpath>
             <xpath expr="/form/sheet/div[3]/h1/field[@name='name']" position="attributes">
                 <attribute name="readonly">1</attribute>
             </xpath>
@@ -54,8 +57,24 @@
                 </group>
             </xpath>
             <xpath expr="/form/sheet/notebook[1]/page[1]" position="after">
+                <page string="Depreciação Societária" name="depreciacao_societaria">
+                    <field name="depreciation_move_ids_societaria" mode="tree" options="{'reload_whole_on_button': true}">
+                        <tree string="Depreciation Lines" decoration-info="state == 'draft'" create="0"  default_order="date asc, id asc" editable="top">
+                            <!-- <field name="currency_id_societaria" invisible="1"/>
+                            <field name="ref" invisible=""/> 
+                            <field name="reversal_move_id" widget="deprec_lines_reversed"/> 
+                            <field name="date" string="Depreciation Date"/> 
+                            <field name="amount_total" widget="monetary" string="Depreciation" options="{'currency_field': 'currency_id'}" attrs="{'readonly': [('state', '=', 'posted')]}"/>  -->
+                            <field name="asset_depreciated_value_societaria" readonly="1" force_save="1" options="{'currency_field': 'currency_id'}"/> 
+                            <field name="asset_remaining_value_societaria" readonly="1" widget="monetary" force_save="1" options="{'currency_field': 'currency_id'}"/> 
+                            <!-- <field name="name" readonly="1" string="Journal Entry"/> 
+                            <field name="state" invisible="1"/> 
+                            <field name="asset_manually_modified" invisible="1"/>  -->
+                        </tree>
+                    </field>
+                </page>
                 <page string="Informações Adicionais" name="informacoes_adicionais">
-                    <group>
+                    <group> 
                         <group name='informacoes_adicionais'>
                             <field name="qtd_info_add" />
                             <field name="vlr_unit_info_add"/>

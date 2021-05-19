@@ -26,12 +26,12 @@ class FornecedoresSelecionadoDaCotacao(models.Model):
    prazodeentrega = fields.Char("Prazo de Entrega")
    
 
-   @api.depends('precounitario', 'quantidade')
+   @api.depends('precounitario', 'quantidade','desconto')
    def _total(self):
-      if(self.quantidade > 0.00):
-         self.precounitario = float(self.precounitario)
-      else:
-         self.precounitario = 0
+      # if(self.quantidade > 0.00):
+      #    self.precounitario = float(self.precounitario)
+      # else:
+      #    self.precounitario = 0
 
       if(self.quantidade > 0.00):
          self.valortotal = (self.precounitario * self.quantidade) - self.desconto

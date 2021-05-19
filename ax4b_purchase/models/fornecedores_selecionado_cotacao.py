@@ -15,7 +15,10 @@ class FornecedoresSelecionadoDaCotacao(models.Model):
    
    quantidade = fields.Integer(related="produtos_cotacao.quantidade", string="Quantidade")
    unidademedida = fields.Many2one(related="produtos_cotacao.unidademedida", string="Unidade") 
- 
+  
+   currency_id = fields.Many2one('res.currency', string='Currency', required=True, readonly=True, states={'draft': [('readonly', False)]},
+                                  default=lambda self: self.env.company.currency_id.id)
+   
    precounitario = fields.Monetary(string='Valor Unitário')
    desconto = fields.Monetary(string='desconto')
    valortotal = fields.Monetary(string='Valor Total', compute='_total')

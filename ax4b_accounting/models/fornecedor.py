@@ -8,7 +8,7 @@ class Fornecedor(models.Model):
     _inherit = 'res.partner'
 
     # juros = fields.Many2one('account.juros', string="Código Juros")
-    # multa = fields.Many2one('account.multa', string="Código Multa")
+    multa = fields.Many2one('account.multa', string="Código Multa")
     situacao_bloqueio = fields.Selection([('1', 'Ativo'), ('2', 'Bloqueado')], required=False, default='1', readonly=True)
 
     def btn_desbloquear(self):

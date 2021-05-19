@@ -7,8 +7,8 @@ from odoo.exceptions import UserError, ValidationError
 class Fornecedor(models.Model):
     _inherit = 'res.partner'
 
-    # juros = fields.Many2one('account.juros', string="Código Juros")
-    # multa = fields.Many2one('account.multa', string="Código Multa")
+#    juros = fields.Many2one('account.juros', string="Código Juros")
+#    multa = fields.Many2one('account.multa', string="Código Multa")
     situacao_bloqueio = fields.Selection([('1', 'Ativo'), ('2', 'Bloqueado')], required=False, default='1', readonly=True)
 
     def btn_desbloquear(self):
@@ -18,6 +18,8 @@ class Fornecedor(models.Model):
     def btn_bloquear(self):
         for record in self:
             record.situacao_bloqueio = '2'
+
+    
         
         
 #         message_id = self.env['res.fornecedor_bloqueado_wizard'].create({'message': 'Osam gerados com Sucesso!'})

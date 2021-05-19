@@ -30,7 +30,7 @@
         'views/comprador_views.xml',  
         'views/grupo_comprador_views.xml', 
         'views/produtos_cotacao_view.xml', 
-
+        'views/fornecedores_selecionado_cotacao_view.xml', 
     ],
    
 }

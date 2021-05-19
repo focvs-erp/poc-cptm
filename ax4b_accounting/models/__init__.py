@@ -11,3 +11,6 @@ from . import transferencia_automatica_line
 from . import ecd
 from . import fornecedor
 from . import conta
+from . import multa
+from . import juros
+from . import codigo_motivo

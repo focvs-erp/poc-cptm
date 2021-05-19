@@ -29,6 +29,7 @@ class CotacaoDeCompras(models.Model):
 
     produtos_da_cotacao = fields.One2many("purchase.produtos_cotacao","cotacao_de_compra",string="Produtos")
     fornecedores_da_cotacao = fields.One2many("purchase.fornecedores_cotacao","cotacao_de_compra",string="Fornecedores da Cotação")
+    fornecedores_selecionado_cotacao = fields.One2many("purchase.fornecedores_selecionado_cotacao","cotacao_de_compra",string="Fornecedores Selecionado da Cotação")
 
     nome_do_poder = fields.Char(related='nota_de_reserva.x_studio_ds_poder_reserva')
     nome_do_orgao = fields.Char(related='nota_de_reserva.x_studio_nome_do_orgao_reserva')
@@ -72,15 +73,16 @@ class CotacaoDeCompras(models.Model):
 
     def btn_enviar_email(self):
         raise ValidationError('Envio email')
-    @ api.model 
-    def fields_view_get (self, view_id = None, view_type = 'form', toolbar = False, submenu = False): 
-        res = super ("purchase.cotacao_compra", self) .fields_view_get (view_id = view_id, 
-                                                 view_type = view_type, 
-                                                 toolbar = toolbar, 
-                                                 submenu = submenu) 
+    
+    # @ api.model 
+    # def fields_view_get (self, view_id = None, view_type = 'form', toolbar = False, submenu = False): 
+    #     res = super ("purchase.cotacao_compra", self) .fields_view_get (view_id = view_id, 
+    #                                              view_type = view_type, 
+    #                                              toolbar = toolbar, 
+    #                                              submenu = submenu) 
 
-        
-        return res
+
+    #     return res
     
 
 

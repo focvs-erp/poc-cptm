@@ -35,12 +35,12 @@ class FornecedoresSelecionadoDaCotacao(models.Model):
    #       self.desconto = 0
 
 
-   @api.onchange('fornecedores')
-   def _onchange_fornecedore(self):
-      for record in self:
-         if record.situacao_fornecedor == '2':
-                raise ValidationError("Fornecedor bloqueado para transações")
-         if record.fornecedores.id:
-            return {'domain': {'contato_fornecedores': [('parent_id', '=', record.fornecedores.id)]}}
-         else:
-            return {'domain': {'contato_fornecedores': []}}
+   # @api.onchange('fornecedores')
+   # def _onchange_fornecedore(self):
+   #    for record in self:
+   #       if record.situacao_fornecedor == '2':
+   #              raise ValidationError("Fornecedor bloqueado para transações")
+   #       if record.fornecedores.id:
+   #          return {'domain': {'contato_fornecedores': [('parent_id', '=', record.fornecedores.id)]}}
+   #       else:
+   #          return {'domain': {'contato_fornecedores': []}}

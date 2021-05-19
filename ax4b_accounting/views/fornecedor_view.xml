@@ -11,10 +11,10 @@
                     <field name="situacao_bloqueio" widget="statusbar"/>
                 </header>
             </xpath>
-            <!-- <group name="purchase" position="inside"> 
-             <field name="juros"/> 
+           <group name="purchase" position="inside"> 
+              <field name="juros"/> 
               <field name="multa"/>  
-           </group> -->
+           </group> 
         </field>
     </record>
     

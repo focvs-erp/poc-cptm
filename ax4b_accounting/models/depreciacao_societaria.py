@@ -7,7 +7,7 @@ class DepreciacaoSocietaria(models.Model):
     
     asset_id_societaria = fields.Many2one('account.asset', string='Asset')
     asset_asset_type_societaria = fields.Selection(related='asset_id_societaria.asset_type')
-    # asset_remaining_value_societaria = fields.Monetary(string='Depreciable Value', copy=False)
+    asset_remaining_value_societaria = fields.Monetary(string='Depreciable Value', copy=False)
     # asset_depreciated_value_societaria = fields.Monetary(string='Cumulative Drepreciation', copy=False)
     asset_manually_modified_societaria = fields.Boolean(help='This is a technical field stating that a depreciation line has been manually modified. It is used to recompute the depreciation table of an asset/deferred revenue.', copy=False)
     asset_value_change_societaria = fields.Boolean(help='This is a technical field set to true when this move is the result of the changing of value of an asset')

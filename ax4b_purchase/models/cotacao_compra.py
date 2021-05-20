@@ -81,8 +81,7 @@ class CotacaoDeCompras(models.Model):
                     # codigo do produto produtos_requisicao
                     # self._cr.execute('INSERT INTO purchase.fornecedores_selecionado_cotacao	 (cotacao_de_compra, fornecedores, produtos_cotacao) VALUES (%s,%s,%s)', (record.id, fornecedor.id,produto.produtos_requisicao.id))                                  
                     valor = ";" +str(produto.id)
-                   
-        raise ValidationError("executado com sucesso " + valor)
+            raise ValidationError("executado com sucesso " + valor)
        
     # @ api.model 
     # def fields_view_get (self, view_id = None, view_type = 'form', toolbar = False, submenu = False): 

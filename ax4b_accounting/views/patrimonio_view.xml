@@ -65,6 +65,7 @@
                             <field name="asset_asset_type_societaria"/>
                             <field name="asset_remaining_value_societaria"/>
                             <field name="asset_depreciated_value_societaria"/>
+                            <field name="amount_total"/>
                         </tree>
                     </field>
                     <!-- <field name="depreciation_move_ids_societaria" mode="tree" options="{'reload_whole_on_button': true}">

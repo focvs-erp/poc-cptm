@@ -18,6 +18,7 @@
         </field>
     </record>
     
+    
     <record model="ir.ui.view" id="confirm_wizard_form">
         <field name="name">res.fornecedor_bloqueado_wizard.form</field>
         <field name="model">res.fornecedor_bloqueado_wizard</field>

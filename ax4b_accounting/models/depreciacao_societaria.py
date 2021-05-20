@@ -4,7 +4,7 @@ class DepreciacaoSocietaria(models.Model):
     _name = 'account.depreciacao_societaria'
     _description = 'Depreciação Societária'
 
-    currency_id_societaria = fields.Many2one('res.currency', string='Currency', required=True, readonly=True, states={'draft': [('readonly', False)]},
+    currency_id = fields.Many2one('res.currency', string='Currency', required=True, readonly=True, states={'draft': [('readonly', False)]},
     default=lambda self: self.env.company.currency_id.id)
     asset_id_societaria = fields.Many2one('account.asset', string='Asset')
     asset_asset_type_societaria = fields.Selection(related='asset_id_societaria.asset_type')

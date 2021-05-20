@@ -72,15 +72,18 @@ class CotacaoDeCompras(models.Model):
 
 
     def btn_enviar_email(self):
+        valor =''
         for record in self:
             # raise ValidationError("finalizou execução "+str(record.fornecedores_da_cotacao.id))
             for fornecedor in record.fornecedores_da_cotacao:
                 # fornecedores
                 for produto in record.produtos_da_cotacao:
                     # codigo do produto produtos_requisicao
-                    self._cr.execute('INSERT INTO purchase.fornecedores_selecionado_cotacao	 (cotacao_de_compra, fornecedores, produtos_cotacao) VALUES (%s,%s,%s)', (record.id, fornecedor.id,produto.produtos_requisicao.id))                                  
-                    raise ValidationError("executado com sucesso")
-        raise ValidationError("finalizou execução")
+                    # self._cr.execute('INSERT INTO purchase.fornecedores_selecionado_cotacao	 (cotacao_de_compra, fornecedores, produtos_cotacao) VALUES (%s,%s,%s)', (record.id, fornecedor.id,produto.produtos_requisicao.id))                                  
+                    valor = ";" +str(produto.id)
+                   
+        raise ValidationError("executado com sucesso " + valor)
+       
     # @ api.model 
     # def fields_view_get (self, view_id = None, view_type = 'form', toolbar = False, submenu = False): 
     #     res = super ("purchase.cotacao_compra", self) .fields_view_get (view_id = view_id, 

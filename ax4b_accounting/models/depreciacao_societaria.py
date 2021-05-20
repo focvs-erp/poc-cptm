@@ -1,7 +1,8 @@
 from odoo import models, fields, api
 
 class DepreciacaoSocietaria(models.Model):
-    _inherit = 'account.move'
+    _name = 'account.depreciacao_societaria'
+    _description = 'Depreciação Societária'
 
     asset_id_societaria = fields.Many2one('account.asset', string='Asset', index=True, ondelete='cascade', copy=False, domain="[('company_id', '=', company_id)]")
     asset_asset_type_societaria = fields.Selection(related='asset_id.asset_type')

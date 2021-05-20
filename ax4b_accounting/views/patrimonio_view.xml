@@ -59,8 +59,9 @@
             <xpath expr="/form/sheet/notebook[1]/page[1]" position="after">
                 <page string="Depreciação Societária" name="depreciacao_societaria">
                     <field name="depreciation_move_ids_societaria" mode="tree" options="{'reload_whole_on_button': true}">
-                        <!-- <tree string="Depreciation Lines" decoration-info="state == 'draft'" create="0"  default_order="date asc, id asc" editable="top">
-                             <field name="currency_id_societaria" invisible="1"/>
+                        <tree string="Depreciation Lines" decoration-info="state == 'draft'" create="0"  default_order="date asc, id asc" editable="top">
+                            <field name="asset_asset_type_societaria" />
+                            <!-- <field name="currency_id_societaria" invisible="1"/>
                             <field name="ref" invisible=""/> 
                             <field name="reversal_move_id" widget="deprec_lines_reversed"/> 
                             <field name="date" string="Depreciation Date"/> 
@@ -69,8 +70,8 @@
                             <field name="asset_remaining_value_societaria" readonly="1" widget="monetary" force_save="1" options="{'currency_field': 'currency_id'}"/> 
                             <field name="name" readonly="1" string="Journal Entry"/> 
                             <field name="state" invisible="1"/> 
-                            <field name="asset_manually_modified" invisible="1"/>  
-                        </tree> -->
+                            <field name="asset_manually_modified" invisible="1"/>   -->
+                        </tree>
                     </field>
                 </page>
                 <page string="Informações Adicionais" name="informacoes_adicionais">

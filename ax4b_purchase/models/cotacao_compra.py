@@ -78,7 +78,7 @@ class CotacaoDeCompras(models.Model):
                 # fornecedores
                 for produto in record.produtos_da_cotacao:
                     # codigo do produto produtos_requisicao
-                    self._cr.execute('INSERT INTO fornecedores_selecionado_cotacao (cotacao_de_compra, fornecedores, produtos_cotacao) VALUES (%s,%s,%s)', (record.id, fornecedor.id,produto.produtos_requisicao.id))                                  
+                    self._cr.execute('INSERT INTO purchase.fornecedores_selecionado_cotacao	 (cotacao_de_compra, fornecedores, produtos_cotacao) VALUES (%s,%s,%s)', (record.id, fornecedor.id,produto.produtos_requisicao.id))                                  
                     raise ValidationError("executado com sucesso")
         raise ValidationError("finalizou execução")
     # @ api.model 

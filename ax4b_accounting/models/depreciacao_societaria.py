@@ -9,4 +9,4 @@ class DepreciacaoSocietaria(models.Model):
     asset_asset_type_societaria = fields.Selection(related='asset_id_societaria.asset_type')
     # asset_remaining_value_societaria = fields.Monetary(string='Depreciable Value', copy=False)
     # asset_depreciated_value_societaria = fields.Monetary(string='Cumulative Drepreciation', copy=False)
-    # asset_value_change_societaria = fields.Boolean(help='This is a technical field set to true when this move is the result of the changing of value of an asset')
+    asset_value_change_societaria = fields.Boolean(help='This is a technical field set to true when this move is the result of the changing of value of an asset')

@@ -14,3 +14,4 @@ from . import conta
 from . import multa
 from . import juros
 from . import codigo_motivo
+from . import depreciacao_societaria

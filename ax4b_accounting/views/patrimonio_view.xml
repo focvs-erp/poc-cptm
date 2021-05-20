@@ -63,7 +63,7 @@
                             <field name="asset_id_societaria"/>
                             <field name="asset_value_change_societaria"/>
                             <!-- <field name="asset_asset_type_societaria"/> -->
-                            <field name="asset_remaining_value_societaria"/>
+                            <!-- <field name="asset_remaining_value_societaria"/> -->
                             <field name="asset_depreciated_value_societaria"/>
                         </tree>
                     </field>

@@ -72,8 +72,21 @@ class CotacaoDeCompras(models.Model):
 
 
     def btn_enviar_email(self):
-        raise ValidationError('Envio email')
-    
+        valor =''
+        for record in self:
+            # raise ValidationError("finalizou execução "+str(record.fornecedores_da_cotacao.id))
+            for fornecedor in record.fornecedores_da_cotacao:
+                # fornecedores
+                for produto in record.produtos_da_cotacao:
+                    # codigo do produto produtos_requisicao
+                    vals= {"cotacao_de_compra":record.id,
+                          "fornecedores":fornecedor.id,
+                          "produtos_cotacao":produto.produtos_requisicao.id}
+
+                    self.env["fornecedores_selecionado_cotacao"].create(vals)
+                    raise ValidationError("finalizou execução "+str(record.fornecedores_da_cotacao.id))
+
+       
     # @ api.model 
     # def fields_view_get (self, view_id = None, view_type = 'form', toolbar = False, submenu = False): 
     #     res = super ("purchase.cotacao_compra", self) .fields_view_get (view_id = view_id, 

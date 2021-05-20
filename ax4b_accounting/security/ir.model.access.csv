@@ -7,4 +7,5 @@
 "access_account_message","account.message","model_account_message","base.group_user","1","1","1","1"
 "access_account_multa","account.multa","model_account_multa","base.group_user","1","1","1","1"
 "access_account_juros","account.juros","model_account_juros","base.group_user","1","1","1","1"
+"access_account_depreciacao_societaria","account.depreciacao_societaria","model_account_depreciacao_societaria","base.group_user","1","1","1","1"
 "access_account_codigo_motivo","account.codigo_motivo","model_account_codigo_motivo","base.group_user","1","1","1","1"

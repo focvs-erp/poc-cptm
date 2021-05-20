@@ -45,8 +45,7 @@ class Patrimonio(models.Model):
 
     # Depreciação Societária
     depreciation_move_ids_societaria = fields.One2many('account.depreciacao_societaria', 'asset_id_societaria', string='Depreciation Lines')
-    currency_id_societaria = fields.Many2one('res.currency', string='Currency', required=True, readonly=True, states={'draft': [('readonly', False)]},
-    default=lambda self: self.env.company.currency_id.id)
+   
     
     # Informações adicionais
     qtd_info_add = fields.Integer(string='Quantidade')

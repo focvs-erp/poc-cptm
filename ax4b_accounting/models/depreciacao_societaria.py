@@ -9,7 +9,7 @@ class DepreciacaoSocietaria(models.Model):
     name = fields.Char(string='Entrada de Diário', copy=False)
 
     asset = fields.Many2one('account.asset', string='Asset', invisible=True)
-    currency = fields.Many2one('res.currency', invisible=True)
+    currency_id = fields.Many2one('res.currency', invisible=True)
 
     ref_societaria = fields.Char(string="Referência", copy=False)
     date_societaria = fields.Date(string='Data de Depreciação', copy=False)

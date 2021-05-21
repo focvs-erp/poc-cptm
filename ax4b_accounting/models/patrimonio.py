@@ -159,3 +159,24 @@ class Patrimonio(models.Model):
         for move in new_moves:
             commands.append((4, move.id))
         return self.write({'depreciation_move_ids_societaria': commands})
+
+
+    def _compute_board_amount_societaria(self, computation_sequence, residual_amount, total_amount_to_depr, max_depreciation_nb, starting_sequence, depreciation_date):
+        amount = 0
+        if computation_sequence == max_depreciation_nb:
+            # last depreciation always takes the asset residual amount
+            amount = residual_amount
+        else:
+            if self.metodo_info_add in ('degressive', 'degressive_then_linear'):
+                amount = residual_amount * self.metodo_depreciado_info_add
+            if self.metodo_info_add in ('linear', 'degressive_then_linear'):
+                nb_depreciation = max_depreciation_nb - starting_sequence
+                #cod_forn_info_add = prorata
+                if self.cod_forn_info_add:
+                    nb_depreciation -= 1
+                linear_amount = min(total_amount_to_depr / nb_depreciation, residual_amount)
+                if self.metodo_info_add == 'degressive_then_linear':
+                    amount = max(linear_amount, amount)
+                else:
+                    amount = linear_amount
+        return amount

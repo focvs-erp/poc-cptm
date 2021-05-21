@@ -60,7 +60,7 @@
                 <page string="Depreciação Societária" name="depreciacao_societaria">
                     <field name="depreciation_move_ids_societaria" colspan="4" nolabel="1">
                         <tree>
-                            <field name="asset_id_societaria"/>
+                            <field name="asset"/>
                             <field name="asset_value_change_societaria"/>
                             <field name="asset_asset_type_societaria"/>
                             <field name="asset_remaining_value_societaria"/>

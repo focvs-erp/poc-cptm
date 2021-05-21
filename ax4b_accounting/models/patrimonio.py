@@ -153,7 +153,7 @@ class Patrimonio(models.Model):
                 depreciation_date = last_depreciation_date + relativedelta(months=+int(self.method_period_info_add))
 
         commands = []
-        commands = [(2, line_id.id, False) for line_id in self.depreciation_move_ids_societaria.filtered(lambda x: x.state == 'draft')]
+        # commands = [(2, line_id.id, False) for line_id in self.depreciation_move_ids_societaria.filtered(lambda x: x.state == 'draft')]
         newlines = []
         newlines = self._recompute_board_societaria(depreciation_number, starting_sequence, amount_to_depreciate, depreciation_date, already_depreciated_amount, amount_change_ids)
         newline_vals_list = []

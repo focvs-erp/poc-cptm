@@ -23,15 +23,16 @@ class DepreciacaoSocietaria(models.Model):
         if missing_fields:
             raise UserError(_('Está faltando os seguintes campos: {}').format(', '.join(missing_fields)))
         asset = vals['asset_id']
+        current_currency = asset.currency_id
         depreciation_date = vals.get('date', fields.Date.context_today(self))
-
+        amount = current_currency._convert(vals['amount'], asset.company_id.currency_id, asset.company_id, depreciation_date)
         move_vals = {
             'ref_societaria': vals['move_ref'],
             'date_societaria': depreciation_date,
             'asset': asset.id,
             'asset_remaining_value_societaria': vals['asset_remaining_value'],
             'asset_depreciated_value_societaria': vals['asset_depreciated_value'],
-            'amount_total_societaria': vals['amount'],
+            'amount_total_societaria': amount,
             'name': '/',
             # 'asset_value_change': vals.get('asset_value_change', False),
             'currency_id': asset.currency_id,

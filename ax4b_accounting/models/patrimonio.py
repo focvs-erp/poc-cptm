@@ -127,7 +127,7 @@ class Patrimonio(models.Model):
 
 
     # MÉTODO VALIDATE CHAMAR A DEPRECIAÇÃO SOCIETÁRIA
-    def validate():
+    def validate(self):
         result = super(Patrimonio, self).validate()
         if not self.depreciation_move_ids_societaria:
             self.compute_depreciation_societaria()

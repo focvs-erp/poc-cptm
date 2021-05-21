@@ -68,21 +68,16 @@
                             <field name="amount_total"/>
                         </tree>
                     </field>
-                    <!-- <field name="depreciation_move_ids_societaria" mode="tree" options="{'reload_whole_on_button': true}">
+                    <field name="depreciation_move_ids_societaria" mode="tree" options="{'reload_whole_on_button': true}">
                         <tree string="Depreciation Lines">
-                            <field name="asset_asset_type_societaria" />
-                            <field name="currency_id_societaria" invisible="1"/>
-                            <field name="ref" invisible=""/> 
-                            <field name="reversal_move_id" widget="deprec_lines_reversed"/> 
-                            <field name="date" string="Depreciation Date"/> 
-                            <field name="amount_total" widget="monetary" string="Depreciation" options="{'currency_field': 'currency_id'}" attrs="{'readonly': [('state', '=', 'posted')]}"/> 
-                            <field name="asset_depreciated_value_societaria" readonly="1" force_save="1" options="{'currency_field': 'currency_id'}"/> 
-                            <field name="asset_remaining_value_societaria" readonly="1" widget="monetary" force_save="1" options="{'currency_field': 'currency_id'}"/> 
-                            <field name="name" readonly="1" string="Journal Entry"/> 
-                            <field name="state" invisible="1"/> 
-                            <field name="asset_manually_modified" invisible="1"/>  
+                            <field name="ref_societaria" />
+                            <field name="date_societaria" />
+                            <field name="amount_total_societaria" />
+                            <field name="asset_depreciated_value_societaria" />
+                            <field name="asset_remaining_value_societaria" />
+                            <field name="name" />
                         </tree>
-                    </field> -->
+                    </field>
                 </page>
                 <page string="Informações Adicionais" name="informacoes_adicionais">
                     <group> 

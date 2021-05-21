@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 
 from odoo import models, fields, api
+from dateutil.relativedelta import relativedelta
+from odoo.tools import float_compare, float_is_zero, float_round
 
 class Patrimonio(models.Model):
     _inherit = 'account.asset'
@@ -123,38 +125,45 @@ class Patrimonio(models.Model):
     def btn_mudar_status_para_draft(self):
         self.write({'state': 'draft'})
 
-    
-    def compute_depreciation_board_societaria(self):
-        self.ensure_one()
-        amount_change_ids = self.depreciation_move_ids.filtered(lambda x: x.asset_value_change and not x.reversal_move_id).sorted(key=lambda l: l.date)
-        posted_depreciation_move_ids = self.depreciation_move_ids.filtered(lambda x: x.state == 'posted' and not x.asset_value_change and not x.reversal_move_id).sorted(key=lambda l: l.date)
-        already_depreciated_amount = sum([m.amount_total for m in posted_depreciation_move_ids])
-        depreciation_number = self.method_number
-        if self.prorata:
+
+    # MÉTODO VALIDATE CHAMAR A DEPRECIAÇÃO SOCIETÁRIA
+    def validate():
+        result = super(Patrimonio, self).validate()
+        if not self.depreciation_move_ids_societaria:
+            self.compute_depreciation_societaria()
+        return result
+
+    def compute_depreciation_societaria(self):
+        amount_change_ids = self.depreciation_move_ids_societaria.sorted(key=lambda l: l.date)
+        posted_depreciation_move_ids = []
+        already_depreciated_amount = 0
+        depreciation_number = self.method_number_info_add
+        if self.cod_forn_info_add:
             depreciation_number += 1
         starting_sequence = 0
-        amount_to_depreciate = self.value_residual + sum([m.amount_total for m in amount_change_ids])
-        depreciation_date = self.first_depreciation_date
+        amount_to_depreciate = self.original_value - self.salvage_value
+        depreciation_date = self.cod_ccus_info_add
         # if we already have some previous validated entries, starting date is last entry + method period
         if posted_depreciation_move_ids and posted_depreciation_move_ids[-1].date:
             last_depreciation_date = fields.Date.from_string(posted_depreciation_move_ids[-1].date)
             if last_depreciation_date > depreciation_date:  # in case we unpause the asset
-                depreciation_date = last_depreciation_date + relativedelta(months=+int(self.method_period))
-        commands = [(2, line_id.id, False) for line_id in self.depreciation_move_ids.filtered(lambda x: x.state == 'draft')]
-        newlines = self._recompute_board(depreciation_number, starting_sequence, amount_to_depreciate, depreciation_date, already_depreciated_amount, amount_change_ids)
+                depreciation_date = last_depreciation_date + relativedelta(months=+int(self.method_period_info_add))
+
+        commands = []
+        commands = [(2, line_id.id, False) for line_id in self.depreciation_move_ids_societaria.filtered(lambda x: x.state == 'draft')]
+        newlines = self._recompute_board_societaria(depreciation_number, starting_sequence, amount_to_depreciate, depreciation_date, already_depreciated_amount, amount_change_ids)
         newline_vals_list = []
         for newline_vals in newlines:
             # no need of amount field, as it is computed and we don't want to trigger its inverse function
-            del(newline_vals['amount_total'])
+            # del(newline_vals['amount_total'])
             newline_vals_list.append(newline_vals)
-        new_moves = self.env['account.move'].create(newline_vals_list)
+        new_moves = self.env['account.depreciacao_societaria'].create(newline_vals_list)
         for move in new_moves:
             commands.append((4, move.id))
-        return self.write({'depreciation_move_ids': commands})
+        return self.write({'depreciation_move_ids_societaria': commands})
 
-    
 
-    def _recompute_board(self, depreciation_number, starting_sequence, amount_to_depreciate, depreciation_date, already_depreciated_amount, amount_change_ids):
+    def _recompute_board_societaria(self, depreciation_number, starting_sequence, amount_to_depreciate, depreciation_date, already_depreciated_amount, amount_change_ids):
         self.ensure_one()
         residual_amount = amount_to_depreciate
         # Remove old unposted depreciation lines. We cannot use unlink() with One2many field
@@ -172,7 +181,7 @@ class Patrimonio(models.Model):
                         'asset_depreciated_value': amount_to_depreciate - residual_amount + already_depreciated_amount,
                     })
                     amount_change_ids -= amount_change_ids[0]
-                amount = self._compute_board_amount(asset_sequence, residual_amount, amount_to_depreciate, depreciation_number, starting_sequence, depreciation_date)
+                amount = self._compute_board_amount_societaria(asset_sequence, residual_amount, amount_to_depreciate, depreciation_number, starting_sequence, depreciation_date)
                 prorata_factor = 1
                 move_ref = self.name + ' (%s/%s)' % (prorata and asset_sequence - 1 or asset_sequence, self.method_number_info_add)
                 if prorata and asset_sequence == 1:
@@ -208,13 +217,22 @@ class Patrimonio(models.Model):
         return move_vals
 
 
-
-
-
-
-
-
-
-    # @api.onchange('name')
-    # def set_code(self):
-    #     self.num_atpai_info_add = self.name
+    def _compute_board_amount_societaria(self, computation_sequence, residual_amount, total_amount_to_depr, max_depreciation_nb, starting_sequence, depreciation_date):
+        amount = 0
+        if computation_sequence == max_depreciation_nb:
+            # last depreciation always takes the asset residual amount
+            amount = residual_amount
+        else:
+            if self.metodo_info_add in ('2', '3'):
+                amount = residual_amount * self.metodo_depreciado_info_add
+            if self.metodo_info_add in ('1', 'degressive_then_linear'):
+                nb_depreciation = max_depreciation_nb - starting_sequence
+                #cod_forn_info_add = prorata
+                if self.cod_forn_info_add:
+                    nb_depreciation -= 1
+                linear_amount = min(total_amount_to_depr / nb_depreciation, residual_amount)
+                if self.metodo_info_add == '3':
+                    amount = max(linear_amount, amount)
+                else:
+                    amount = linear_amount
+        return amount

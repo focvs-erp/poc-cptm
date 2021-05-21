@@ -137,7 +137,7 @@ class Patrimonio(models.Model):
         return result
 
     def compute_depreciation_societaria(self):
-        amount_change_ids = self.depreciation_move_ids_societaria.sorted(key=lambda l: l.date)
+        amount_change_ids = self.depreciation_move_ids_societaria.sorted(key=lambda l: l.date_societaria)
         posted_depreciation_move_ids = []
         already_depreciated_amount = 0
         depreciation_number = self.method_number_info_add

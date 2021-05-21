@@ -58,16 +58,7 @@
             </xpath>
             <xpath expr="/form/sheet/notebook[1]/page[1]" position="after">
                 <page string="Depreciação Societária" name="depreciacao_societaria">
-                    <field name="depreciation_move_ids_societaria" colspan="4" nolabel="1">
-                        <tree>
-                            <field name="asset"/>
-                            <field name="asset_value_change_societaria"/>
-                            <field name="asset_asset_type_societaria"/>
-                            <field name="asset_remaining_value_societaria"/>
-                            <field name="asset_depreciated_value_societaria"/>
-                            <field name="amount_total"/>
-                        </tree>
-                    </field>
+                    <!-- <field name="depreciation_move_ids_societaria" colspan="4" nolabel="1"> -->
                     <field name="depreciation_move_ids_societaria" mode="tree" options="{'reload_whole_on_button': true}">
                         <tree string="Depreciation Lines">
                             <field name="ref_societaria" />

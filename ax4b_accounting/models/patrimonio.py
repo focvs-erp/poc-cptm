@@ -66,7 +66,7 @@ class Patrimonio(models.Model):
     cod_forn_date_info_add = fields.Date(string='Prorata Date', default=lambda self: fields.Date.today())
     cod_ccus_info_add = fields.Date(string='Início da Depreciação') 
     method_number_info_add = fields.Integer(string='', default = 5)
-    method_period_info_add = fields.Selection([('1', 'Month'),('2', 'Year')],'Type', default='1')
+    method_period_info_add = fields.Selection([('1', 'Month'),('12', 'Year')],'Type', default='1')
     
     # duracao_info_add = fields.Float(string='Duração')
     tipo_tempo_info_add = fields.Char(string='Tempo')

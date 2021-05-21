@@ -9,7 +9,7 @@ class DepreciacaoSocietaria(models.Model):
     name = fields.Char(string='Entrada de Diário', copy=False)
 
     asset = fields.Many2one('account.asset', string='Asset', invisible=True)
-    currency_id = fields.Many2one('res.currency', invisible=True)
+    currency_id = fields.Many2one('res.currency', invisible=True, string='Currency', default=lambda self: self.env.company.currency_id.id)
 
     ref_societaria = fields.Char(string="Referência", copy=False)
     date_societaria = fields.Date(string='Data de Depreciação', copy=False)
@@ -25,7 +25,8 @@ class DepreciacaoSocietaria(models.Model):
         asset = vals['asset_id']
         current_currency = asset.currency_id
         depreciation_date = vals.get('date', fields.Date.context_today(self))
-        amount = current_currency._convert(vals['amount'], asset.company_id.currency_id, asset.company_id, depreciation_date)
+        # amount = current_currency._convert(vals['amount'], asset.company_id.currency_id, asset.company_id, depreciation_date)
+        amount = 500
         move_vals = {
             'ref_societaria': vals['move_ref'],
             'date_societaria': depreciation_date,

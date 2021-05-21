@@ -27,6 +27,7 @@ class DepreciacaoSocietaria(models.Model):
         depreciation_date = vals.get('date', fields.Date.context_today(self))
         # amount = current_currency._convert(vals['amount'], asset.company_id.currency_id, asset.company_id, depreciation_date)
         amount = 500
+        raise UserError(amount)
         move_vals = {
             'ref_societaria': vals['move_ref'],
             'date_societaria': depreciation_date,
@@ -36,6 +37,6 @@ class DepreciacaoSocietaria(models.Model):
             'amount_total_societaria': amount,
             'name': '/',
             # 'asset_value_change': vals.get('asset_value_change', False),
-            'currency_id': asset.currency_id,
+            'currency_id': current_currency.id,
         }
         return move_vals

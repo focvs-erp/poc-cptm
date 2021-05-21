@@ -150,6 +150,8 @@ class Patrimonio(models.Model):
             commands.append((4, move.id))
         return self.write({'depreciation_move_ids': commands})
 
-    # @api.onchange('name')
-    # def set_code(self):
-    #     self.num_atpai_info_add = self.name
+
+    # OVIRREDE MÉTODO VALIDATE PARA CHAMAR A DEPRECIAÇÃO SOCIETÁRIA
+    def validate():
+        result = super(Patrimonio, self).validate()
+        return result

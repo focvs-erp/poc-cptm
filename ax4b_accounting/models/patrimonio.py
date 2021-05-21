@@ -155,71 +155,70 @@ class Patrimonio(models.Model):
         commands = []
         commands = [(2, line_id.id, False) for line_id in self.depreciation_move_ids_societaria.filtered(lambda x: x.state == 'draft')]
         newlines = []
-        # newlines = self._recompute_board_societaria(depreciation_number, starting_sequence, amount_to_depreciate, depreciation_date, already_depreciated_amount, amount_change_ids)
+        newlines = self._recompute_board_societaria(depreciation_number, starting_sequence, amount_to_depreciate, depreciation_date, already_depreciated_amount, amount_change_ids)
         newline_vals_list = []
-        raise ValidationError("ENTROU NO COMPUTE")
-        # for newline_vals in newlines:
-        #     # no need of amount field, as it is computed and we don't want to trigger its inverse function
-        #     # del(newline_vals['amount_total'])
-        #     newline_vals_list.append(newline_vals)
-        # new_moves = self.env['account.depreciacao_societaria'].create(newline_vals_list)
-        # for move in new_moves:
-        #     commands.append((4, move.id))
-        # return self.write({'depreciation_move_ids_societaria': commands})
+        for newline_vals in newlines:
+            # no need of amount field, as it is computed and we don't want to trigger its inverse function
+            # del(newline_vals['amount_total'])
+            newline_vals_list.append(newline_vals)
+        new_moves = self.env['account.depreciacao_societaria'].create(newline_vals_list)
+        for move in new_moves:
+            commands.append((4, move.id))
+        return self.write({'depreciation_move_ids_societaria': commands})
 
 
-    # def _recompute_board_societaria(self, depreciation_number, starting_sequence, amount_to_depreciate, depreciation_date, already_depreciated_amount, amount_change_ids):
-    #     self.ensure_one()
-    #     residual_amount = amount_to_depreciate
-    #     # Remove old unposted depreciation lines. We cannot use unlink() with One2many field
-    #     move_vals = []
-    #     prorata = self.cod_forn_info_add and not self.env.context.get("ignore_prorata")
-    #     if amount_to_depreciate != 0.0:
-    #         for asset_sequence in range(starting_sequence + 1, depreciation_number + 1):
-    #             while amount_change_ids and amount_change_ids[0].date <= depreciation_date:
-    #                 if not amount_change_ids[0].reversal_move_id:
-    #                     residual_amount -= amount_change_ids[0].amount_total
-    #                     amount_to_depreciate -= amount_change_ids[0].amount_total
-    #                     already_depreciated_amount += amount_change_ids[0].amount_total
-    #                 amount_change_ids[0].write({
-    #                     'asset_remaining_value': float_round(residual_amount, precision_rounding=self.currency_id.rounding),
-    #                     'asset_depreciated_value': amount_to_depreciate - residual_amount + already_depreciated_amount,
-    #                 })
-    #                 amount_change_ids -= amount_change_ids[0]
-    #             amount = self._compute_board_amount_societaria(asset_sequence, residual_amount, amount_to_depreciate, depreciation_number, starting_sequence, depreciation_date)
-    #             prorata_factor = 1
-    #             move_ref = self.name + ' (%s/%s)' % (prorata and asset_sequence - 1 or asset_sequence, self.method_number_info_add)
-    #             if prorata and asset_sequence == 1:
-    #                 move_ref = self.name + ' ' + _('(prorata entry)')
-    #                 first_date = self.cod_forn_date_info_add
-    #                 if int(self.method_period_info_add) % 12 != 0:
-    #                     month_days = calendar.monthrange(first_date.year, first_date.month)[1]
-    #                     days = month_days - first_date.day + 1
-    #                     prorata_factor = days / month_days
-    #                 else:
-    #                     total_days = (depreciation_date.year % 4) and 365 or 366
-    #                     days = (self.company_id.compute_fiscalyear_dates(first_date)['date_to'] - first_date).days + 1
-    #                     prorata_factor = days / total_days
-    #             amount = self.currency_id.round(amount * prorata_factor)
-    #             if float_is_zero(amount, precision_rounding=self.currency_id.rounding):
-    #                 continue
-    #             residual_amount -= amount
+    def _recompute_board_societaria(self, depreciation_number, starting_sequence, amount_to_depreciate, depreciation_date, already_depreciated_amount, amount_change_ids):
+        # self.ensure_one()
+        residual_amount = amount_to_depreciate
+        # Remove old unposted depreciation lines. We cannot use unlink() with One2many field
+        move_vals = []
+        prorata = self.cod_forn_info_add and not self.env.context.get("ignore_prorata")
+        if amount_to_depreciate != 0.0:
+            for asset_sequence in range(starting_sequence + 1, depreciation_number + 1):
+                while amount_change_ids and amount_change_ids[0].date <= depreciation_date:
+                    if not amount_change_ids[0].reversal_move_id:
+                        residual_amount -= amount_change_ids[0].amount_total
+                        amount_to_depreciate -= amount_change_ids[0].amount_total
+                        already_depreciated_amount += amount_change_ids[0].amount_total
+                    amount_change_ids[0].write({
+                        'asset_remaining_value': float_round(residual_amount, precision_rounding=self.currency_id.rounding),
+                        'asset_depreciated_value': amount_to_depreciate - residual_amount + already_depreciated_amount,
+                    })
+                    amount_change_ids -= amount_change_ids[0]
+                amount = self._compute_board_amount_societaria(asset_sequence, residual_amount, amount_to_depreciate, depreciation_number, starting_sequence, depreciation_date)
+                prorata_factor = 1
+                move_ref = self.name + ' (%s/%s)' % (prorata and asset_sequence - 1 or asset_sequence, self.method_number_info_add)
+                if prorata and asset_sequence == 1:
+                    move_ref = self.name + ' ' + _('(prorata entry)')
+                    first_date = self.cod_forn_date_info_add
+                    if int(self.method_period_info_add) % 12 != 0:
+                        month_days = calendar.monthrange(first_date.year, first_date.month)[1]
+                        days = month_days - first_date.day + 1
+                        prorata_factor = days / month_days
+                    else:
+                        total_days = (depreciation_date.year % 4) and 365 or 366
+                        days = (self.company_id.compute_fiscalyear_dates(first_date)['date_to'] - first_date).days + 1
+                        prorata_factor = days / total_days
+                amount = self.currency_id.round(amount * prorata_factor)
+                if float_is_zero(amount, precision_rounding=self.currency_id.rounding):
+                    continue
+                residual_amount -= amount
 
-    #             move_vals.append(self.env['account.move']._prepare_move_for_asset_depreciation({
-    #                 'amount': amount,
-    #                 'asset_id': self,
-    #                 'move_ref': move_ref,
-    #                 'date': depreciation_date,
-    #                 'asset_remaining_value': float_round(residual_amount, precision_rounding=self.currency_id.rounding),
-    #                 'asset_depreciated_value': amount_to_depreciate - residual_amount + already_depreciated_amount,
-    #             }))
+                move_vals.append(self.env['account.depreciacao_societaria']._preparar_depreciacao_societaria_para_asset({
+                    'amount': amount,
+                    'asset_id': self,
+                    'move_ref': move_ref,
+                    'date': depreciation_date,
+                    'asset_remaining_value': float_round(residual_amount, precision_rounding=self.currency_id.rounding),
+                    'asset_depreciated_value': amount_to_depreciate - residual_amount + already_depreciated_amount,
+                }))
 
-    #             depreciation_date = depreciation_date + relativedelta(months=+int(self.method_period_info_add))
-    #             # datetime doesn't take into account that the number of days is not the same for each month
-    #             if int(self.method_period_info_add) % 12 != 0:
-    #                 max_day_in_month = calendar.monthrange(depreciation_date.year, depreciation_date.month)[1]
-    #                 depreciation_date = depreciation_date.replace(day=max_day_in_month)
-    #     return move_vals
+                depreciation_date = depreciation_date + relativedelta(months=+int(self.method_period_info_add))
+                # datetime doesn't take into account that the number of days is not the same for each month
+                if int(self.method_period_info_add) % 12 != 0:
+                    max_day_in_month = calendar.monthrange(depreciation_date.year, depreciation_date.month)[1]
+                    depreciation_date = depreciation_date.replace(day=max_day_in_month)
+        return move_vals
 
 
     def _compute_board_amount_societaria(self, computation_sequence, residual_amount, total_amount_to_depr, max_depreciation_nb, starting_sequence, depreciation_date):
@@ -230,7 +229,7 @@ class Patrimonio(models.Model):
         else:
             if self.metodo_info_add in ('2', '3'):
                 amount = residual_amount * self.metodo_depreciado_info_add
-            if self.metodo_info_add in ('1', 'degressive_then_linear'):
+            if self.metodo_info_add in ('1', '3'):
                 nb_depreciation = max_depreciation_nb - starting_sequence
                 #cod_forn_info_add = prorata
                 if self.cod_forn_info_add:

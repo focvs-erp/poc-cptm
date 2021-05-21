@@ -19,7 +19,7 @@ class DepreciacaoSocietaria(models.Model):
 
     @api.model
     def _preparar_depreciacao_societaria_para_asset(self, vals):
-        missing_fields = set(['asset_id', 'move_ref', 'amount', 'asset_remaining_value', 'asset_depreciated_value']) - set(vals)
+        missing_fields = set(['asset_id', 'move_ref', 'amount', 'asset_remaining_value', 'asset_depreciated_value', 'date']) - set(vals)
         if missing_fields:
             raise UserError(_('Está faltando os seguintes campos: {}').format(', '.join(missing_fields)))
         asset = vals['asset_id']

@@ -175,16 +175,16 @@ class Patrimonio(models.Model):
         prorata = self.cod_forn_info_add and not self.env.context.get("ignore_prorata")
         if amount_to_depreciate != 0.0:
             for asset_sequence in range(starting_sequence + 1, depreciation_number + 1):
-                while amount_change_ids and amount_change_ids[0].date <= depreciation_date:
-                    if not amount_change_ids[0].reversal_move_id:
-                        residual_amount -= amount_change_ids[0].amount_total
-                        amount_to_depreciate -= amount_change_ids[0].amount_total
-                        already_depreciated_amount += amount_change_ids[0].amount_total
-                    amount_change_ids[0].write({
-                        'asset_remaining_value': float_round(residual_amount, precision_rounding=self.currency_id.rounding),
-                        'asset_depreciated_value': amount_to_depreciate - residual_amount + already_depreciated_amount,
-                    })
-                    amount_change_ids -= amount_change_ids[0]
+                # while amount_change_ids and amount_change_ids[0].date_societaria <= depreciation_date:
+                #     if not amount_change_ids[0].reversal_move_id:
+                #         residual_amount -= amount_change_ids[0].amount_total
+                #         amount_to_depreciate -= amount_change_ids[0].amount_total
+                #         already_depreciated_amount += amount_change_ids[0].amount_total
+                #     amount_change_ids[0].write({
+                #         'asset_remaining_value': float_round(residual_amount, precision_rounding=self.currency_id.rounding),
+                #         'asset_depreciated_value': amount_to_depreciate - residual_amount + already_depreciated_amount,
+                #     })
+                #     amount_change_ids -= amount_change_ids[0]
                 amount = self._compute_board_amount_societaria(asset_sequence, residual_amount, amount_to_depreciate, depreciation_number, starting_sequence, depreciation_date)
                 prorata_factor = 1
                 move_ref = self.name + ' (%s/%s)' % (prorata and asset_sequence - 1 or asset_sequence, self.method_number_info_add)

@@ -60,7 +60,7 @@
                 <page string="Depreciação Societária" name="depreciacao_societaria">
                     <!-- <field name="depreciation_move_ids_societaria" colspan="4" nolabel="1"> -->
                     <field name="depreciation_move_ids_societaria" mode="tree" options="{'reload_whole_on_button': true}">
-                        <tree string="Depreciation Lines">
+                        <tree string="Depreciation Lines" decoration-info="state == 'draft'" create="0"  default_order="date asc, id asc" editable="top">
                             <field name="ref_societaria" />
                             <field name="date_societaria" />
                             <field name="amount_total_societaria" />

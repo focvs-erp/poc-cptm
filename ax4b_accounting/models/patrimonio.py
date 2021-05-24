@@ -190,7 +190,7 @@ class Patrimonio(models.Model):
                 prorata_factor = 1
                 move_ref = self.name + ' (%s/%s)' % (prorata and asset_sequence - 1 or asset_sequence, self.method_number_info_add)
                 if prorata and asset_sequence == 1:
-                    move_ref = self.name + ' ' + _('(prorata entry)')
+                    move_ref = self.name + ' ' + '(prorata entry)'
                     first_date = self.cod_forn_date_info_add
                     if int(self.method_period_info_add) % 12 != 0:
                         month_days = calendar.monthrange(first_date.year, first_date.month)[1]

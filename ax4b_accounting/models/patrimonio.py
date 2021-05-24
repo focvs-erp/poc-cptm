@@ -64,7 +64,7 @@ class Patrimonio(models.Model):
     metodo_depreciado_info_add = fields.Float(string='Fator de Declínio', default=0.30)
     cod_forn_info_add = fields.Boolean()
     cod_forn_date_info_add = fields.Date(string='Prorata Date', default=lambda self: fields.Date.today())
-    cod_ccus_info_add = fields.Date(string='Início da Depreciação', compute='_compute_first_depreciation_date_societaria',) 
+    cod_ccus_info_add = fields.Date(string='Início da Depreciação', compute='_compute_cod_ccus_info_add',) 
     method_number_info_add = fields.Integer(string='', default = 5)
     method_period_info_add = fields.Selection([('1', 'Month'),('12', 'Year')],'Type', default='1')
     
@@ -243,7 +243,7 @@ class Patrimonio(models.Model):
         return amount
 
     @api.depends('acquisition_date', 'original_move_line_ids', 'metodo_info_add', 'company_id')
-    def _compute_first_depreciation_date_societaria(self):
+    def _compute_cod_ccus_info_add(self):
         for record in self:
             pre_depreciation_date = record.acquisition_date or min(record.original_move_line_ids.mapped('date'), default=record.acquisition_date) or fields.Date.today()
             depreciation_date = pre_depreciation_date + relativedelta(day=31)
@@ -253,4 +253,4 @@ class Patrimonio(models.Model):
                 depreciation_date = depreciation_date + relativedelta(day=record.company_id.fiscalyear_last_day)
                 if depreciation_date < pre_depreciation_date:
                     depreciation_date = depreciation_date + relativedelta(years=1)
-            record.first_depreciation_date = depreciation_date
+            record.cod_ccus_info_add = depreciation_date

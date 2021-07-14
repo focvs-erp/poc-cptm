@@ -1,4 +1,4 @@
 [submodule "focvs-erp"]
 	path = focvs-erp
-	url = git@github.com:focvs-erp/focvs-erp-poc-cptm-2.git
+	url = https://github.com/focvs-erp/focvs-erp-poc-cptm-2.git
 	branch = cptm_p
